@@ -1,0 +1,917 @@
+Reading symbols for shared libraries ....... done
+Attaching to program: `/Users/trawick/inst/24-64/bin/httpd', process 657.
+Reading symbols for shared libraries .++++++....................................................................................................................... done
+0x00007fff88a9d464 in read ()
+  27                         0x00007fff88aabc0a in kevent ()
+  26                         0x00007fff88acda6a in __semwait_signal ()
+  25                         0x00007fff88acda6a in __semwait_signal ()
+  24                         0x00007fff88acda6a in __semwait_signal ()
+  23                         0x00007fff88acda6a in __semwait_signal ()
+  22                         0x00007fff88acda6a in __semwait_signal ()
+  21                         0x00007fff88acda6a in __semwait_signal ()
+  20                         0x00007fff88acda6a in __semwait_signal ()
+  19                         0x00007fff88acda6a in __semwait_signal ()
+  18                         0x00007fff88acda6a in __semwait_signal ()
+  17                         0x00007fff88acda6a in __semwait_signal ()
+  16                         0x00007fff88acda6a in __semwait_signal ()
+  15                         0x00007fff88acda6a in __semwait_signal ()
+  14                         0x00007fff88acda6a in __semwait_signal ()
+  13                         0x00007fff88acda6a in __semwait_signal ()
+  12                         0x00007fff88acda6a in __semwait_signal ()
+  11                         0x00007fff88acda6a in __semwait_signal ()
+  10                         0x00007fff88acda6a in __semwait_signal ()
+   9                         0x00007fff88acda6a in __semwait_signal ()
+   8                         0x00007fff88acda6a in __semwait_signal ()
+   7                         0x00007fff88acda6a in __semwait_signal ()
+   6                         0x00007fff88acda6a in __semwait_signal ()
+   5                         0x00007fff88acda6a in __semwait_signal ()
+   4                         0x00007fff88acda6a in __semwait_signal ()
+   3                         0x00007fff88acda6a in __semwait_signal ()
+   2                         0x00007fff88acda6a in __semwait_signal ()
+*  1 "com.apple.main-thread" 0x00007fff88a9d464 in read ()
+The DYLD shared library state has been initialized from the executable's shared library information.  All symbols should be present, but the addresses of some symbols may move when the program is executed, as DYLD may relocate library load addresses if necessary.
+                                           Requested State Current State
+Num Basename                 Type Address         Reason | | Source     
+  | |                           | |                    | | | |          
+  1 httpd                       - 0x100000000        exec Y Y /Users/trawick/inst/24-64/bin/httpd (offset 0x0)
+  2 dyld                        - 0x7fff5fc00000        dyld Y Y /usr/lib/dyld at 0x7fff5fc00000 (offset 0x0) with prefix "__dyld_"
+  3 libmathCommon.A.dylib       - 0x7fff898a4000        dyld Y Y /usr/lib/system/libmathCommon.A.dylib at 0x7fff898a4000 (offset 0x7fff898a4000)
+  4 libpcre.0.0.1.dylib         - 0x1000cd000        dyld Y Y /Users/trawick/inst/pcre-64/lib/libpcre.0.0.1.dylib at 0x1000cd000 (offset 0x1000cd000)
+  5 libaprutil-1.0.dylib        - 0x1000fb000        dyld Y Y /Users/trawick/inst/apr14-64/lib/libaprutil-1.0.dylib at 0x1000fb000 (offset 0x1000fb000)
+  6 libexpat.0.dylib            - 0x100132000        dyld Y Y /Users/trawick/inst/apr14-64/lib/libexpat.0.dylib at 0x100132000 (offset 0x100132000)
+  7 libiconv.2.dylib            - 0x7fff855b0000        dyld Y Y /usr/lib/libiconv.2.dylib at 0x7fff855b0000 (offset 0x7fff855b0000)
+  8 libapr-1.0.dylib            - 0x100160000        dyld Y Y /Users/trawick/inst/apr14-64/lib/libapr-1.0.dylib at 0x100160000 (offset 0x100160000)
+  9 libSystem.B.dylib           - 0x7fff88a92000        dyld Y Y /usr/lib/libSystem.B.dylib at 0x7fff88a92000 (offset 0x7fff88a92000)
+                                       (commpage objfile is) /usr/lib/libSystem.B.dylib[LC_SEGMENT.__DATA.__commpage]
+ 10 libz.1.2.3.dylib            - 0x7fff8127b000        dyld Y Y /usr/lib/libz.1.2.3.dylib at 0x7fff8127b000 (offset 0x7fff8127b000)
+ 11 libxml2.2.dylib             - 0x7fff84471000        dyld Y Y /usr/lib/libxml2.2.dylib at 0x7fff84471000 (offset 0x7fff84471000)
+ 12 libicucore.A.dylib          - 0x7fff869f7000        dyld Y Y /usr/lib/libicucore.A.dylib at 0x7fff869f7000 (offset 0x7fff869f7000)
+ 13 libstdc++.6.0.9.dylib       - 0x7fff82f30000        dyld Y Y /usr/lib/libstdc++.6.0.9.dylib at 0x7fff82f30000 (offset 0x7fff82f30000)
+ 14 libssl.0.9.8.dylib          - 0x7fff80003000        dyld Y Y /usr/lib/libssl.0.9.8.dylib at 0x7fff80003000 (offset 0x7fff80003000)
+ 15 libcrypto.0.9.8.dylib       - 0x7fff82d29000        dyld Y Y /usr/lib/libcrypto.0.9.8.dylib at 0x7fff82d29000 (offset 0x7fff82d29000)
+ 16 TrustEvaluationAgent        F 0x7fff82f2c000        dyld Y Y /System/Library/PrivateFrameworks/TrustEvaluationAgent.framework/Versions/A/TrustEvaluationAgent at 0x7fff82f2c000 (offset 0x7fff82f2c000)
+ 17 mod_authn_file.so           - 0x1001e0000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authn_file.so at 0x1001e0000 (offset 0x1001e0000)
+ 18 mod_authn_dbm.so            - 0x1001e4000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authn_dbm.so at 0x1001e4000 (offset 0x1001e4000)
+ 19 mod_authn_anon.so           - 0x1001e7000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authn_anon.so at 0x1001e7000 (offset 0x1001e7000)
+ 20 mod_authn_dbd.so            - 0x1001ea000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authn_dbd.so at 0x1001ea000 (offset 0x1001ea000)
+ 21 mod_authn_socache.so        - 0x1001ee000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authn_socache.so at 0x1001ee000 (offset 0x1001ee000)
+ 22 mod_authn_core.so           - 0x1001f4000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authn_core.so at 0x1001f4000 (offset 0x1001f4000)
+ 23 mod_authz_host.so           - 0x1001f8000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authz_host.so at 0x1001f8000 (offset 0x1001f8000)
+ 24 mod_authz_groupfile.so      - 0x1001fc000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authz_groupfile.so at 0x1001fc000 (offset 0x1001fc000)
+ 25 mod_authz_user.so           - 0x100300000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authz_user.so at 0x100300000 (offset 0x100300000)
+ 26 mod_authz_dbm.so            - 0x100303000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authz_dbm.so at 0x100303000 (offset 0x100303000)
+ 27 mod_authz_owner.so          - 0x100307000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authz_owner.so at 0x100307000 (offset 0x100307000)
+ 28 mod_authz_dbd.so            - 0x10030b000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authz_dbd.so at 0x10030b000 (offset 0x10030b000)
+ 29 mod_authz_core.so           - 0x10030f000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_authz_core.so at 0x10030f000 (offset 0x10030f000)
+ 30 mod_access_compat.so        - 0x100316000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_access_compat.so at 0x100316000 (offset 0x100316000)
+ 31 mod_auth_basic.so           - 0x10031a000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_auth_basic.so at 0x10031a000 (offset 0x10031a000)
+ 32 mod_auth_form.so            - 0x10031e000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_auth_form.so at 0x10031e000 (offset 0x10031e000)
+ 33 mod_auth_digest.so          - 0x100326000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_auth_digest.so at 0x100326000 (offset 0x100326000)
+ 34 mod_allowmethods.so         - 0x100332000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_allowmethods.so at 0x100332000 (offset 0x100332000)
+ 35 mod_file_cache.so           - 0x100335000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_file_cache.so at 0x100335000 (offset 0x100335000)
+ 36 mod_cache.so                - 0x10033a000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_cache.so at 0x10033a000 (offset 0x10033a000)
+ 37 mod_cache_disk.so           - 0x10034e000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_cache_disk.so at 0x10034e000 (offset 0x10034e000)
+ 38 mod_socache_shmcb.so        - 0x100359000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_socache_shmcb.so at 0x100359000 (offset 0x100359000)
+ 39 mod_socache_dbm.so          - 0x100361000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_socache_dbm.so at 0x100361000 (offset 0x100361000)
+ 40 mod_socache_memcache.so     - 0x100366000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_socache_memcache.so at 0x100366000 (offset 0x100366000)
+ 41 mod_watchdog.so             - 0x10036a000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_watchdog.so at 0x10036a000 (offset 0x10036a000)
+ 42 mod_dbd.so                  - 0x100370000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_dbd.so at 0x100370000 (offset 0x100370000)
+ 43 mod_bucketeer.so            - 0x100377000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_bucketeer.so at 0x100377000 (offset 0x100377000)
+ 44 mod_dumpio.so               - 0x10037a000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_dumpio.so at 0x10037a000 (offset 0x10037a000)
+ 45 mod_echo.so                 - 0x10037e000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_echo.so at 0x10037e000 (offset 0x10037e000)
+ 46 mod_example_hooks.so        - 0x100382000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_example_hooks.so at 0x100382000 (offset 0x100382000)
+ 47 mod_case_filter.so          - 0x10038a000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_case_filter.so at 0x10038a000 (offset 0x10038a000)
+ 48 mod_case_filter_in.so       - 0x10038d000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_case_filter_in.so at 0x10038d000 (offset 0x10038d000)
+ 49 mod_example_ipc.so          - 0x100390000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_example_ipc.so at 0x100390000 (offset 0x100390000)
+ 50 mod_buffer.so               - 0x100394000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_buffer.so at 0x100394000 (offset 0x100394000)
+ 51 mod_data.so                 - 0x100398000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_data.so at 0x100398000 (offset 0x100398000)
+ 52 mod_ratelimit.so            - 0x10039c000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_ratelimit.so at 0x10039c000 (offset 0x10039c000)
+ 53 mod_reqtimeout.so           - 0x1003a0000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_reqtimeout.so at 0x1003a0000 (offset 0x1003a0000)
+ 54 mod_ext_filter.so           - 0x1003a6000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_ext_filter.so at 0x1003a6000 (offset 0x1003a6000)
+ 55 mod_request.so              - 0x1003ae000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_request.so at 0x1003ae000 (offset 0x1003ae000)
+ 56 mod_include.so              - 0x1003b2000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_include.so at 0x1003b2000 (offset 0x1003b2000)
+ 57 mod_filter.so               - 0x1003c5000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_filter.so at 0x1003c5000 (offset 0x1003c5000)
+ 58 mod_reflector.so            - 0x1003cb000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_reflector.so at 0x1003cb000 (offset 0x1003cb000)
+ 59 mod_substitute.so           - 0x1003ce000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_substitute.so at 0x1003ce000 (offset 0x1003ce000)
+ 60 mod_sed.so                  - 0x1003d3000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_sed.so at 0x1003d3000 (offset 0x1003d3000)
+ 61 mod_charset_lite.so         - 0x1003e1000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_charset_lite.so at 0x1003e1000 (offset 0x1003e1000)
+ 62 mod_deflate.so              - 0x1003e8000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_deflate.so at 0x1003e8000 (offset 0x1003e8000)
+ 63 mod_xml2enc.so              - 0x1003f2000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_xml2enc.so at 0x1003f2000 (offset 0x1003f2000)
+ 64 mod_proxy_html.so           - 0x1003f9000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_proxy_html.so at 0x1003f9000 (offset 0x1003f9000)
+ 65 mod_mime.so                 - 0x100404000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_mime.so at 0x100404000 (offset 0x100404000)
+ 66 mod_log_config.so           - 0x10040b000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_log_config.so at 0x10040b000 (offset 0x10040b000)
+ 67 mod_log_debug.so            - 0x100416000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_log_debug.so at 0x100416000 (offset 0x100416000)
+ 68 mod_log_forensic.so         - 0x10041b000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_log_forensic.so at 0x10041b000 (offset 0x10041b000)
+ 69 mod_logio.so                - 0x10041f000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_logio.so at 0x10041f000 (offset 0x10041f000)
+ 70 mod_env.so                  - 0x100422000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_env.so at 0x100422000 (offset 0x100422000)
+ 71 mod_mime_magic.so           - 0x100425000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_mime_magic.so at 0x100425000 (offset 0x100425000)
+ 72 mod_cern_meta.so            - 0x10042f000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_cern_meta.so at 0x10042f000 (offset 0x10042f000)
+ 73 mod_expires.so              - 0x100433000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_expires.so at 0x100433000 (offset 0x100433000)
+ 74 mod_headers.so              - 0x100437000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_headers.so at 0x100437000 (offset 0x100437000)
+ 75 mod_ident.so                - 0x10043f000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_ident.so at 0x10043f000 (offset 0x10043f000)
+ 76 mod_usertrack.so            - 0x100443000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_usertrack.so at 0x100443000 (offset 0x100443000)
+ 77 mod_unique_id.so            - 0x100448000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_unique_id.so at 0x100448000 (offset 0x100448000)
+ 78 mod_setenvif.so             - 0x10044c000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_setenvif.so at 0x10044c000 (offset 0x10044c000)
+ 79 mod_version.so              - 0x100452000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_version.so at 0x100452000 (offset 0x100452000)
+ 80 mod_remoteip.so             - 0x100456000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_remoteip.so at 0x100456000 (offset 0x100456000)
+ 81 mod_proxy.so                - 0x10045a000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_proxy.so at 0x10045a000 (offset 0x10045a000)
+ 82 mod_proxy_connect.so        - 0x100479000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_proxy_connect.so at 0x100479000 (offset 0x100479000)
+ 83 mod_proxy_ftp.so            - 0x10047f000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_proxy_ftp.so at 0x10047f000 (offset 0x10047f000)
+ 84 mod_proxy_http.so           - 0x10048d000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_proxy_http.so at 0x10048d000 (offset 0x10048d000)
+ 85 mod_proxy_fcgi.so           - 0x10049a000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_proxy_fcgi.so at 0x10049a000 (offset 0x10049a000)
+ 86 mod_proxy_scgi.so           - 0x1004a1000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_proxy_scgi.so at 0x1004a1000 (offset 0x1004a1000)
+ 87 mod_proxy_fdpass.so         - 0x1004a7000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_proxy_fdpass.so at 0x1004a7000 (offset 0x1004a7000)
+ 88 mod_proxy_ajp.so            - 0x1004ab000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_proxy_ajp.so at 0x1004ab000 (offset 0x1004ab000)
+ 89 mod_proxy_balancer.so       - 0x1004ba000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_proxy_balancer.so at 0x1004ba000 (offset 0x1004ba000)
+ 90 mod_proxy_express.so        - 0x1004c7000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_proxy_express.so at 0x1004c7000 (offset 0x1004c7000)
+ 91 mod_session.so              - 0x1004cb000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_session.so at 0x1004cb000 (offset 0x1004cb000)
+ 92 mod_session_cookie.so       - 0x1004d1000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_session_cookie.so at 0x1004d1000 (offset 0x1004d1000)
+ 93 mod_session_dbd.so          - 0x1004d5000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_session_dbd.so at 0x1004d5000 (offset 0x1004d5000)
+ 94 mod_slotmem_shm.so          - 0x1004db000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_slotmem_shm.so at 0x1004db000 (offset 0x1004db000)
+ 95 mod_slotmem_plain.so        - 0x1004e1000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_slotmem_plain.so at 0x1004e1000 (offset 0x1004e1000)
+ 96 mod_ssl.so                  - 0x1004e5000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_ssl.so at 0x1004e5000 (offset 0x1004e5000)
+ 97 mod_optional_hook_export.so - 0x10052c000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_optional_hook_export.so at 0x10052c000 (offset 0x10052c000)
+ 98 mod_optional_hook_import.so - 0x10052f000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_optional_hook_import.so at 0x10052f000 (offset 0x10052f000)
+ 99 mod_optional_fn_import.so   - 0x100532000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_optional_fn_import.so at 0x100532000 (offset 0x100532000)
+100 mod_optional_fn_export.so   - 0x100535000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_optional_fn_export.so at 0x100535000 (offset 0x100535000)
+101 mod_dialup.so               - 0x100538000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_dialup.so at 0x100538000 (offset 0x100538000)
+102 mod_lbmethod_byrequests.so  - 0x10053c000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_lbmethod_byrequests.so at 0x10053c000 (offset 0x10053c000)
+103 mod_lbmethod_bytraffic.so   - 0x10053f000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_lbmethod_bytraffic.so at 0x10053f000 (offset 0x10053f000)
+104 mod_lbmethod_bybusyness.so  - 0x100542000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_lbmethod_bybusyness.so at 0x100542000 (offset 0x100542000)
+105 mod_lbmethod_heartbeat.so   - 0x100546000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_lbmethod_heartbeat.so at 0x100546000 (offset 0x100546000)
+106 mod_mpm_event.so            - 0x10054b000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_mpm_event.so at 0x10054b000 (offset 0x10054b000)
+107 mod_unixd.so                - 0x10055f000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_unixd.so at 0x10055f000 (offset 0x10055f000)
+108 mod_heartbeat.so            - 0x100563000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_heartbeat.so at 0x100563000 (offset 0x100563000)
+109 mod_heartmonitor.so         - 0x100567000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_heartmonitor.so at 0x100567000 (offset 0x100567000)
+110 mod_dav.so                  - 0x10056f000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_dav.so at 0x10056f000 (offset 0x10056f000)
+111 mod_status.so               - 0x100590000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_status.so at 0x100590000 (offset 0x100590000)
+112 mod_autoindex.so            - 0x100598000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_autoindex.so at 0x100598000 (offset 0x100598000)
+113 mod_asis.so                 - 0x1005a4000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_asis.so at 0x1005a4000 (offset 0x1005a4000)
+114 mod_info.so                 - 0x1005a7000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_info.so at 0x1005a7000 (offset 0x1005a7000)
+115 mod_suexec.so               - 0x1005af000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_suexec.so at 0x1005af000 (offset 0x1005af000)
+116 mod_cgid.so                 - 0x1005b2000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_cgid.so at 0x1005b2000 (offset 0x1005b2000)
+117 mod_cgi.so                  - 0x1005bf000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_cgi.so at 0x1005bf000 (offset 0x1005bf000)
+118 mod_dav_fs.so               - 0x1005c9000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_dav_fs.so at 0x1005c9000 (offset 0x1005c9000)
+119 mod_dav_lock.so             - 0x1005db000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_dav_lock.so at 0x1005db000 (offset 0x1005db000)
+120 mod_vhost_alias.so          - 0x1005e2000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_vhost_alias.so at 0x1005e2000 (offset 0x1005e2000)
+121 mod_negotiation.so          - 0x1005e6000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_negotiation.so at 0x1005e6000 (offset 0x1005e6000)
+122 mod_dir.so                  - 0x1005f2000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_dir.so at 0x1005f2000 (offset 0x1005f2000)
+123 mod_imagemap.so             - 0x1005f6000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_imagemap.so at 0x1005f6000 (offset 0x1005f6000)
+124 mod_actions.so              - 0x1005fd000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_actions.so at 0x1005fd000 (offset 0x1005fd000)
+125 mod_speling.so              - 0x100600000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_speling.so at 0x100600000 (offset 0x100600000)
+126 mod_userdir.so              - 0x100604000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_userdir.so at 0x100604000 (offset 0x100604000)
+127 mod_alias.so                - 0x100608000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_alias.so at 0x100608000 (offset 0x100608000)
+128 mod_rewrite.so              - 0x10060e000        dyld Y Y /Users/trawick/inst/24-64/modules/mod_rewrite.so at 0x10060e000 (offset 0x10060e000)
+
+Thread 27 (process 657):
+#0  0x00007fff88aabc0a in kevent ()
+No symbol table info available.
+#1  0x000000010017b0e3 in impl_pollset_poll ()
+No symbol table info available.
+#2  0x000000010017ce37 in apr_pollset_poll ()
+No symbol table info available.
+#3  0x000000010054ea59 in listener_thread (thd=0x1009ab638, dummy=0x101000160) at event.c:1455
+	workers_were_busy = 0
+	ep = (timer_event_t *) 0x100558910
+	te = (timer_event_t *) 0x0
+	rc = 70007
+	ti = (proc_info *) 0x101000160
+	process_slot = 2
+	tpool = (apr_pool_t *) 0x10200a028
+	csd = (void *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	lr = (ap_listen_rec *) 0x0
+	have_idle_worker = 0
+	cs = (event_conn_state_t *) 0x0
+	out_pfd = (const apr_pollfd_t *) 0x0
+	num = 0
+	timeout_interval = 100000
+	timeout_time = 1347303036306595
+	now = 1347303036206598
+	last_log = 1347302924278404
+	pt = (listener_poll_type *) 0x0
+	closed = 0
+	listeners_disabled = 0
+#4  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#5  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#6  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 26 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101cc2eb0, ecs=0x101cc2ea8, p=0x101cc2ea0, te_out=0x101cc2e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009ab608, dummy=0x101000150) at event.c:1770
+	ti = (proc_info *) 0x101000150
+	process_slot = 2
+	thread_slot = 24
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 25 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101c3feb0, ecs=0x101c3fea8, p=0x101c3fea0, te_out=0x101c3fe98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009ab5d8, dummy=0x101000140) at event.c:1770
+	ti = (proc_info *) 0x101000140
+	process_slot = 2
+	thread_slot = 23
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 24 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101bbceb0, ecs=0x101bbcea8, p=0x101bbcea0, te_out=0x101bbce98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009ab5a8, dummy=0x101000130) at event.c:1770
+	ti = (proc_info *) 0x101000130
+	process_slot = 2
+	thread_slot = 22
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 23 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101b39eb0, ecs=0x101b39ea8, p=0x101b39ea0, te_out=0x101b39e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009ab578, dummy=0x101000120) at event.c:1770
+	ti = (proc_info *) 0x101000120
+	process_slot = 2
+	thread_slot = 21
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 22 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101ab6eb0, ecs=0x101ab6ea8, p=0x101ab6ea0, te_out=0x101ab6e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009ab548, dummy=0x101000020) at event.c:1770
+	ti = (proc_info *) 0x101000020
+	process_slot = 2
+	thread_slot = 20
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 21 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101a33eb0, ecs=0x101a33ea8, p=0x101a33ea0, te_out=0x101a33e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009ab518, dummy=0x101000010) at event.c:1770
+	ti = (proc_info *) 0x101000010
+	process_slot = 2
+	thread_slot = 19
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 20 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x1019b0eb0, ecs=0x1019b0ea8, p=0x1019b0ea0, te_out=0x1019b0e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009ab4e8, dummy=0x101000110) at event.c:1770
+	ti = (proc_info *) 0x101000110
+	process_slot = 2
+	thread_slot = 18
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 19 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x10192deb0, ecs=0x10192dea8, p=0x10192dea0, te_out=0x10192de98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009ab4b8, dummy=0x101000100) at event.c:1770
+	ti = (proc_info *) 0x101000100
+	process_slot = 2
+	thread_slot = 17
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 18 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x1018aaeb0, ecs=0x1018aaea8, p=0x1018aaea0, te_out=0x1018aae98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009ab488, dummy=0x1010000f0) at event.c:1770
+	ti = (proc_info *) 0x1010000f0
+	process_slot = 2
+	thread_slot = 16
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 17 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101827eb0, ecs=0x101827ea8, p=0x101827ea0, te_out=0x101827e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009ab458, dummy=0x101000000) at event.c:1770
+	ti = (proc_info *) 0x101000000
+	process_slot = 2
+	thread_slot = 15
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 16 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x1017a4eb0, ecs=0x1017a4ea8, p=0x1017a4ea0, te_out=0x1017a4e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009ab428, dummy=0x1010000e0) at event.c:1770
+	ti = (proc_info *) 0x1010000e0
+	process_slot = 2
+	thread_slot = 14
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 15 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101721eb0, ecs=0x101721ea8, p=0x101721ea0, te_out=0x101721e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009733d0, dummy=0x1010000d0) at event.c:1770
+	ti = (proc_info *) 0x1010000d0
+	process_slot = 2
+	thread_slot = 13
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 14 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x10169eeb0, ecs=0x10169eea8, p=0x10169eea0, te_out=0x10169ee98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009733a0, dummy=0x1010000c0) at event.c:1770
+	ti = (proc_info *) 0x1010000c0
+	process_slot = 2
+	thread_slot = 12
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 13 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x10161beb0, ecs=0x10161bea8, p=0x10161bea0, te_out=0x10161be98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x100973370, dummy=0x1010000b0) at event.c:1770
+	ti = (proc_info *) 0x1010000b0
+	process_slot = 2
+	thread_slot = 11
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 12 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101598eb0, ecs=0x101598ea8, p=0x101598ea0, te_out=0x101598e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x100973340, dummy=0x1010000a0) at event.c:1770
+	ti = (proc_info *) 0x1010000a0
+	process_slot = 2
+	thread_slot = 10
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 11 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101515eb0, ecs=0x101515ea8, p=0x101515ea0, te_out=0x101515e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x100973310, dummy=0x101000090) at event.c:1770
+	ti = (proc_info *) 0x101000090
+	process_slot = 2
+	thread_slot = 9
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 10 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101492eb0, ecs=0x101492ea8, p=0x101492ea0, te_out=0x101492e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009732e0, dummy=0x101000080) at event.c:1770
+	ti = (proc_info *) 0x101000080
+	process_slot = 2
+	thread_slot = 8
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 9 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x10140feb0, ecs=0x10140fea8, p=0x10140fea0, te_out=0x10140fe98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009732b0, dummy=0x101000070) at event.c:1770
+	ti = (proc_info *) 0x101000070
+	process_slot = 2
+	thread_slot = 7
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 8 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x10138ceb0, ecs=0x10138cea8, p=0x10138cea0, te_out=0x10138ce98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x100973280, dummy=0x101000060) at event.c:1770
+	ti = (proc_info *) 0x101000060
+	process_slot = 2
+	thread_slot = 6
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 7 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101309eb0, ecs=0x101309ea8, p=0x101309ea0, te_out=0x101309e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x100973250, dummy=0x101000050) at event.c:1770
+	ti = (proc_info *) 0x101000050
+	process_slot = 2
+	thread_slot = 5
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 6 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101286eb0, ecs=0x101286ea8, p=0x101286ea0, te_out=0x101286e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x100973220, dummy=0x101000040) at event.c:1770
+	ti = (proc_info *) 0x101000040
+	process_slot = 2
+	thread_slot = 4
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 5 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101203eb0, ecs=0x101203ea8, p=0x101203ea0, te_out=0x101203e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009731f0, dummy=0x101000030) at event.c:1770
+	ti = (proc_info *) 0x101000030
+	process_slot = 2
+	thread_slot = 3
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 4 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x101180eb0, ecs=0x101180ea8, p=0x101180ea0, te_out=0x101180e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x1009731c0, dummy=0x101000020) at event.c:1770
+	ti = (proc_info *) 0x101000020
+	process_slot = 2
+	thread_slot = 2
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 3 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x1007ebeb0, ecs=0x1007ebea8, p=0x1007ebea0, te_out=0x1007ebe98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x100973190, dummy=0x101000010) at event.c:1770
+	ti = (proc_info *) 0x101000010
+	process_slot = 2
+	thread_slot = 1
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 2 (process 657):
+#0  0x00007fff88acda6a in __semwait_signal ()
+No symbol table info available.
+#1  0x00007fff88ad1881 in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x000000010017131f in apr_thread_cond_wait ()
+No symbol table info available.
+#3  0x0000000100554568 in ap_queue_pop_something (queue=0x100971dd8, sd=0x100768eb0, ecs=0x100768ea8, p=0x100768ea0, te_out=0x100768e98) at fdqueue.c:438
+	elem = (fd_queue_elem_t *) 0x200182a61
+	rv = 0
+#4  0x000000010054fa2f in worker_thread (thd=0x100973160, dummy=0x101000000) at event.c:1770
+	ti = (proc_info *) 0x101000000
+	process_slot = 2
+	thread_slot = 0
+	csd = (apr_socket_t *) 0x0
+	cs = (event_conn_state_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+	te = (timer_event_t *) 0x0
+#5  0x0000000100182a8b in dummy_worker ()
+No symbol table info available.
+#6  0x00007fff88acbfd6 in _pthread_start ()
+No symbol table info available.
+#7  0x00007fff88acbe89 in thread_start ()
+No symbol table info available.
+
+Thread 1 (process 657):
+#0  0x00007fff88a9d464 in read ()
+No symbol table info available.
+#1  0x0000000100554863 in ap_event_pod_check (pod=0x10093ddc0) at pod.c:58
+	c = 0 '\0'
+	fd = 5
+	rc = 1
+#2  0x00000001005509d4 in child_main (child_num_arg=2) at event.c:2185
+	threads = (apr_thread_t **) 0x10021d510
+	rv = 0
+	ts = (thread_starter *) 0x100971d20
+	thread_attr = (apr_threadattr_t *) 0x100971d40
+	start_thread_id = (apr_thread_t *) 0x100971da8
+#3  0x0000000100550b77 in make_child (s=0x100831428, slot=2) at event.c:2272
+	pid = 0
+#4  0x0000000100550c3f in startup_children (number_to_start=1) at event.c:2298
+	i = 2
+#5  0x00000001005516c3 in event_run (_pconf=0x100806028, plog=0x100863428, s=0x100831428) at event.c:2638
+	remaining_children_to_start = 3
+#6  0x000000010001c00b in ap_run_mpm (pconf=0x100806028, plog=0x100863428, s=0x100831428) at mpm_common.c:96
+	pHook = (ap_LINK_mpm_t *) 0x10093d950
+	n = 0
+	rv = -1
+#7  0x000000010000dd8c in main (argc=3, argv=0x7fff5fbff678) at main.c:777
+	c = 0 '\0'
+	showcompile = 0
+	showdirectives = 0
+	confname = 0x100051dc4 "conf/httpd.conf"
+	def_server_root = 0x100053193 "/Users/trawick/inst/24-64"
+	temp_error_log = 0x0
+	error = 0x0
+	process = (process_rec *) 0x100804118
+	pconf = (apr_pool_t *) 0x100806028
+	plog = (apr_pool_t *) 0x100863428
+	ptemp = (apr_pool_t *) 0x10082f428
+	pcommands = (apr_pool_t *) 0x100828028
+	opt = (apr_getopt_t *) 0x100828118
+	rv = 0
+	mod = (module **) 0x10006fa18
+	opt_arg = 0x100000000 "Οϊνώ\a"
+	signal_server = (apr_OFN_ap_signal_server_t *) 0x10001e7a4 <ap_signal_server>

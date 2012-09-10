@@ -1,0 +1,984 @@
+[New Thread 801db0800 (LWP 104076/httpd)]
+[New Thread 801db0400 (LWP 104075/httpd)]
+[New Thread 801db0000 (LWP 104074/httpd)]
+[New Thread 801dafc00 (LWP 104073/httpd)]
+[New Thread 801daf800 (LWP 104072/httpd)]
+[New Thread 801daf400 (LWP 104071/httpd)]
+[New Thread 801daf000 (LWP 104070/httpd)]
+[New Thread 801daec00 (LWP 104069/httpd)]
+[New Thread 801dae800 (LWP 104068/httpd)]
+[New Thread 801dae400 (LWP 104067/httpd)]
+[New Thread 801dae000 (LWP 104066/httpd)]
+[New Thread 801dadc00 (LWP 104065/httpd)]
+[New Thread 801dad800 (LWP 104064/httpd)]
+[New Thread 801dad400 (LWP 104063/httpd)]
+[New Thread 801dad000 (LWP 103548/httpd)]
+[New Thread 801dacc00 (LWP 103524/httpd)]
+[New Thread 801dac800 (LWP 103036/httpd)]
+[New Thread 801dac400 (LWP 103005/httpd)]
+[New Thread 801dac000 (LWP 103001/httpd)]
+[New Thread 801dabc00 (LWP 102997/httpd)]
+[New Thread 801dab800 (LWP 102993/httpd)]
+[New Thread 801dab400 (LWP 102990/httpd)]
+[New Thread 801dab000 (LWP 102986/httpd)]
+[New Thread 801daac00 (LWP 102981/httpd)]
+[New Thread 801daa800 (LWP 102976/httpd)]
+[New Thread 801daa400 (LWP 102973/httpd)]
+[New Thread 801c07400 (LWP 103819/httpd)]
+[Switching to Thread 801db0800 (LWP 104076/httpd)]
+0x00000008016347da in flock () from /lib/libc.so.7
+  27 Thread 801c07400 (LWP 103819/httpd)  0x00000008016a621c in read () from /lib/libc.so.7
+  26 Thread 801daa400 (LWP 102973/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  25 Thread 801daa800 (LWP 102976/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  24 Thread 801daac00 (LWP 102981/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  23 Thread 801dab000 (LWP 102986/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  22 Thread 801dab400 (LWP 102990/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  21 Thread 801dab800 (LWP 102993/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  20 Thread 801dabc00 (LWP 102997/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  19 Thread 801dac000 (LWP 103001/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  18 Thread 801dac400 (LWP 103005/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  17 Thread 801dac800 (LWP 103036/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  16 Thread 801dacc00 (LWP 103524/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  15 Thread 801dad000 (LWP 103548/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  14 Thread 801dad400 (LWP 104063/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  13 Thread 801dad800 (LWP 104064/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  12 Thread 801dadc00 (LWP 104065/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  11 Thread 801dae000 (LWP 104066/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  10 Thread 801dae400 (LWP 104067/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  9 Thread 801dae800 (LWP 104068/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  8 Thread 801daec00 (LWP 104069/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  7 Thread 801daf000 (LWP 104070/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  6 Thread 801daf400 (LWP 104071/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  5 Thread 801daf800 (LWP 104072/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  4 Thread 801dafc00 (LWP 104073/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  3 Thread 801db0000 (LWP 104074/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+  2 Thread 801db0400 (LWP 104075/httpd)  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+* 1 Thread 801db0800 (LWP 104076/httpd)  0x00000008016347da in flock () from /lib/libc.so.7
+From                To                  Syms Read   Shared Object Library
+0x00000008008c9740  0x00000008008df358  Yes         /lib/libm.so.5
+0x0000000800aefb60  0x0000000800b096a8  Yes         /home/trawick/inst/apr14-64/lib/libaprutil-1.so.4
+0x0000000800d13b50  0x0000000800d29a68  Yes         /home/trawick/inst/apr14-64/lib/libexpat.so.5
+0x0000000800f3f190  0x0000000800f62508  Yes         /home/trawick/inst/apr14-64/lib/libapr-1.so.4
+0x000000080116d880  0x0000000801177c58  Yes         /lib/libcrypt.so.5
+0x00000008013936c0  0x000000080139f888  Yes         /lib/libthr.so.3
+0x00000008015dd9e0  0x00000008016a77d8  Yes         /lib/libc.so.7
+0x00000008018f5920  0x00000008018f5ef8  Yes         /home/trawick/inst/22-64/modules/mod_authn_file.so
+0x00000008020009e0  0x0000000802000e78  Yes         /home/trawick/inst/22-64/modules/mod_authn_dbm.so
+0x0000000802202940  0x0000000802202d38  Yes         /home/trawick/inst/22-64/modules/mod_authn_anon.so
+0x0000000802404bb0  0x0000000802405778  Yes         /home/trawick/inst/22-64/modules/mod_authn_dbd.so
+0x00000008026077d0  0x0000000802607a18  Yes         /home/trawick/inst/22-64/modules/mod_authn_default.so
+0x0000000802808b20  0x0000000802809178  Yes         /home/trawick/inst/22-64/modules/mod_authn_alias.so
+0x0000000802a0abd0  0x0000000802a0b5e8  Yes         /home/trawick/inst/22-64/modules/mod_authz_host.so
+0x0000000802c0cf00  0x0000000802c0d698  Yes         /home/trawick/inst/22-64/modules/mod_authz_groupfile.so
+0x0000000802e0e870  0x0000000802e0eb78  Yes         /home/trawick/inst/22-64/modules/mod_authz_user.so
+0x0000000803010ca0  0x0000000803011428  Yes         /home/trawick/inst/22-64/modules/mod_authz_dbm.so
+0x00000008032129c0  0x0000000803212fa8  Yes         /home/trawick/inst/22-64/modules/mod_authz_owner.so
+0x00000008034146f0  0x0000000803414938  Yes         /home/trawick/inst/22-64/modules/mod_authz_default.so
+0x0000000803615c40  0x0000000803616498  Yes         /home/trawick/inst/22-64/modules/mod_auth_basic.so
+0x0000000803818a90  0x000000080381cc28  Yes         /home/trawick/inst/22-64/modules/mod_auth_digest.so
+0x0000000803a21150  0x0000000803a21d88  Yes         /home/trawick/inst/22-64/modules/mod_file_cache.so
+0x0000000803c25ac0  0x0000000803c2b658  Yes         /home/trawick/inst/22-64/modules/mod_cache.so
+0x0000000803e2f810  0x0000000803e321e8  Yes         /home/trawick/inst/22-64/modules/mod_disk_cache.so
+0x00000008040361c0  0x0000000804039338  Yes         /home/trawick/inst/22-64/modules/mod_mem_cache.so
+0x000000080423c6c0  0x000000080423e218  Yes         /home/trawick/inst/22-64/modules/mod_dbd.so
+0x0000000804440950  0x0000000804441138  Yes         /home/trawick/inst/22-64/modules/mod_bucketeer.so
+0x0000000804642bc0  0x0000000804643618  Yes         /home/trawick/inst/22-64/modules/mod_dumpio.so
+0x00000008048447f0  0x0000000804844aa8  Yes         /home/trawick/inst/22-64/modules/mod_echo.so
+0x0000000804a461e0  0x0000000804a47558  Yes         /home/trawick/inst/22-64/modules/mod_example.so
+0x0000000804c49a30  0x0000000804c49e78  Yes         /home/trawick/inst/22-64/modules/mod_case_filter.so
+0x0000000804e4b930  0x0000000804e4be88  Yes         /home/trawick/inst/22-64/modules/mod_case_filter_in.so
+0x000000080504df70  0x000000080504f378  Yes         /home/trawick/inst/22-64/modules/mod_reqtimeout.so
+0x0000000805251d80  0x00000008052541b8  Yes         /home/trawick/inst/22-64/modules/mod_ext_filter.so
+0x0000000805458030  0x00000008054611f8  Yes         /home/trawick/inst/22-64/modules/mod_include.so
+0x00000008056651c0  0x0000000805666d48  Yes         /home/trawick/inst/22-64/modules/mod_filter.so
+0x0000000805868f80  0x000000080586a848  Yes         /home/trawick/inst/22-64/modules/mod_substitute.so
+0x0000000805a6c140  0x0000000805a6e6b8  Yes         /home/trawick/inst/22-64/modules/mod_charset_lite.so
+0x0000000805c717b0  0x0000000805c755d8  Yes         /home/trawick/inst/22-64/modules/mod_deflate.so
+0x0000000805e78c20  0x0000000805e849c8  Yes         /lib/libz.so.6
+0x000000080608ed20  0x0000000806091df8  Yes         /home/trawick/inst/22-64/modules/mod_log_config.so
+0x0000000806294d50  0x0000000806295788  Yes         /home/trawick/inst/22-64/modules/mod_log_forensic.so
+0x0000000806496b10  0x0000000806497068  Yes         /home/trawick/inst/22-64/modules/mod_logio.so
+0x00000008066989d0  0x0000000806698e48  Yes         /home/trawick/inst/22-64/modules/mod_env.so
+0x000000080689ba20  0x000000080689f158  Yes         /home/trawick/inst/22-64/modules/mod_mime_magic.so
+0x0000000806aa1d10  0x0000000806aa2588  Yes         /home/trawick/inst/22-64/modules/mod_cern_meta.so
+0x0000000806ca3ee0  0x0000000806ca4b48  Yes         /home/trawick/inst/22-64/modules/mod_expires.so
+0x0000000806ea7650  0x0000000806ea9248  Yes         /home/trawick/inst/22-64/modules/mod_headers.so
+0x00000008070abbe0  0x00000008070ac468  Yes         /home/trawick/inst/22-64/modules/mod_ident.so
+0x00000008072adfe0  0x00000008072aed98  Yes         /home/trawick/inst/22-64/modules/mod_usertrack.so
+0x00000008074b0900  0x00000008074b1228  Yes         /home/trawick/inst/22-64/modules/mod_unique_id.so
+0x00000008076b2ed0  0x00000008076b3e18  Yes         /home/trawick/inst/22-64/modules/mod_setenvif.so
+0x00000008078b5880  0x00000008078b60c8  Yes         /home/trawick/inst/22-64/modules/mod_version.so
+0x0000000807abc240  0x0000000807ac8718  Yes         /home/trawick/inst/22-64/modules/mod_proxy.so
+0x0000000807cceb40  0x0000000807ccf6f8  Yes         /home/trawick/inst/22-64/modules/mod_proxy_connect.so
+0x0000000807ed25b0  0x0000000807ed8338  Yes         /home/trawick/inst/22-64/modules/mod_proxy_ftp.so
+0x00000008080dc660  0x00000008080e17f8  Yes         /home/trawick/inst/22-64/modules/mod_proxy_http.so
+0x00000008082e4850  0x00000008082e5d78  Yes         /home/trawick/inst/22-64/modules/mod_proxy_scgi.so
+0x00000008084e9570  0x00000008084ee8d8  Yes         /home/trawick/inst/22-64/modules/mod_proxy_ajp.so
+0x00000008086f2aa0  0x00000008086f62e8  Yes         /home/trawick/inst/22-64/modules/mod_proxy_balancer.so
+0x00000008088f8550  0x00000008088f86f8  Yes         /home/trawick/inst/22-64/modules/mod_optional_hook_export.so
+0x0000000808af94e0  0x0000000808af9628  Yes         /home/trawick/inst/22-64/modules/mod_optional_hook_import.so
+0x0000000808cfa550  0x0000000808cfa6b8  Yes         /home/trawick/inst/22-64/modules/mod_optional_fn_import.so
+0x0000000808efb4e0  0x0000000808efb618  Yes         /home/trawick/inst/22-64/modules/mod_optional_fn_export.so
+0x00000008090fd6f0  0x00000008090ff598  Yes         /home/trawick/inst/22-64/modules/mod_mime.so
+0x0000000809304f70  0x00000008093148a8  Yes         /home/trawick/inst/22-64/modules/mod_dav.so
+0x000000080951c1c0  0x000000080951e658  Yes         /home/trawick/inst/22-64/modules/mod_status.so
+0x00000008097223e0  0x0000000809727518  Yes         /home/trawick/inst/22-64/modules/mod_autoindex.so
+0x0000000809929910  0x0000000809929e48  Yes         /home/trawick/inst/22-64/modules/mod_asis.so
+0x0000000809b2c890  0x0000000809b2dfc8  Yes         /home/trawick/inst/22-64/modules/mod_info.so
+0x0000000809d30990  0x0000000809d30cc8  Yes         /home/trawick/inst/22-64/modules/mod_suexec.so
+0x0000000809f35090  0x0000000809f396a8  Yes         /home/trawick/inst/22-64/modules/mod_cgid.so
+0x000000080a13d590  0x000000080a140668  Yes         /home/trawick/inst/22-64/modules/mod_cgi.so
+0x000000080a344d20  0x000000080a34c4d8  Yes         /home/trawick/inst/22-64/modules/mod_dav_fs.so
+0x000000080a5510c0  0x000000080a553288  Yes         /home/trawick/inst/22-64/modules/mod_dav_lock.so
+0x000000080a754be0  0x000000080a755918  Yes         /home/trawick/inst/22-64/modules/mod_vhost_alias.so
+0x000000080a958fa0  0x000000080a95e298  Yes         /home/trawick/inst/22-64/modules/mod_negotiation.so
+0x000000080ab60b60  0x000000080ab61538  Yes         /home/trawick/inst/22-64/modules/mod_dir.so
+0x000000080ad62f40  0x000000080ad64f58  Yes         /home/trawick/inst/22-64/modules/mod_imagemap.so
+0x000000080af66aa0  0x000000080af67148  Yes         /home/trawick/inst/22-64/modules/mod_actions.so
+0x000000080b169060  0x000000080b169ff8  Yes         /home/trawick/inst/22-64/modules/mod_speling.so
+0x000000080b36bb70  0x000000080b36c578  Yes         /home/trawick/inst/22-64/modules/mod_userdir.so
+0x000000080b56e000  0x000000080b56f1c8  Yes         /home/trawick/inst/22-64/modules/mod_alias.so
+0x000000080b7735f0  0x000000080b77e1b8  Yes         /home/trawick/inst/22-64/modules/mod_rewrite.so
+0x000000080b983260  0x000000080b984da8  Yes         /home/trawick/inst/22-64/modules/mod_backtrace.so
+0x000000080bb868a0  0x000000080bb934b8  Yes         /usr/local/lib/libexecinfo.so.1
+0x000000080bd947f0  0x000000080bd94ad8  Yes         /home/trawick/inst/22-64/modules/mod_crash.so
+0x000000080bf96190  0x000000080bf97ca8  Yes         /home/trawick/inst/22-64/modules/mod_whatkilledus.so
+0x0000000800680580  0x00000008006a9965  Yes         /libexec/ld-elf.so.1
+
+Thread 27 (Thread 801c07400 (LWP 103819/httpd)):
+#0  0x00000008016a621c in read () from /lib/libc.so.7
+No symbol table info available.
+#1  0x0000000801396810 in read () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000000045a26d in ap_mpm_pod_check (pod=0x801d084c0) at pod.c:54
+	c = 0 '\0'
+	fd = 7
+	rc = 0
+#3  0x0000000000457bf5 in child_main (child_num_arg=2) at worker.c:1259
+	threads = (apr_thread_t **) 0x801cec200
+	rv = 0
+	ts = (thread_starter *) 0x801dda390
+	thread_attr = (apr_threadattr_t *) 0x801dda3b0
+	start_thread_id = (apr_thread_t *) 0x801dda3e0
+#4  0x0000000000457d87 in make_child (s=0x801c2a730, slot=2) at worker.c:1342
+	pid = 0
+#5  0x0000000000458379 in perform_idle_server_maintenance () at worker.c:1568
+	i = 0
+	j = 25
+	idle_thread_count = 50
+	ws = (worker_score *) 0x800718268
+	ps = (process_score *) 0x80070b058
+	free_length = 1
+	totally_free_length = 1
+	free_slots = {2, 0, 20538919, 8, 70006, 1, 1, 0, -10128, 32767, -9480, 32767, -9512, 32767, 0, 0, 0, 0, 
+  16127766, 8, -10128, 32767, -675924773, 1125899906, 0, 0, 1000000, 0, 1, 0, 0, 0}
+	last_non_dead = 3
+	total_non_dead = 4
+	active_thread_count = 50
+	reported = 0
+	reported = 0
+#6  0x00000000004585a2 in server_main_loop (remaining_children_to_start=0) at worker.c:1680
+	child_slot = 2
+	exitwhy = APR_PROC_SIGNAL
+	status = 9
+	processed_status = 0
+	pid = {pid = -1, in = 0x5, out = 0x0, err = 0x7fffffffd8e0}
+	i = 25
+#7  0x00000000004588d5 in ap_mpm_run (_pconf=0x801c23028, plog=0x801c55028, s=0x801c2a730) at worker.c:1782
+	remaining_children_to_start = 0
+	rv = 0
+#8  0x00000000004243e5 in main (argc=3, argv=0x7fffffffdad8) at main.c:753
+	c = 0 '\0'
+	configtestonly = 0
+	confname = 0x4675eb "conf/httpd.conf"
+	def_server_root = 0x4675fb "/home/trawick/inst/22-64"
+	temp_error_log = 0x0
+	error = 0x0
+	process = (process_rec *) 0x801c21118
+	server_conf = (server_rec *) 0x801c2a730
+	pglobal = (apr_pool_t *) 0x801c21028
+	pconf = (apr_pool_t *) 0x801c23028
+	plog = (apr_pool_t *) 0x801c55028
+	ptemp = (apr_pool_t *) 0x801c27028
+	pcommands = (apr_pool_t *) 0x801c25028
+	opt = (apr_getopt_t *) 0x801c25118
+	rv = 0
+	mod = (module **) 0x67e980
+	optarg = 0x0
+	signal_server = (apr_OFN_ap_signal_server_t *) 0x44a090 <ap_signal_server>
+
+Thread 26 (Thread 801daa400 (LWP 102973/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 8
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7fffff9fcf60, p=0x7fffff9fcf58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda7b8, dummy=0x801dc40d0) at worker.c:862
+	ti = (proc_info *) 0x801dc40d0
+	process_slot = 2
+	thread_slot = 0
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda7b8) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda7b8
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7fffff9fd000: Bad address.
+
+Thread 25 (Thread 801daa800 (LWP 102976/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7fffff7fbf60, p=0x7fffff7fbf58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda7e8, dummy=0x801dc40e0) at worker.c:862
+	ti = (proc_info *) 0x801dc40e0
+	process_slot = 2
+	thread_slot = 1
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda7e8) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda7e8
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7fffff7fc000: Bad address.
+
+Thread 24 (Thread 801daac00 (LWP 102981/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7fffff5faf60, p=0x7fffff5faf58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda818, dummy=0x801dc40f0) at worker.c:862
+	ti = (proc_info *) 0x801dc40f0
+	process_slot = 2
+	thread_slot = 2
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda818) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda818
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7fffff5fb000: Bad address.
+
+Thread 23 (Thread 801dab000 (LWP 102986/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7fffff3f9f60, p=0x7fffff3f9f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda848, dummy=0x801dc4100) at worker.c:862
+	ti = (proc_info *) 0x801dc4100
+	process_slot = 2
+	thread_slot = 3
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda848) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda848
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7fffff3fa000: Bad address.
+
+Thread 22 (Thread 801dab400 (LWP 102990/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7fffff1f8f60, p=0x7fffff1f8f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda878, dummy=0x801dc4110) at worker.c:862
+	ti = (proc_info *) 0x801dc4110
+	process_slot = 2
+	thread_slot = 4
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda878) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda878
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7fffff1f9000: Bad address.
+
+Thread 21 (Thread 801dab800 (LWP 102993/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffeff7f60, p=0x7ffffeff7f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda8a8, dummy=0x801dc4120) at worker.c:862
+	ti = (proc_info *) 0x801dc4120
+	process_slot = 2
+	thread_slot = 5
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda8a8) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda8a8
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffeff8000: Bad address.
+
+Thread 20 (Thread 801dabc00 (LWP 102997/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffedf6f60, p=0x7ffffedf6f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda8d8, dummy=0x801dc4130) at worker.c:862
+	ti = (proc_info *) 0x801dc4130
+	process_slot = 2
+	thread_slot = 6
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda8d8) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda8d8
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffedf7000: Bad address.
+
+Thread 19 (Thread 801dac000 (LWP 103001/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffebf5f60, p=0x7ffffebf5f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda908, dummy=0x801dc4140) at worker.c:862
+	ti = (proc_info *) 0x801dc4140
+	process_slot = 2
+	thread_slot = 7
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda908) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda908
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffebf6000: Bad address.
+
+Thread 18 (Thread 801dac400 (LWP 103005/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffe9f4f60, p=0x7ffffe9f4f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda938, dummy=0x801dc4150) at worker.c:862
+	ti = (proc_info *) 0x801dc4150
+	process_slot = 2
+	thread_slot = 8
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda938) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda938
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffe9f5000: Bad address.
+
+Thread 17 (Thread 801dac800 (LWP 103036/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffe7f3f60, p=0x7ffffe7f3f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda968, dummy=0x801dc4160) at worker.c:862
+	ti = (proc_info *) 0x801dc4160
+	process_slot = 2
+	thread_slot = 9
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda968) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda968
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffe7f4000: Bad address.
+
+Thread 16 (Thread 801dacc00 (LWP 103524/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffe5f2f60, p=0x7ffffe5f2f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda998, dummy=0x801dc4170) at worker.c:862
+	ti = (proc_info *) 0x801dc4170
+	process_slot = 2
+	thread_slot = 10
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda998) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda998
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffe5f3000: Bad address.
+
+Thread 15 (Thread 801dad000 (LWP 103548/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffe3f1f60, p=0x7ffffe3f1f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda9c8, dummy=0x801dc4180) at worker.c:862
+	ti = (proc_info *) 0x801dc4180
+	process_slot = 2
+	thread_slot = 11
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda9c8) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda9c8
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffe3f2000: Bad address.
+
+Thread 14 (Thread 801dad400 (LWP 104063/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffe1f0f60, p=0x7ffffe1f0f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801dda9f8, dummy=0x801dc4190) at worker.c:862
+	ti = (proc_info *) 0x801dc4190
+	process_slot = 2
+	thread_slot = 12
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801dda9f8) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801dda9f8
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffe1f1000: Bad address.
+
+Thread 13 (Thread 801dad800 (LWP 104064/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffdfeff60, p=0x7ffffdfeff58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddaa28, dummy=0x801dc41a0) at worker.c:862
+	ti = (proc_info *) 0x801dc41a0
+	process_slot = 2
+	thread_slot = 13
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddaa28) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddaa28
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffdff0000: Bad address.
+
+Thread 12 (Thread 801dadc00 (LWP 104065/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffddeef60, p=0x7ffffddeef58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddaa58, dummy=0x801dc41b0) at worker.c:862
+	ti = (proc_info *) 0x801dc41b0
+	process_slot = 2
+	thread_slot = 14
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddaa58) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddaa58
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffddef000: Bad address.
+
+Thread 11 (Thread 801dae000 (LWP 104066/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffdbedf60, p=0x7ffffdbedf58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddaa88, dummy=0x801dc41c0) at worker.c:862
+	ti = (proc_info *) 0x801dc41c0
+	process_slot = 2
+	thread_slot = 15
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddaa88) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddaa88
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffdbee000: Bad address.
+
+Thread 10 (Thread 801dae400 (LWP 104067/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffd9ecf60, p=0x7ffffd9ecf58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddaab8, dummy=0x801dc41d0) at worker.c:862
+	ti = (proc_info *) 0x801dc41d0
+	process_slot = 2
+	thread_slot = 16
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddaab8) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddaab8
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffd9ed000: Bad address.
+
+Thread 9 (Thread 801dae800 (LWP 104068/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffd7ebf60, p=0x7ffffd7ebf58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddaae8, dummy=0x801dc41e0) at worker.c:862
+	ti = (proc_info *) 0x801dc41e0
+	process_slot = 2
+	thread_slot = 17
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddaae8) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddaae8
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffd7ec000: Bad address.
+
+Thread 8 (Thread 801daec00 (LWP 104069/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffd5eaf60, p=0x7ffffd5eaf58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddab18, dummy=0x801dc41f0) at worker.c:862
+	ti = (proc_info *) 0x801dc41f0
+	process_slot = 2
+	thread_slot = 18
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddab18) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddab18
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffd5eb000: Bad address.
+
+Thread 7 (Thread 801daf000 (LWP 104070/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffd3e9f60, p=0x7ffffd3e9f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddab48, dummy=0x801dc4200) at worker.c:862
+	ti = (proc_info *) 0x801dc4200
+	process_slot = 2
+	thread_slot = 19
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddab48) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddab48
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffd3ea000: Bad address.
+
+Thread 6 (Thread 801daf400 (LWP 104071/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffd1e8f60, p=0x7ffffd1e8f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddab78, dummy=0x801dc4210) at worker.c:862
+	ti = (proc_info *) 0x801dc4210
+	process_slot = 2
+	thread_slot = 20
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddab78) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddab78
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffd1e9000: Bad address.
+
+Thread 5 (Thread 801daf800 (LWP 104072/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffcfe7f60, p=0x7ffffcfe7f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddaba8, dummy=0x801dc4220) at worker.c:862
+	ti = (proc_info *) 0x801dc4220
+	process_slot = 2
+	thread_slot = 21
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddaba8) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddaba8
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffcfe8000: Bad address.
+
+Thread 4 (Thread 801dafc00 (LWP 104073/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffcde6f60, p=0x7ffffcde6f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddabd8, dummy=0x801dc4230) at worker.c:862
+	ti = (proc_info *) 0x801dc4230
+	process_slot = 2
+	thread_slot = 22
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddabd8) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddabd8
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffcde7000: Bad address.
+
+Thread 3 (Thread 801db0000 (LWP 104074/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffcbe5f60, p=0x7ffffcbe5f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddac08, dummy=0x801dc4240) at worker.c:862
+	ti = (proc_info *) 0x801dc4240
+	process_slot = 2
+	thread_slot = 23
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddac08) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddac08
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffcbe6000: Bad address.
+
+Thread 2 (Thread 801db0400 (LWP 104075/httpd)):
+#0  0x000000080139b9bc in pthread_kill () from /lib/libthr.so.3
+No symbol table info available.
+#1  0x0000000801395db3 in pthread_getschedparam () from /lib/libthr.so.3
+No symbol table info available.
+#2  0x000000080139ddcd in pthread_cond_signal () from /lib/libthr.so.3
+No symbol table info available.
+#3  0x0000000800f4f865 in apr_thread_cond_wait (cond=0x801dda468, mutex=0x801dda438) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x000000000045a010 in ap_queue_pop (queue=0x801dda410, sd=0x7ffffc9e4f60, p=0x7ffffc9e4f58) at fdqueue.c:347
+	elem = (fd_queue_elem_t *) 0x80070b048
+	rv = 0
+#5  0x00000000004570ec in worker_thread (thd=0x801ddac38, dummy=0x801dc4250) at worker.c:862
+	ti = (proc_info *) 0x801dc4250
+	process_slot = 2
+	thread_slot = 24
+	csd = (apr_socket_t *) 0x0
+	bucket_alloc = (apr_bucket_alloc_t *) 0x0
+	last_ptrans = (apr_pool_t *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	rv = 0
+	is_idle = 1
+#6  0x0000000800f608ea in dummy_worker (opaque=0x801ddac38) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddac38
+#7  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#8  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffc9e5000: Bad address.
+
+Thread 1 (Thread 801db0800 (LWP 104076/httpd)):
+#0  0x00000008016347da in flock () from /lib/libc.so.7
+No symbol table info available.
+#1  0x0000000800f4f151 in proc_mutex_flock_acquire (mutex=0x801dda0a0) at locks/unix/proc_mutex.c:697
+	rc = 0
+#2  0x0000000800f4f5ae in apr_proc_mutex_lock (mutex=0x801dda0a0) at locks/unix/proc_mutex.c:906
+No locals.
+#3  0x0000000000456ae9 in listener_thread (thd=0x801ddac68, dummy=0x801dc4260) at worker.c:661
+	ti = (proc_info *) 0x801dc4260
+	process_slot = 2
+	tpool = (apr_pool_t *) 0x801c7e028
+	csd = (void *) 0x0
+	ptrans = (apr_pool_t *) 0x0
+	pollset = (apr_pollset_t *) 0x801c7e0a0
+	rv = 0
+	lr = (ap_listen_rec *) 0x0
+	have_idle_worker = 1
+	last_poll_idx = 0
+#4  0x0000000800f608ea in dummy_worker (opaque=0x801ddac68) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x801ddac68
+#5  0x0000000801394274 in pthread_getprio () from /lib/libthr.so.3
+No symbol table info available.
+#6  0x0000000000000000 in ?? ()
+No symbol table info available.
+Error accessing memory address 0x7ffffc7e4000: Bad address.
