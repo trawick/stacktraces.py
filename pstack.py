@@ -43,7 +43,7 @@ class pstack:
                 continue
             m = re.search('^ +([\da-f]+) +([^ ]+) *(\([^)]*\)), exit value =', l)
             if m:
-                thr.set_exited(1)
+                thr.set_exited()
 
     def get_output(self):
         out = '/tmp/pstackout'
