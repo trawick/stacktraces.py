@@ -30,22 +30,56 @@ class thread:
     def set_state(self, state):
         self.state = state
 
+    def same_backtrace(self, thr2):
+	if len(self.frames) != len(thr2.frames):
+	    return False
+        for i in range(len(self.frames)):
+	    if self.frames[i].fn != thr2.frames[i].fn:
+		return False
+	return True
+
+class threadgroup:
+    """ group of threads with same characteristics, such as active frames """
+
+    def __init__(self, thr):
+	self.count = 0
+	self.threads = [thr]
+
+    def __str__(self):
+	return self.threads[0].__str__()
+
+    def add_thread(self, thr):
+	self.threads.append(thr)
+
 class process:
 
     def __init__(self, pid = None):
         self.pid = pid
         self.threads = []
+	self.threadgroups = []
 
     def __str__(self):
         s = ''
-        for t in self.threads:
-            s += t.__str__()
+        for tg in self.threadgroups:
+	    s += '%d * ' % len(tg.threads)
+            s += tg.__str__()
             s += '\n'
         return s
 
     def add_thread(self, thr):
         self.threads.append(thr)
 
+    def group(self):
+	for t in self.threads:
+	    found = False
+	    for g in self.threadgroups:
+		if t.same_backtrace(g.threads[0]):
+		    g.add_thread(t)
+		    found = True
+		    break
+	    if not found:
+		self.threadgroups.append(threadgroup(t))
+	
 class frame:
 
     def __init__(self, id, fn):
