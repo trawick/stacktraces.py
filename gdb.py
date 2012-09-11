@@ -26,8 +26,7 @@ class gdb:
                 gdbtid = m.group(1)
                 thr = process_model.thread(gdbtid)
                 self.proc.add_thread(thr)
-            elif l[:1] == '#':
-                assert thr
+            elif thr and l[:1] == '#':
                 m = re.search('\#(\d+) +((0x[\da-f]+) in )?([^ ]+) (\([^)]*\))', l)
                 if not m:
                     print >> sys.stderr, 'could not parse >%s<' % l
@@ -45,14 +44,22 @@ class gdb:
         print >> scrfile, 'info sharedlibrary'
         print >> scrfile, 'info threads'
         print >> scrfile, 'thread apply all bt full'
-        print >> scrfile, 'detach'
+        if not self.corefile:
+            print >> scrfile, 'detach'
         print >> scrfile, 'quit'
         scrfile.close()
 
         out = '/tmp/gdbout'
-        pid_or_core = self.pid
-        if not pid_or_core:
+        if self.pid:
+            pid_or_core = str(self.pid)
+        else:
             pid_or_core = self.corefile
+        if not pid_or_core:
+            raise Exception('Either a process id or core file must be provided')
+
+        if not self.exe:
+            raise Exception('An executable file must be provided')
+
         cmdline = ['/usr/bin/gdb',
                    '-n',
                    '-batch',
@@ -69,4 +76,3 @@ class gdb:
         outfile.close()
 
         self.gdbout = open(out).readlines()
-
