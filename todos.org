@@ -9,3 +9,6 @@
 *** TODO Cores, pids, override mechism
 ** Regression
 ** Display
+* Release 2
+** Parsers, model
+*** TODO Support Windows
