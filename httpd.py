@@ -13,8 +13,8 @@ annotations = [
 ('s', ['cdb', 'ap_queue_pop_something', 'worker_thread'], 'waiting for connection to handle'),
 ('s', ['cdb', 'ap_queue_pop', 'worker_thread'], 'waiting for connection to handle'),
 ('s', ['cdb', 'apr_pollset_poll', 'listener_thread'], 'waiting for connection to accept'),
-('s', ['cdb', 'read', 'ap_event_pod_check'], 'waiting for termination event'),
-('s', ['cdb', 'read', 'ap_mpm_pod_check'], 'waiting for termination event'),
+('s', ['is', 'ap_event_pod_check'], 'waiting for termination event'),
+('s', ['is', 'ap_mpm_pod_check'], 'waiting for termination event'),
 ('s', ['cdb', 'apr_proc_mutex_lock', 'listener_thread'], 'waiting for accept mutex')
 ]
 
@@ -29,6 +29,7 @@ cleanups = [
 ('db', ['is', 'ap_event_pod_check']),
 ('db', ['is', 'apr_pollset_poll']),
 ('db', ['is', 'apr_thread_cond_wait']),
+('da', ['is', 'main']),
 ]
 
 def check_condition(cond, t):

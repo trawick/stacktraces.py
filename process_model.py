@@ -5,6 +5,7 @@ class thread:
         self.frames = []
         self.name = None
         self.state = None
+        self.exited = False
 
     def __str__(self):
         s = ''
@@ -20,6 +21,9 @@ class thread:
             s += f.__str__()
             s += ', '
         return s
+
+    def set_exited(self, flag = True):
+        self.exited = flag
 
     def add_frame(self, frame):
         self.frames.append(frame)
@@ -71,6 +75,8 @@ class process:
 
     def group(self):
 	for t in self.threads:
+            if t.exited:
+                continue
 	    found = False
 	    for g in self.threadgroups:
 		if t.same_backtrace(g.threads[0]):
