@@ -14,14 +14,23 @@ corefile = None
 exefile = None
 debuglog = None
 
+infolvl = 0
+
 use_pstack = False
 use_gdb = False
 
 curarg = 1
 while curarg < len(sys.argv):
+
+    if sys.argv[curarg][:10] == '--infolvl=':
+        infolvl = int(sys.argv[curarg][10:])
+        curarg += 1
+        continue
+
     if sys.argv[curarg][:11] == '--debuglog=':
         debuglog = sys.argv[curarg][11:]
         break
+
     try:
         pid = int(sys.argv[curarg])
     except:
@@ -59,4 +68,4 @@ else:
 httpd.cleanup(p)
 httpd.annotate(p)
 p.group()
-print p.describe(1)
+print p.describe(infolvl)

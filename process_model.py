@@ -1,3 +1,8 @@
+LVL_SHOW_THREADS = 1
+LVL_SHOW_FRAMES = 2
+LVL_SHOW_ARGS = 3
+LVL_SHOW_VARS = 4
+
 class thread:
 
     def __init__(self, tid):
@@ -22,8 +27,21 @@ class thread:
             s += ', '
         return s
 
-    def describe(self, level):
-        return self.__str__()
+    def describe(self, level = 0):
+        if level < LVL_SHOW_FRAMES:
+            return self.__str__()
+        s = ''
+        s += '[%s]' % self.tid
+        s += ' '
+        if self.name:
+            s += self.name
+            s += ' '
+        if self.state:
+            s += '(%s) ' % self.state
+        s += '\n'
+        for f in self.frames:
+            s += ' ' + f.describe(level)
+        return s
 
     def set_exited(self, flag = True):
         self.exited = flag
@@ -101,9 +119,10 @@ class process:
 	
 class frame:
 
-    def __init__(self, id, fn):
+    def __init__(self, id, fn, args = None):
         self.id = id
         self.fn = fn
+        self.args = args;
         self.vars = {}
 
         if '@@GLIBC' in fn:
@@ -111,6 +130,18 @@ class frame:
 
     def __str__(self):
         return self.fn
+
+    def describe(self, level = 0):
+        if level < LVL_SHOW_ARGS:
+            return self.__str__()
+        s = '#%s %s' % (self.id, self.fn)
+        if level >= LVL_SHOW_ARGS and self.args:
+            s += self.args
+        s += '\n'
+        if level >= LVL_SHOW_VARS and len(self.vars):
+            for k in self.vars.keys():
+                s += '  %s=%s\n' % (k, self.vars[k])
+        return s
 
     def add_var(self, var, val):
         self.vars[var] = val
