@@ -91,9 +91,13 @@ class frame:
     def __init__(self, id, fn):
         self.id = id
         self.fn = fn
+        self.vars = {}
 
         if '@@GLIBC' in fn:
             self.fn = fn[:fn.index('@@GLIBC')]
 
     def __str__(self):
         return self.fn
+
+    def add_var(self, var, val):
+        self.vars[var] = val
