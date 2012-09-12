@@ -49,9 +49,7 @@ def check_condition(cond, t):
             elif cond[0] == 'cib':
                 j = i + 1
                 while j < len(t.frames):
-                    print 'comparing %s and %s' % (t.frames[j].fn, cond[2])
                     if t.frames[j].fn == cond[2]:
-                        print 'found'
                         return (i, j)
                     j += 1
             else:
