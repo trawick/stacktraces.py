@@ -11,7 +11,7 @@ class pstack:
         self.pid = kwargs.get('pid')
         self.corefile = kwargs.get('corefile')
         self.exe = kwargs.get('exe')
-        self.pstackout = kwargs.get('pstackout')
+        self.pstackout = kwargs.get('debuglog')
         self.proc = kwargs.get('proc')
         if not self.proc:
             self.proc = process_model.process()
