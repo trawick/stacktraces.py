@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 import os
+import re
+import subprocess
 import sys
 
 from optparse import OptionParser
@@ -8,6 +10,14 @@ from optparse import OptionParser
 import debugger
 import httpd
 import process_model
+
+def add_children(pids):
+    cmd = ['ps', '-A', '-o', 'pid,ppid']
+    stdout = subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
+    for l in stdout.split('\n'):
+        m = re.search('(\d+)[ \t]*%s' % pids[0], l)
+        if m:
+            pids.append(m.group(1))
 
 parser = OptionParser()
 parser.add_option("-l", "--debuglog", dest="debuglog", type="string",
@@ -46,12 +56,18 @@ if options.debuglog:
 else:
     debuglog = None
 
-p = process_model.process(options.pid)
+pids = [options.pid]
 
-x = debugger.debugger(proc = p, exe = options.exe, corefile = options.corefile, debuglog = debuglog)
-x.parse()
+if options.follow:
+    add_children(pids)
 
-httpd.cleanup(p)
-httpd.annotate(p)
-p.group()
-print p.describe(options.infolvl)
+for pid in pids:
+    p = process_model.process(pid)
+
+    x = debugger.debugger(proc = p, exe = options.exe, corefile = options.corefile, debuglog = debuglog)
+    x.parse()
+
+    httpd.cleanup(p)
+    httpd.annotate(p)
+    p.group()
+    print p.describe(options.infolvl)
