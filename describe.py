@@ -59,4 +59,4 @@ else:
 httpd.cleanup(p)
 httpd.annotate(p)
 p.group()
-print p
+print p.describe(1)

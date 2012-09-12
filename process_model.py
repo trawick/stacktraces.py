@@ -22,6 +22,9 @@ class thread:
             s += ', '
         return s
 
+    def describe(self, level):
+        return self.__str__()
+
     def set_exited(self, flag = True):
         self.exited = flag
 
@@ -70,6 +73,16 @@ class process:
             s += '\n'
         return s
 
+    def describe(self, level = 0):
+        if level >= 1:
+            s = ''
+            for t in self.threads:
+                s += t.describe(level)
+                s += '\n'
+        else:
+            s = self.__str__()
+        return s
+            
     def add_thread(self, thr):
         self.threads.append(thr)
 
