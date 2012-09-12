@@ -61,8 +61,11 @@ pids = [options.pid]
 if options.follow:
     add_children(pids)
 
+group = process_model.process_group()
+
 for pid in pids:
     p = process_model.process(pid)
+    group.add_process(p)
 
     x = debugger.debugger(proc = p, exe = options.exe, corefile = options.corefile, debuglog = debuglog)
     x.parse()
@@ -70,4 +73,5 @@ for pid in pids:
     httpd.cleanup(p)
     httpd.annotate(p)
     p.group()
-    print p.describe(options.infolvl)
+
+print group.describe(options.infolvl)

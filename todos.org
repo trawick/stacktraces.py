@@ -1,6 +1,6 @@
 * Release 1
 ** Parsers, model
-*** TODO Support multiple processes in same invocation
+*** DONE Support multiple processes in same invocation
 *** DONE Process group has processes
 *** DONE Process can have parallel representations of threads -- [] of threadgroups and [] of threads
 *** TODO Identify crashers

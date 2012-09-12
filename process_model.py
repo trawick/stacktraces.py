@@ -82,8 +82,8 @@ class process_group:
     def __init__(self):
         self.processes = []
 
-    def add_process(self, pid):
-        self.processes.append(pid)
+    def add_process(self, proc):
+        self.processes.append(proc)
 
     def __str__(self):
         s = ''
