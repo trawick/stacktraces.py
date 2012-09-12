@@ -1,55 +1,50 @@
 #!/usr/bin/python
 
 import os
-import re
 import sys
+
+from optparse import OptionParser
 
 import debugger
 import httpd
 import process_model
 
-pid = None
-corefile = None
-exefile = None
-debuglog = None
+parser = OptionParser()
+parser.add_option("-l", "--debuglog", dest="debuglog", type="string",
+                  action="store",
+                  help="specify log with debugger output to analyze")
+parser.add_option("-p", "--pid", dest="pid", type="int",
+                  action="store",
+                  help="specify process id to analyze")
+parser.add_option("-f", "--follow", dest="follow",
+                  action="store_true",
+                  help="describe child processes too")
+parser.add_option("-e", "--exe", dest="exe", type="string",
+                  action="store",
+                  help="point to executable for process")
+parser.add_option("-c", "--corefile", dest="corefile", type="string",
+                  action="store",
+                  help="point to core file to examine")
+parser.add_option("-i", "--infolvl", dest="infolvl", type="int",
+                  action="store",
+                  help="specify level of information to be displayed")
 
-infolvl = 0
+(options, args) = parser.parse_args()
 
-curarg = 1
-while curarg < len(sys.argv):
+if options.debuglog and options.pid:
+    parser.error("options --debuglog and --pid are mutually exclusive")
 
-    if sys.argv[curarg][:10] == '--infolvl=':
-        infolvl = int(sys.argv[curarg][10:])
-        curarg += 1
-        continue
-
-    if sys.argv[curarg][:11] == '--debuglog=':
-        debuglog = sys.argv[curarg][11:]
-        break
-
-    try:
-        pid = int(sys.argv[curarg])
-    except:
-        if os.access(sys.argv[curarg], os.X_OK):
-            exefile = sys.argv[curarg]
-        else:
-            corefile = sys.argv[curarg]
-    curarg += 1
-
-if debuglog:
-    debuglog = open(debuglog).readlines()
-    
+if options.debuglog:
+    debuglog = open(options.debuglog).readlines()
 else:
-    print "Process id:", pid
-    print "Exe:       ", exefile
-    print "Core file: ", corefile
+    debuglog = None
 
-p = process_model.process()
+p = process_model.process(options.pid)
 
-x = debugger.debugger(proc = p, pid = pid, exe = exefile, corefile = corefile, debuglog = debuglog)
+x = debugger.debugger(proc = p, exe = options.exe, corefile = options.corefile, debuglog = debuglog)
 x.parse()
 
 httpd.cleanup(p)
 httpd.annotate(p)
 p.group()
-print p.describe(infolvl)
+print p.describe(options.infolvl)

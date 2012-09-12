@@ -8,13 +8,13 @@ import process_model
 class gdb:
 
     def __init__(self, **kwargs):
-        self.pid = kwargs.get('pid')
         self.corefile = kwargs.get('corefile')
         self.exe = kwargs.get('exe')
         self.gdbout = kwargs.get('debuglog')
         self.proc = kwargs.get('proc')
         if not self.proc:
             self.proc = process_model.process()
+        self.pid = self.proc.get_pid()
 
     def parse(self):
         if not self.gdbout:

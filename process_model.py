@@ -142,7 +142,10 @@ class process:
 		    break
 	    if not found:
 		self.threadgroups.append(threadgroup(t))
-	
+
+    def get_pid(self):
+        return self.pid
+
 class frame:
 
     def __init__(self, id, fn, args = None):

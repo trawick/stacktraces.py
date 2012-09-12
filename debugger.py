@@ -1,6 +1,8 @@
+import os
+import re
+
 import gdb
 import pstack
-import re
 
 class debugger:
 
@@ -11,7 +13,7 @@ class debugger:
         self.debuglog = kwargs.get('debuglog')
         self.proc = kwargs.get('proc')
         if not self.proc:
-            self.proc = process_model.process()
+            self.proc = process_model.process(self.pid)
 
         self.use_pstack = False
         self.use_gdb = False
@@ -28,9 +30,9 @@ class debugger:
                 self.use_gdb = True
 
         if self.use_pstack:
-            self.x = pstack.pstack(proc = self.proc, pid = self.pid, exe = self.exe, corefile = self.corefile, debuglog = self.debuglog)
+            self.x = pstack.pstack(proc = self.proc, exe = self.exe, corefile = self.corefile, debuglog = self.debuglog)
         else:
-            self.x = gdb.gdb(proc = self.proc, pid = self.pid, exe = self.exe, corefile = self.corefile, debuglog = self.debuglog)
+            self.x = gdb.gdb(proc = self.proc, exe = self.exe, corefile = self.corefile, debuglog = self.debuglog)
 
     def parse(self):
         self.x.parse()
