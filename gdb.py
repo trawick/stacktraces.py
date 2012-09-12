@@ -40,10 +40,10 @@ class gdb:
                 # filter out frames with address 0 (seen on both Linux and FreeBSD)
                 if addr and int(addr, 16) == 0:
                     continue
-                fr = process_model.frame(frameno, fn)
+                fr = process_model.frame(frameno, fn, fnargs)
                 thr.add_frame(fr)
-            elif fr and l[:1] == '\t':
-                m = re.search('^\t([^ ]+) = (.*)$', l)
+            elif fr:
+                m = re.search('^[ \t]+([^ ]+) = (.*)$', l)
                 if m:
                     fr.add_var(m.group(1), m.group(2));
 
