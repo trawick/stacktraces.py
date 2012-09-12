@@ -1,14 +1,16 @@
 * Release 1
 ** Parsers, model
-*** TODO Parsers shouldn't throw anything away; everything potentially useful should fit in the model
 *** TODO Support multiple processes in same invocation
-*** TODO Process group has processes
-*** TODO Process can have parallel representations of threads -- [] of similarthreads and [] of threads
-*** TODO similarthreads has [] of threads with same backtrace
+*** DONE Process group has processes
+*** DONE Process can have parallel representations of threads -- [] of threadgroups and [] of threads
+*** TODO Identify crashers
+*** TODO Identify third-party modules
 ** Gatherers
 *** TODO Cores, pids, override mechism
 ** Regression
 ** Display
+*** TODO Web display
 * Release 2
 ** Parsers, model
 *** TODO Support Windows
+*** TODO Parsers shouldn't throw anything away; everything potentially useful should fit in the model

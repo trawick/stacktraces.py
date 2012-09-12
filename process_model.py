@@ -1,3 +1,4 @@
+LVL_SHOW_PROCESSES = 0
 LVL_SHOW_THREADS = 1
 LVL_SHOW_FRAMES = 2
 LVL_SHOW_ARGS = 3
@@ -75,6 +76,31 @@ class threadgroup:
 
     def add_thread(self, thr):
 	self.threads.append(thr)
+
+class process_group:
+
+    def __init__(self):
+        self.processes = []
+
+    def add_process(self, pid):
+        self.processes.append(pid)
+
+    def __str__(self):
+        s = ''
+        for p in self.processes:
+            s += p.__str__()
+            s += '\n'
+        return s
+
+    def describe(self, level = 0):
+        if level >= 1:
+            s = ''
+            for p in self.processes:
+                s += p.describe(level)
+                s += '\n'
+            return s
+        else:
+            return self.__str__()
 
 class process:
 
