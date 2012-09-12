@@ -14,6 +14,7 @@ annotations = [
 ('t', ['cib', 'ap_wait_or_timeout', 'event_run'], 'Event MPM parent'),
 # less specific
 ('t', ['is', 'ap_wait_or_timeout'], 'MPM parent'),
+('t', ['is', 'cgid_server'], 'mod_cgid daemon'),
 ('s', ['cdb', 'ap_queue_pop_something', 'worker_thread'], 'waiting for connection to handle'),
 ('s', ['cdb', 'ap_queue_pop', 'worker_thread'], 'waiting for connection to handle'),
 ('s', ['cdb', 'apr_pollset_poll', 'listener_thread'], 'waiting for connection to accept'),
