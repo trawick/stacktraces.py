@@ -31,8 +31,15 @@ parser.add_option("-i", "--infolvl", dest="infolvl", type="int",
 
 (options, args) = parser.parse_args()
 
-if options.debuglog and options.pid:
-    parser.error("options --debuglog and --pid are mutually exclusive")
+mutually_exclusive = {"debuglog": "pid",
+                      "debuglog": "corefile",
+                      "debuglog": "follow",
+                      "pid": "corefile",
+                      "follow": "corefile"}
+
+for (k,v) in mutually_exclusive.items():
+    if eval('options.' + k) and eval('options.' + v):
+        parser.error("--%s and --%s are mutually exclusive" % (k, v))
 
 if options.debuglog:
     debuglog = open(options.debuglog).readlines()
