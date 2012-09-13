@@ -8,6 +8,7 @@
 annotations = [
 ('t', ['cdb', 'listener_thread', 'dummy_worker'], 'MPM child listener thread'),
 ('t', ['cdb', 'worker_thread', 'dummy_worker'], 'MPM child worker thread'),
+('t', ['is', 'worker_thread'], 'MPM child worker thread'),
 ('t', ['cib', 'child_main', 'event_run'], 'Event MPM child main thread'),
 # less specific
 ('t', ['is', 'child_main'], 'MPM child main thread'),
@@ -15,12 +16,18 @@ annotations = [
 # less specific
 ('t', ['is', 'ap_wait_or_timeout'], 'MPM parent'),
 ('t', ['is', 'cgid_server'], 'mod_cgid daemon'),
+('t', ['is', 'ConnectionService'], 'SiteMinder thread'),
+('t', ['ismatch', 'ManageAgentThread'], 'SiteMinder thread'),
 ('s', ['cdb', 'ap_queue_pop_something', 'worker_thread'], 'waiting for connection to handle'),
 ('s', ['cdb', 'ap_queue_pop', 'worker_thread'], 'waiting for connection to handle'),
 ('s', ['cdb', 'apr_pollset_poll', 'listener_thread'], 'waiting for connection to accept'),
 ('s', ['is', 'ap_event_pod_check'], 'waiting for termination event'),
 ('s', ['is', 'ap_mpm_pod_check'], 'waiting for termination event'),
-('s', ['cdb', 'apr_proc_mutex_lock', 'listener_thread'], 'waiting for accept mutex')
+('s', ['cdb', 'apr_proc_mutex_lock', 'listener_thread'], 'waiting for accept mutex'),
+('s', ['cdb', 'apr_thread_join', 'child_main'], 'waiting for threads to exit'),
+('s', ['is', '__1cIcm_sleep6FLl_v_'], 'idle'),
+('s', ['is', '__1cPCSmWorkerThreadFSleep6MLl_v_'], 'idle'),
+('s', ['is', 'ap_lingering_close'], 'waiting for client to acknowledge connection close'),
 ]
 
 # 'db': delete frames before
@@ -35,14 +42,16 @@ cleanups = [
 ('db', ['is', 'ap_event_pod_check']),
 ('db', ['is', 'apr_pollset_poll']),
 ('db', ['is', 'apr_thread_cond_wait']),
+('db', ['is', 'apr_thread_join']),
 ('da', ['is', 'main']),
+('dda', ['is', '_lwp_start']),
 ]
 
 def check_condition(cond, t):
     """ Check specified condition, return range of frames which match the condition (or None) """
     for i in range(len(t.frames)):
-        if t.frames[i].fn == cond[1]:
-            if cond[0] == 'is':
+        if t.frames[i].fn == cond[1] or (cond[0] == 'ismatch' and cond[1] in t.frames[i].fn):
+            if cond[0] == 'is' or cond[0] == 'ismatch':
                 return (i, i)
             if cond[0] == 'cdb':
                 if i + 1 < len(t.frames) and t.frames[i + 1].fn == cond[2]:
@@ -66,6 +75,8 @@ def cleanup(p):
                     t.frames = t.frames[i[0]:]
                 elif c[0] == 'da':
                     t.frames = t.frames[:i[1] + 1]
+                elif c[0] == 'dda':
+                    t.frames = t.frames[:i[1]]
                 else:
                     raise Exception('Unexpected cleanup type >%s<' % c[0])
     
