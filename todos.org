@@ -4,13 +4,16 @@
 *** DONE Process group has processes
 *** DONE Process can have parallel representations of threads -- [] of threadgroups and [] of threads
 *** TODO Identify crashers
-*** TODO Identify third-party modules
+*** TODO Don't delete frames; "hide" them instead.
 ** Gatherers
 *** TODO Cores, pids, override mechism
+*** TODO Simple gather-only script for download
 ** Regression
+*** TODO Need rich set of logs created by gather-only script.
 ** Display
 *** TODO Web display
 * Release 2
 ** Parsers, model
 *** TODO Support Windows
 *** TODO Parsers shouldn't throw anything away; everything potentially useful should fit in the model
+*** TODO Identify third-party modules
