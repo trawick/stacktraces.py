@@ -44,7 +44,7 @@ class gdb:
             if pending:
                 l = pending + l
                 pending = None
-            if l[0] == '#' and l[-2:] == ',\n':
+            if l[0] == '#' and (l[-2:] == ',\n' or l[-18:] == 'is not available.\n'):
                 pending = l[:-1]
                 continue
             if l[:7] == 'Thread ':
