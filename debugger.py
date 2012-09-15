@@ -5,6 +5,7 @@ import sys
 import collect
 import gdb
 import pstack
+import process_model
 
 class debugger:
 
