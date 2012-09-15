@@ -36,6 +36,9 @@ class pstack:
         if not self.pstackout:
             self.get_output()
         thr = None
+        if collect.is_hdr(self.pstackout[0]):
+            self.hdr = self.pstackout[0]
+            self.pstackout = self.pstackout[1:]
         m = re.search('^(\d+):[ \t]+(/[^ ]+)', self.pstackout[0])
         if not m:
             raise Exception('could not parse %s' % self.pstackout[0])

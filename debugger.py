@@ -2,6 +2,7 @@ import os
 import re
 import sys
 
+import collect
 import gdb
 import pstack
 
@@ -20,10 +21,19 @@ class debugger:
         self.use_gdb = False
 
         if self.debuglog:
-            if re.search('^(\d+):[ \t]+', self.debuglog[0]) and re.search('------- +lwp', self.debuglog[1]):
-                self.use_pstack = True
+            if collect.is_hdr(self.debuglog[0]):
+                tool = collect.get_tool(self.debuglog[0])
+                if tool == 'pstack':
+                    self.use_pstack = True
+                elif tool == 'gdb':
+                    self.use_gdb = True
+                else:
+                    raise Exception("Unexpected tool %s" % tool)
             else:
-                self.use_gdb = True
+                if re.search('^(\d+):[ \t]+', self.debuglog[0]) and re.search('------- +lwp', self.debuglog[1]):
+                    self.use_pstack = True
+                else:
+                    self.use_gdb = True
         else:
             if 'sunos' in sys.platform:
                 self.use_pstack = True

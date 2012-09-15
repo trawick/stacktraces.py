@@ -2,7 +2,7 @@
 ** Gatherers
 *** DONE Cores, pids, override mechanism
 *** DONE Simple gather-only script for download
-*** TODO Add label at top of debugger output file with collector tool version, OS version, etc.
+*** DONE Add label at top of debugger output file with collector tool version, OS version, etc.
 *** TODO Allow stuffing the debugger output from multiple pids in the same file
 ** Parsers, model
 *** DONE Support multiple processes in same invocation

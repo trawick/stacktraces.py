@@ -16,11 +16,30 @@
 #
 
 import os
+import re
 import subprocess
 import sys
 import tempfile
 
 from optparse import OptionParser
+
+HDR_EYECATCHER = 'REM collect.py'
+VERSION = '1.00'
+HDR_PREFIX = HDR_EYECATCHER + ' ' + VERSION
+
+def build_hdr(tool):
+    return HDR_PREFIX + ' TOOL=%s ' % tool + ' PYPLATFORM=%s ' % sys.platform + ' '.join(sys.argv)
+
+def is_hdr(l):
+    return l.index(HDR_EYECATCHER) == 0
+
+def get_tool(l):
+    if not is_hdr(l):
+        raise Exception('Bad header >%s< passed to get_tool()' % l)
+    m = re.search(' TOOL=([^ ]+) ', l)
+    if not m:
+        raise Exception('Bad header >%s< passed to get_tool()' % l)
+    return m.group(1)
 
 def gdb_collect(outfilename, pid, corefile, exe):
     if outfilename:
@@ -59,6 +78,9 @@ def gdb_collect(outfilename, pid, corefile, exe):
                exe,
                pid_or_core]
 
+    print >> outfile, build_hdr('gdb')
+    outfile.flush()
+
     try:
         rc = subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
     except:
@@ -92,6 +114,10 @@ def pstack_collect(outfilename, pid, corefile):
 
     cmdline = ['/usr/bin/pstack',
                pid_or_core]
+
+    print >> outfile, build_hdr('pstack')
+    outfile.flush()
+
     try:
         rc = subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
     except:
