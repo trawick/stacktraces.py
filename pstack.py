@@ -2,6 +2,7 @@ import re
 import subprocess
 import sys
 
+import collect
 import httpd
 import process_model
 
@@ -46,17 +47,4 @@ class pstack:
                 thr.set_exited()
 
     def get_output(self):
-        out = '/tmp/pstackout'
-        pid_or_core = self.pid
-        if not pid_or_core:
-            pid_or_core = self.corefile
-        cmdline = ['/usr/bin/pstack',
-                   pid_or_core]
-        outfile = open(out, "w")
-        try:
-            rc = subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
-        except:
-            raise Exception("couldn't run, error", sys.exc_info()[0])
-        outfile.close()
-
-        self.pstackout = open(out).readlines()
+        self.pstackout = collect.pstack_collect(None, self.pid, self.corefile)

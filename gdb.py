@@ -2,6 +2,7 @@ import re
 import subprocess
 import sys
 
+import collect
 import httpd
 import process_model
 
@@ -62,40 +63,4 @@ class gdb:
                     fr.add_var(m.group(1), m.group(2));
 
     def get_output(self):
-        scr = '/tmp/cmds'
-        scrfile = open(scr, "w")
-        print >> scrfile, 'info sharedlibrary'
-        print >> scrfile, 'info threads'
-        print >> scrfile, 'thread apply all bt full'
-        if not self.corefile:
-            print >> scrfile, 'detach'
-        print >> scrfile, 'quit'
-        scrfile.close()
-
-        out = '/tmp/gdbout'
-        if self.pid:
-            pid_or_core = str(self.pid)
-        else:
-            pid_or_core = self.corefile
-        if not pid_or_core:
-            raise Exception('Either a process id or core file must be provided')
-
-        if not self.exe:
-            raise Exception('An executable file must be provided')
-
-        cmdline = ['/usr/bin/gdb',
-                   '-n',
-                   '-batch',
-                   '-x',
-                   scr,
-                   self.exe,
-                   pid_or_core]
-
-        outfile = open(out, "w")
-        try:
-            rc = subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
-        except:
-            raise Exception("couldn't run, error", sys.exc_info()[0])
-        outfile.close()
-
-        self.gdbout = open(out).readlines()
+        self.gdbout = collect.gdb_collect(None, self.pid, self.corefile, self.exe)
