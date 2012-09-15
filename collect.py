@@ -106,7 +106,7 @@ def pstack_collect(outfilename, pid, corefile):
 
 def main():
     parser = OptionParser()
-    parser.add_option("-o", "--outfile", dest="debuglog", type="string",
+    parser.add_option("-l", "--debuglog", dest="debuglog", type="string",
                       action="store",
                       help="specify file for debugger output")
     parser.add_option("-p", "--pid", dest="pid", type="int",
@@ -125,7 +125,7 @@ def main():
     (options, args) = parser.parse_args()
 
     if not options.debuglog:
-        parser.error("--outfile is required.")
+        parser.error("--debuglog is required.")
 
     if not options.pid and not options.corefile:
         parser.error("Either --pid or --corefile is required.")
