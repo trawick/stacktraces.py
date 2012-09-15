@@ -56,6 +56,9 @@ parser.add_option("-i", "--infolvl", dest="infolvl", type="int",
 
 (options, args) = parser.parse_args()
 
+if not options.pid and not options.corefile and not options.debuglog:
+    parser.error("Either --pid or --corefile or --debuglog is required.")
+
 mutually_exclusive = {"debuglog": "pid",
                       "debuglog": "corefile",
                       "debuglog": "follow",

@@ -81,7 +81,9 @@ def pstack_collect(outfilename, pid, corefile):
         (outfilefd, fn) = tempfile.mkstemp()
         outfile = os.fdopen(outfilefd, "w")
 
-    pid_or_core = pid
+    pid_or_core = None
+    if pid:
+        pid_or_core = str(pid)
     if not pid_or_core:
         pid_or_core = corefile
 
@@ -123,7 +125,10 @@ def main():
     (options, args) = parser.parse_args()
 
     if not options.debuglog:
-        parser.error("--outfile is required")
+        parser.error("--outfile is required.")
+
+    if not options.pid and not options.corefile:
+        parser.error("Either --pid or --corefile is required.")
 
     mutually_exclusive = {"pid": "corefile",
 #                         "follow": "corefile"
@@ -131,7 +136,7 @@ def main():
 
     for (k,v) in mutually_exclusive.items():
         if eval('options.' + k) and eval('options.' + v):
-            parser.error("--%s and --%s are mutually exclusive" % (k, v))
+            parser.error("--%s and --%s are mutually exclusive." % (k, v))
 
     if 'sunos' in sys.platform:
         pstack_collect(options.debuglog, options.pid, options.corefile)
