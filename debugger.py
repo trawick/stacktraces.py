@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 
 import gdb
 import pstack
@@ -24,7 +25,7 @@ class debugger:
             else:
                 self.use_gdb = True
         else:
-            if os.access('/usr/bin/pstack', os.X_OK):
+            if 'sunos' in sys.platform:
                 self.use_pstack = True
             else:
                 self.use_gdb = True
