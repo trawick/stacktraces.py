@@ -39,6 +39,8 @@ class gdb:
         fr = None
         pending = None
         for l in self.gdbout:
+            if not l:
+                continue
             if '---Type <return' in l:
                 continue
             if pending:
