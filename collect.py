@@ -110,9 +110,9 @@ def main():
     parser.add_option("-p", "--pid", dest="pid", type="int",
                       action="store",
                       help="specify process id to analyze")
-    parser.add_option("-f", "--follow", dest="follow",
-                      action="store_true",
-                      help="describe child processes too")
+#   parser.add_option("-f", "--follow", dest="follow",
+#                     action="store_true",
+#                     help="describe child processes too")
     parser.add_option("-e", "--exe", dest="exe", type="string",
                       action="store",
                       help="point to executable for process")
@@ -126,7 +126,8 @@ def main():
         parser.error("--outfile is required")
 
     mutually_exclusive = {"pid": "corefile",
-                          "follow": "corefile"}
+#                         "follow": "corefile"
+                          }
 
     for (k,v) in mutually_exclusive.items():
         if eval('options.' + k) and eval('options.' + v):
