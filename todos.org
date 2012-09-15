@@ -3,19 +3,20 @@
 *** DONE Cores, pids, override mechanism
 *** DONE Simple gather-only script for download
 *** DONE Add label at top of debugger output file with collector tool version, OS version, etc.
-*** TODO Allow stuffing the debugger output from multiple pids in the same file
 ** Parsers, model
 *** DONE Support multiple processes in same invocation
 *** DONE Process group has processes
 *** DONE Process can have parallel representations of threads -- [] of threadgroups and [] of threads
-*** TODO Identify crashers
-*** TODO Don't delete frames; "hide" them instead.
-** Regression
-*** TODO Need rich set of logs created by gather-only script.
 ** Display
 *** TODO Web display
 * Release 2
+** Regression
+*** TODO Need rich set of logs created by gather-only script.
+** Gatherers
+*** TODO Allow stuffing the debugger output from multiple pids in the same file
 ** Parsers, model
 *** TODO Support Windows
 *** TODO Parsers shouldn't throw anything away; everything potentially useful should fit in the model
 *** TODO Identify third-party modules
+*** TODO Identify crashers
+*** TODO Don't delete frames; "hide" them instead.
