@@ -62,9 +62,22 @@ class thread:
         return s
 
     def description(self):
-        return {'tid': self.tid,
-                'name': self.name,
-                'state': self.state}
+        info = {}
+
+        if len(self.frames):
+            frames = []
+            for f in self.frames:
+                frames.append(f.description())
+            info['frames'] = frames
+
+        if self.tid:
+            info['tid'] = self.tid
+        if self.name:
+            info['name'] = self.name
+        if self.state:
+            info['state'] = self.state
+
+        return info
 
     def set_exited(self, flag = True):
         self.exited = flag
@@ -220,6 +233,12 @@ class frame:
 
     def add_var(self, var, val):
         self.vars[var] = val
+
+    def description(self):
+        return {'id': self.id,
+                'fn': self.fn,
+                'args': self.args,
+                'vars': self.vars}
 
 if __name__ == "__main__":
     print >> sys.stderr, "Don't run this directly."
