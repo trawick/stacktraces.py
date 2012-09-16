@@ -1,4 +1,5 @@
 import cgi
+import json
 
 from webob import Request
 
@@ -14,7 +15,7 @@ def application(environ, start_response):
 
     debugger_output = req.body.split('\n')
 
-    response_headers = [('Content-type', 'text/plain')]
+    response_headers = [('Content-type', 'application/json')]
     start_response(status, response_headers)
 
     p = process_model.process(None)
@@ -24,5 +25,6 @@ def application(environ, start_response):
     httpd.annotate(p)
     p.group()
 
-    output = p.describe(0)
+    output = json.dumps({"success": True, 'procinfo':p.description()})
+
     return [output]
