@@ -69,6 +69,9 @@ for (k,v) in mutually_exclusive.items():
     if eval('options.' + k) and eval('options.' + v):
         parser.error("--%s and --%s are mutually exclusive" % (k, v))
 
+if not options.pid and not options.corefile:
+    parser.error("Either --corefile or --pid must be specified")
+
 if options.debuglog:
     debuglog = open(options.debuglog).readlines()
 else:
