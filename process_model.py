@@ -61,6 +61,11 @@ class thread:
             s += ' ' + f.describe(level)
         return s
 
+    def description(self):
+        return {'tid': self.tid,
+                'name': self.name,
+                'state': self.state}
+
     def set_exited(self, flag = True):
         self.exited = flag
 
@@ -94,6 +99,12 @@ class threadgroup:
     def add_thread(self, thr):
 	self.threads.append(thr)
 
+    def description(self):
+        tids = []
+        for t in self.threads:
+            tids.append(t.tid)
+        return {'thread_ids': tids}
+
 class process_group:
 
     def __init__(self):
@@ -119,6 +130,13 @@ class process_group:
         else:
             return self.__str__()
 
+    def description(self):
+        procs = []
+        for p in self.processes:
+            procs.append(p.description())
+        return {'processgroupname': 'no-name',
+                'processes': procs}
+
 class process:
 
     def __init__(self, pid = None):
@@ -143,7 +161,18 @@ class process:
         else:
             s = self.__str__()
         return s
-            
+
+    def description(self):
+        threads = []
+        for t in self.threads:
+            threads.append(t.description())
+        threadgroups = []
+        for t in self.threadgroups:
+            threadgroups.append(t.description())
+        return {'processname': 'no-name',
+                'threads': threads,
+                'threadgroups': threadgroups}
+
     def add_thread(self, thr):
         self.threads.append(thr)
 
