@@ -15,6 +15,7 @@
 ** Gatherers
 *** TODO Allow stuffing the debugger output from multiple pids in the same file
 ** Parsers, model
+*** TODO Use unique ides for string values for smaller downloads
 *** TODO Support Windows
 *** TODO Parsers shouldn't throw anything away; everything potentially useful should fit in the model
 *** TODO Identify third-party modules
