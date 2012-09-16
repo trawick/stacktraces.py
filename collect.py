@@ -31,7 +31,7 @@ def build_hdr(tool):
     return HDR_PREFIX + ' TOOL=%s ' % tool + ' PYPLATFORM=%s ' % sys.platform + ' '.join(sys.argv)
 
 def is_hdr(l):
-    return l.index(HDR_EYECATCHER) == 0
+    return HDR_EYECATCHER in l
 
 def get_tool(l):
     if not is_hdr(l):
