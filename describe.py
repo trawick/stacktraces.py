@@ -53,11 +53,21 @@ parser.add_option("-c", "--corefile", dest="corefile", type="string",
 parser.add_option("-i", "--infolvl", dest="infolvl", type="int",
                   action="store",
                   help="specify level of information to be displayed")
+parser.add_option("--format", dest="format", type="string",
+                  action="store",
+                  help="output format -- text (default) or raw")
 
 (options, args) = parser.parse_args()
 
 if not options.pid and not options.corefile and not options.debuglog:
     parser.error("Either --pid or --corefile or --debuglog is required.")
+
+if options.format:
+    options.format = options.format.upper()
+    if not options.format == 'TEXT' and not options.format == 'RAW':
+        parser.error('Invalid value "%s" for --format' % options.format)
+else:
+    options.format = 'TEXT'
 
 mutually_exclusive = {"debuglog": "pid",
                       "debuglog": "corefile",
@@ -92,4 +102,7 @@ for pid in pids:
     httpd.annotate(p)
     p.group()
 
-print group.describe(options.infolvl)
+if options.format == 'TEXT':
+    print group.describe(options.infolvl)
+else:
+    print group.description()
