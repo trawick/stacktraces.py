@@ -263,10 +263,12 @@ class frame:
         self.vars[var] = val
 
     def description(self):
-        return {'id': self.id,
-                'fn': self.fn,
-                'args': self.args,
-                'vars': self.vars}
+        desc = {'id': self.id, 'fn': self.fn}
+        if self.args:
+            desc['args'] = self.args
+        if self.vars:
+            desc['vars'] = self.vars
+        return desc
 
 if __name__ == "__main__":
     print >> sys.stderr, "Don't run this directly."
