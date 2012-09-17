@@ -67,7 +67,7 @@ class pstack:
                 fn = m.group(2)
                 fnargs = m.group(3)
                 frameno += 1
-                fr = process_model.frame(frameno, fn)
+                fr = process_model.frame(frameno, fn, fnargs)
                 thr.add_frame(fr)
                 continue
             m = re.search('^ +([\da-f]+) +([^ ]+) *(\([^)]*\)), exit value =', l)
