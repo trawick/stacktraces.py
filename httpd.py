@@ -38,12 +38,14 @@ annotations = [
 ('s', ['cdb', 'ap_queue_pop', 'worker_thread'], 'waiting for connection to handle'),
 ('s', ['cdb', 'apr_pollset_poll', 'listener_thread'], 'waiting for connection to accept'),
 ('s', ['is', 'ap_event_pod_check'], 'waiting for termination event'),
+('s', ['is', 'ap_worker_pod_check'], 'waiting for termination event'),
 ('s', ['is', 'ap_mpm_pod_check'], 'waiting for termination event'),
 ('s', ['cdb', 'apr_proc_mutex_lock', 'listener_thread'], 'waiting for accept mutex'),
 ('s', ['cdb', 'apr_thread_join', 'child_main'], 'waiting for threads to exit'),
 ('s', ['is', '__1cIcm_sleep6FLl_v_'], 'idle'),
 ('s', ['is', '__1cPCSmWorkerThreadFSleep6MLl_v_'], 'idle'),
 ('s', ['is', 'ap_lingering_close'], 'waiting for client to acknowledge connection close'),
+('s', ['is', 'ap_run_handler'], 'running request handler'),
 ]
 
 # 'db': delete frames before
