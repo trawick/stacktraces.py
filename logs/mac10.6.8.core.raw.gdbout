@@ -1,0 +1,995 @@
+
+Thread 27 (core thread 26):
+#0  0x96028382 in kevent ()
+No symbol table info available.
+#1  0x00147ac8 in impl_pollset_poll (pollset=0x100e058, timeout=-1, num=0xb0db4f18, descriptors=0xb0db4f10) at poll/unix/kqueue.c:263
+	ret = 8804772
+	i = 1
+	j = 1389740
+	tv = {
+  tv_sec = 8542456, 
+  tv_nsec = -1777564698
+}
+	tvptr = (struct timespec *) 0x0
+	rv = 0
+	fd = {
+  p = 0xb0db5000, 
+  desc_type = APR_NO_DESC, 
+  reqevents = 20056, 
+  rtnevents = -20261, 
+  desc = {
+    f = 0x13e846, 
+    s = 0x13e846
+  }, 
+  client_data = 0x86584c
+}
+#2  0x001496d4 in apr_pollset_poll (pollset=0x100e058, timeout=-1, num=0xb0db4f18, descriptors=0xb0db4f10) at poll/unix/pollset.c:343
+No locals.
+#3  0x0033b858 in listener_thread ()
+No symbol table info available.
+#4  0x0014f78e in dummy_worker (opaque=0x865db0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865db0
+#5  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#6  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 26 (core thread 25):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865d90) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865d90
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 25 (core thread 24):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x973e60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 12, 
+  events = 1, 
+  revents = 17
+}
+	rc = 204195
+	timeout = 2000
+#2  0x00143576 in apr_socket_recv (sock=0x973e60, buf=0xb0cb0c9c "", len=0xb0cb0c98) at network_io/unix/sendrecv.c:87
+	rv = 1
+	arv = -1328870280
+#3  0x00019273 in ap_lingering_close ()
+No symbol table info available.
+#4  0x0033b1bd in process_socket ()
+No symbol table info available.
+#5  0x0033c012 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865d70) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865d70
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 24 (core thread 23):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865d50) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865d50
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 23 (core thread 22):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865d30) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865d30
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 22 (core thread 21):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865d10) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865d10
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 21 (core thread 20):
+#0  0x00131e22 in apr_vformatter (flush_func=0x1339a1 <snprintf_flush>, vbuff=0xb0aa4960, fmt=0x58183 "d", ap=0xb0aa498c "Ë\035") at strings/apr_snprintf.c:749
+	print_something = YES
+	sp = 0xb0aa6b06 ""
+	bep = 0xb0aa8acb "°±`¸G\030~œ"
+	cc = 0
+	i = 0
+	s = 0x0
+	q = 0xb0aa477c "Ž"
+	s_len = 0
+	min_width = 0
+	precision = 0
+	adjust = RIGHT
+	pad_char = 32 ' '
+	prefix_char = 0 '\0'
+	fp_num = 0
+	i_quad = 0
+	ui_quad = 7313534736138241
+	i_num = 0
+	ui_num = 0
+	num_buf = "ÿÿÿÿÿÿÿÿ´\001\000PŽ\000\000k\001\000Jì\bDåÉ\004\000@B\017\000\000\000\000\000\a\000\000\000\000\000\000\000`\035WP", '\0' <repeats 12 times>, "Jì\bDåÉ\004\000\000\000\000\000`\035WP\000\000\000\000Ž\000\000\0004\000\000\0005\000\000\000\b\000\000\000\021\000\000\000\b\000\000\000p\000\000\000\001\000\000\000\004\001\000\000ÿÿÿÿPŽ\000\000ÈGª°¦\001\000\fIª°\fHª°,\000\000\000ÿÿÿÿÿÿÿÿ´\001\000PŽ\000\000k\001\000\r¢\tDåÉ\004\000@B\017", '\0' <repeats 13 times>, "a\035WP", '\0' <repeats 12 times>, "\r¢\t"...
+	char_buf = ","
+	var_type = IS_INT
+	alternate_form = NO
+	print_sign = NO
+	print_blank = NO
+	adjust_precision = 3
+	adjust_width = NO
+	is_negative = 0
+#1  0x00133a0a in apr_snprintf (buf=0xb0aa6b06 "", len=8134, format=0x58182 "%d") at strings/apr_snprintf.c:1379
+	cc = -1331008762
+	ap = 0xb0aa498c "Ë\035"
+	vbuff = {
+  curpos = 0xb0aa6b06 "", 
+  endpos = 0xb0aa8acb "°±`¸G\030~œ"
+}
+#2  0x00008ddf in log_pid ()
+No symbol table info available.
+#3  0x0000a214 in do_errorlog_format ()
+No symbol table info available.
+#4  0x0000a96d in log_error_core ()
+No symbol table info available.
+#5  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#6  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#7  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#8  0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#9  0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#10 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#11 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#12 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#13 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#14 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#15 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#16 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#17 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#18 0x0033c012 in worker_thread ()
+No symbol table info available.
+#19 0x0014f78e in dummy_worker (opaque=0x865cf0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865cf0
+#20 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#21 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 20 (core thread 19):
+#0  0x96024be6 in write$UNIX2003 ()
+No symbol table info available.
+#1  0x0013bf57 in apr_file_write (thefile=0x804058, buf=0xb0a24a3c, nbytes=0xb0a24924) at file_io/unix/readwrite.c:188
+	rv = 10444341
+#2  0x0013a63e in apr_file_write_full (thefile=0x804058, buf=0xb0a24a3c, nbytes=188, bytes_written=0x0) at file_io/unix/fullrw.c:53
+	amt = 188
+	status = 41706
+	total_written = 0
+#3  0x0013c275 in apr_file_puts (str=0xb0a24a3c "[Mon Sep 17 08:53:53.006022 2012] [authz_core:debug] [pid 7627:tid 2963435520] mod_authz_core.c(783): [client 127.0.0.1:5609] AH01626: authorization result of Require all granted: granted\n", thefile=0x804058) at file_io/unix/readwrite.c:306
+No locals.
+#4  0x0000a35c in write_logline ()
+No symbol table info available.
+#5  0x0000aa0b in log_error_core ()
+No symbol table info available.
+#6  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#7  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#8  0x0019e9b9 in apply_authz_sections ()
+No symbol table info available.
+#9  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#10 0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#11 0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#12 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#13 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#14 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#15 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#16 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#17 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#18 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#19 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#20 0x0033c012 in worker_thread ()
+No symbol table info available.
+#21 0x0014f78e in dummy_worker (opaque=0x865cd0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865cd0
+#22 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#23 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 19 (core thread 18):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865cb0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865cb0
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 18 (core thread 17):
+#0  0x96024be6 in write$UNIX2003 ()
+No symbol table info available.
+#1  0x0013bf57 in apr_file_write (thefile=0x804058, buf=0xb0920a3c, nbytes=0xb0920924) at file_io/unix/readwrite.c:188
+	rv = 10444405
+#2  0x0013a63e in apr_file_write_full (thefile=0x804058, buf=0xb0920a3c, nbytes=188, bytes_written=0x0) at file_io/unix/fullrw.c:53
+	amt = 188
+	status = 41706
+	total_written = 0
+#3  0x0013c275 in apr_file_puts (str=0xb0920a3c "[Mon Sep 17 08:53:53.006300 2012] [authz_core:debug] [pid 7627:tid 2962370560] mod_authz_core.c(783): [client 127.0.0.1:5613] AH01626: authorization result of Require all granted: granted\n", thefile=0x804058) at file_io/unix/readwrite.c:306
+No locals.
+#4  0x0000a35c in write_logline ()
+No symbol table info available.
+#5  0x0000aa0b in log_error_core ()
+No symbol table info available.
+#6  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#7  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#8  0x0019e9b9 in apply_authz_sections ()
+No symbol table info available.
+#9  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#10 0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#11 0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#12 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#13 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#14 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#15 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#16 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#17 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#18 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#19 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#20 0x0033c012 in worker_thread ()
+No symbol table info available.
+#21 0x0014f78e in dummy_worker (opaque=0x865c90) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865c90
+#22 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#23 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 17 (core thread 16):
+#0  0x96024be6 in write$UNIX2003 ()
+No symbol table info available.
+#1  0x0013bf57 in apr_file_write (thefile=0x804058, buf=0xb089ea3c, nbytes=0xb089e924) at file_io/unix/readwrite.c:188
+	rv = 10444437
+#2  0x0013a63e in apr_file_write_full (thefile=0x804058, buf=0xb089ea3c, nbytes=188, bytes_written=0x0) at file_io/unix/fullrw.c:53
+	amt = 188
+	status = 41706
+	total_written = 0
+#3  0x0013c275 in apr_file_puts (str=0xb089ea3c "[Mon Sep 17 08:53:53.006239 2012] [authz_core:debug] [pid 7627:tid 2961838080] mod_authz_core.c(783): [client 127.0.0.1:5612] AH01626: authorization result of Require all granted: granted\n", thefile=0x804058) at file_io/unix/readwrite.c:306
+No locals.
+#4  0x0000a35c in write_logline ()
+No symbol table info available.
+#5  0x0000aa0b in log_error_core ()
+No symbol table info available.
+#6  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#7  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#8  0x0019e9b9 in apply_authz_sections ()
+No symbol table info available.
+#9  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#10 0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#11 0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#12 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#13 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#14 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#15 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#16 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#17 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#18 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#19 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#20 0x0033c012 in worker_thread ()
+No symbol table info available.
+#21 0x0014f78e in dummy_worker (opaque=0x865c70) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865c70
+#22 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#23 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 16 (core thread 15):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865c50) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865c50
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 15 (core thread 14):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865c30) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865c30
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 14 (core thread 13):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x96fe60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 13, 
+  events = 1, 
+  revents = 17
+}
+	rc = 204195
+	timeout = 2000
+#2  0x00143576 in apr_socket_recv (sock=0x96fe60, buf=0xb071ac9c "", len=0xb071ac98) at network_io/unix/sendrecv.c:87
+	rv = 1
+	arv = -1334727560
+#3  0x00019273 in ap_lingering_close ()
+No symbol table info available.
+#4  0x0033b1bd in process_socket ()
+No symbol table info available.
+#5  0x0033c012 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865c10) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865c10
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 13 (core thread 12):
+#0  0x003b7c68 in crash_request ()
+No symbol table info available.
+#1  0x003b7dca in crash_handler ()
+No symbol table info available.
+#2  0x000025aa in ap_run_handler ()
+No symbol table info available.
+#3  0x00002dfa in ap_invoke_handler ()
+No symbol table info available.
+#4  0x00047d38 in ap_process_async_request ()
+No symbol table info available.
+#5  0x00047e0d in ap_process_request ()
+No symbol table info available.
+#6  0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#7  0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#8  0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#9  0x000193ab in ap_process_connection ()
+No symbol table info available.
+#10 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#11 0x0033c012 in worker_thread ()
+No symbol table info available.
+#12 0x0014f78e in dummy_worker (opaque=0x865bf0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865bf0
+#13 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#14 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 12 (core thread 11):
+#0  0x96024be6 in write$UNIX2003 ()
+No symbol table info available.
+#1  0x0013bf57 in apr_file_write (thefile=0x804058, buf=0xb0614a3c, nbytes=0xb0614924) at file_io/unix/readwrite.c:188
+	rv = 10443061
+#2  0x0013a63e in apr_file_write_full (thefile=0x804058, buf=0xb0614a3c, nbytes=188, bytes_written=0x0) at file_io/unix/fullrw.c:53
+	amt = 188
+	status = 41706
+	total_written = 0
+#3  0x0013c275 in apr_file_puts (str=0xb0614a3c "[Mon Sep 17 08:53:53.005185 2012] [authz_core:debug] [pid 7627:tid 2959175680] mod_authz_core.c(783): [client 127.0.0.1:5603] AH01626: authorization result of Require all granted: granted\n", thefile=0x804058) at file_io/unix/readwrite.c:306
+No locals.
+#4  0x0000a35c in write_logline ()
+No symbol table info available.
+#5  0x0000aa0b in log_error_core ()
+No symbol table info available.
+#6  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#7  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#8  0x0019e9b9 in apply_authz_sections ()
+No symbol table info available.
+#9  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#10 0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#11 0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#12 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#13 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#14 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#15 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#16 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#17 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#18 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#19 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#20 0x0033c012 in worker_thread ()
+No symbol table info available.
+#21 0x0014f78e in dummy_worker (opaque=0x865bd0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865bd0
+#22 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#23 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 11 (core thread 10):
+#0  0x96024be6 in write$UNIX2003 ()
+No symbol table info available.
+#1  0x0013bf57 in apr_file_write (thefile=0x804058, buf=0xb0592a3c, nbytes=0xb0592924) at file_io/unix/readwrite.c:188
+	rv = 10443093
+#2  0x0013a63e in apr_file_write_full (thefile=0x804058, buf=0xb0592a3c, nbytes=188, bytes_written=0x0) at file_io/unix/fullrw.c:53
+	amt = 188
+	status = 41706
+	total_written = 0
+#3  0x0013c275 in apr_file_puts (str=0xb0592a3c "[Mon Sep 17 08:53:53.005277 2012] [authz_core:debug] [pid 7627:tid 2958643200] mod_authz_core.c(783): [client 127.0.0.1:5604] AH01626: authorization result of Require all granted: granted\n", thefile=0x804058) at file_io/unix/readwrite.c:306
+No locals.
+#4  0x0000a35c in write_logline ()
+No symbol table info available.
+#5  0x0000aa0b in log_error_core ()
+No symbol table info available.
+#6  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#7  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#8  0x0019e9b9 in apply_authz_sections ()
+No symbol table info available.
+#9  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#10 0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#11 0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#12 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#13 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#14 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#15 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#16 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#17 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#18 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#19 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#20 0x0033c012 in worker_thread ()
+No symbol table info available.
+#21 0x0014f78e in dummy_worker (opaque=0x865bb0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865bb0
+#22 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#23 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 10 (core thread 9):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x979e60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 17, 
+  events = 1, 
+  revents = 17
+}
+	rc = 204195
+	timeout = 2000
+#2  0x00143576 in apr_socket_recv (sock=0x979e60, buf=0xb0512c9c "", len=0xb0512c98) at network_io/unix/sendrecv.c:87
+	rv = 1
+	arv = -1336857480
+#3  0x00019273 in ap_lingering_close ()
+No symbol table info available.
+#4  0x0033b1bd in process_socket ()
+No symbol table info available.
+#5  0x0033c012 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865b90) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865b90
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 9 (core thread 8):
+#0  0x96024be6 in write$UNIX2003 ()
+No symbol table info available.
+#1  0x0013bf57 in apr_file_write (thefile=0x804058, buf=0xb048ea3c, nbytes=0xb048e924) at file_io/unix/readwrite.c:188
+	rv = 10443157
+#2  0x0013a63e in apr_file_write_full (thefile=0x804058, buf=0xb048ea3c, nbytes=188, bytes_written=0x0) at file_io/unix/fullrw.c:53
+	amt = 188
+	status = 41706
+	total_written = 0
+#3  0x0013c275 in apr_file_puts (str=0xb048ea3c "[Mon Sep 17 08:53:53.006177 2012] [authz_core:debug] [pid 7627:tid 2957578240] mod_authz_core.c(783): [client 127.0.0.1:5611] AH01626: authorization result of Require all granted: granted\n", thefile=0x804058) at file_io/unix/readwrite.c:306
+No locals.
+#4  0x0000a35c in write_logline ()
+No symbol table info available.
+#5  0x0000aa0b in log_error_core ()
+No symbol table info available.
+#6  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#7  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#8  0x0019e9b9 in apply_authz_sections ()
+No symbol table info available.
+#9  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#10 0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#11 0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#12 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#13 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#14 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#15 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#16 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#17 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#18 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#19 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#20 0x0033c012 in worker_thread ()
+No symbol table info available.
+#21 0x0014f78e in dummy_worker (opaque=0x865b70) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865b70
+#22 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#23 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 8 (core thread 7):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865b50) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865b50
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 7 (core thread 6):
+#0  0x96024be6 in write$UNIX2003 ()
+No symbol table info available.
+#1  0x0013bf57 in apr_file_write (thefile=0x804058, buf=0xb038aa3c, nbytes=0xb038a924) at file_io/unix/readwrite.c:188
+	rv = 10443221
+#2  0x0013a63e in apr_file_write_full (thefile=0x804058, buf=0xb038aa3c, nbytes=188, bytes_written=0x0) at file_io/unix/fullrw.c:53
+	amt = 188
+	status = 41706
+	total_written = 0
+#3  0x0013c275 in apr_file_puts (str=0xb038aa3c "[Mon Sep 17 08:53:53.005683 2012] [authz_core:debug] [pid 7627:tid 2956513280] mod_authz_core.c(783): [client 127.0.0.1:5606] AH01626: authorization result of Require all granted: granted\n", thefile=0x804058) at file_io/unix/readwrite.c:306
+No locals.
+#4  0x0000a35c in write_logline ()
+No symbol table info available.
+#5  0x0000aa0b in log_error_core ()
+No symbol table info available.
+#6  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#7  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#8  0x0019e9b9 in apply_authz_sections ()
+No symbol table info available.
+#9  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#10 0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#11 0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#12 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#13 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#14 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#15 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#16 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#17 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#18 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#19 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#20 0x0033c012 in worker_thread ()
+No symbol table info available.
+#21 0x0014f78e in dummy_worker (opaque=0x865b30) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865b30
+#22 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#23 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 6 (core thread 5):
+#0  0x96024be6 in write$UNIX2003 ()
+No symbol table info available.
+#1  0x0013bf57 in apr_file_write (thefile=0x804058, buf=0xb0308a3c, nbytes=0xb0308924) at file_io/unix/readwrite.c:188
+	rv = 10443253
+#2  0x0013a63e in apr_file_write_full (thefile=0x804058, buf=0xb0308a3c, nbytes=188, bytes_written=0x0) at file_io/unix/fullrw.c:53
+	amt = 188
+	status = 41706
+	total_written = 0
+#3  0x0013c275 in apr_file_puts (str=0xb0308a3c "[Mon Sep 17 08:53:53.005363 2012] [authz_core:debug] [pid 7627:tid 2955980800] mod_authz_core.c(783): [client 127.0.0.1:5605] AH01626: authorization result of Require all granted: granted\n", thefile=0x804058) at file_io/unix/readwrite.c:306
+No locals.
+#4  0x0000a35c in write_logline ()
+No symbol table info available.
+#5  0x0000aa0b in log_error_core ()
+No symbol table info available.
+#6  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#7  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#8  0x0019e9b9 in apply_authz_sections ()
+No symbol table info available.
+#9  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#10 0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#11 0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#12 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#13 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#14 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#15 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#16 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#17 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#18 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#19 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#20 0x0033c012 in worker_thread ()
+No symbol table info available.
+#21 0x0014f78e in dummy_worker (opaque=0x865b10) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865b10
+#22 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#23 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 5 (core thread 4):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865af0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865af0
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 4 (core thread 3):
+#0  0x96024be6 in write$UNIX2003 ()
+No symbol table info available.
+#1  0x0013bf57 in apr_file_write (thefile=0x804058, buf=0xb0204a3c, nbytes=0xb0204924) at file_io/unix/readwrite.c:188
+	rv = 10442805
+#2  0x0013a63e in apr_file_write_full (thefile=0x804058, buf=0xb0204a3c, nbytes=188, bytes_written=0x0) at file_io/unix/fullrw.c:53
+	amt = 188
+	status = 41706
+	total_written = 0
+#3  0x0013c275 in apr_file_puts (str=0xb0204a3c "[Mon Sep 17 08:53:53.005960 2012] [authz_core:debug] [pid 7627:tid 2954915840] mod_authz_core.c(783): [client 127.0.0.1:5608] AH01626: authorization result of Require all granted: granted\n", thefile=0x804058) at file_io/unix/readwrite.c:306
+No locals.
+#4  0x0000a35c in write_logline ()
+No symbol table info available.
+#5  0x0000aa0b in log_error_core ()
+No symbol table info available.
+#6  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#7  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#8  0x0019e9b9 in apply_authz_sections ()
+No symbol table info available.
+#9  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#10 0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#11 0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#12 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#13 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#14 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#15 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#16 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#17 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#18 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#19 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#20 0x0033c012 in worker_thread ()
+No symbol table info available.
+#21 0x0014f78e in dummy_worker (opaque=0x865ad0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865ad0
+#22 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#23 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 3 (core thread 2):
+#0  0x96024be6 in write$UNIX2003 ()
+No symbol table info available.
+#1  0x0013bf57 in apr_file_write (thefile=0x804058, buf=0xb0182a3c, nbytes=0xb0182924) at file_io/unix/readwrite.c:188
+	rv = 10442837
+#2  0x0013a63e in apr_file_write_full (thefile=0x804058, buf=0xb0182a3c, nbytes=188, bytes_written=0x0) at file_io/unix/fullrw.c:53
+	amt = 188
+	status = 41706
+	total_written = 0
+#3  0x0013c275 in apr_file_puts (str=0xb0182a3c "[Mon Sep 17 08:53:52.971880 2012] [authz_core:debug] [pid 7627:tid 2954383360] mod_authz_core.c(783): [client 127.0.0.1:5602] AH01626: authorization result of Require all granted: granted\n", thefile=0x804058) at file_io/unix/readwrite.c:306
+No locals.
+#4  0x0000a35c in write_logline ()
+No symbol table info available.
+#5  0x0000aa0b in log_error_core ()
+No symbol table info available.
+#6  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#7  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#8  0x0019e9b9 in apply_authz_sections ()
+No symbol table info available.
+#9  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#10 0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#11 0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#12 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#13 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#14 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#15 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#16 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#17 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#18 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#19 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#20 0x0033c012 in worker_thread ()
+No symbol table info available.
+#21 0x0014f78e in dummy_worker (opaque=0x865ab0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865ab0
+#22 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#23 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 2 (core thread 1):
+#0  0x96024be6 in write$UNIX2003 ()
+No symbol table info available.
+#1  0x0013bf57 in apr_file_write (thefile=0x804058, buf=0xb0100a3c, nbytes=0xb0100924) at file_io/unix/readwrite.c:188
+	rv = 10442869
+#2  0x0013a63e in apr_file_write_full (thefile=0x804058, buf=0xb0100a3c, nbytes=188, bytes_written=0x0) at file_io/unix/fullrw.c:53
+	amt = 188
+	status = 41706
+	total_written = 0
+#3  0x0013c275 in apr_file_puts (str=0xb0100a3c "[Mon Sep 17 08:53:53.006084 2012] [authz_core:debug] [pid 7627:tid 2953850880] mod_authz_core.c(783): [client 127.0.0.1:5610] AH01626: authorization result of Require all granted: granted\n", thefile=0x804058) at file_io/unix/readwrite.c:306
+No locals.
+#4  0x0000a35c in write_logline ()
+No symbol table info available.
+#5  0x0000aa0b in log_error_core ()
+No symbol table info available.
+#6  0x0000aba2 in ap_log_rerror_ ()
+No symbol table info available.
+#7  0x0019eb3b in apply_authz_sections ()
+No symbol table info available.
+#8  0x0019e9b9 in apply_authz_sections ()
+No symbol table info available.
+#9  0x0019ecc0 in authorize_user_core ()
+No symbol table info available.
+#10 0x0019ef5b in authorize_userless ()
+No symbol table info available.
+#11 0x000338dc in ap_run_access_checker_ex ()
+No symbol table info available.
+#12 0x00034314 in ap_process_request_internal ()
+No symbol table info available.
+#13 0x00047d24 in ap_process_async_request ()
+No symbol table info available.
+#14 0x00047e0d in ap_process_request ()
+No symbol table info available.
+#15 0x00043cf0 in ap_process_http_sync_connection ()
+No symbol table info available.
+#16 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#17 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#18 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#19 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#20 0x0033c012 in worker_thread ()
+No symbol table info available.
+#21 0x0014f78e in dummy_worker (opaque=0x865a90) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865a90
+#22 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#23 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 1 (core thread 0):
+#0  0x9600ce5e in read$UNIX2003 ()
+No symbol table info available.
+#1  0x00340ed0 in ap_worker_pod_check ()
+No symbol table info available.
+#2  0x0033cef5 in child_main ()
+No symbol table info available.
+#3  0x0033d0d0 in make_child ()
+No symbol table info available.
+#4  0x0033d185 in startup_children ()
+No symbol table info available.
+#5  0x0033dd7b in worker_run ()
+No symbol table info available.
+#6  0x0001bf69 in ap_run_mpm ()
+No symbol table info available.
+#7  0x0000e51d in main ()
+No symbol table info available.
