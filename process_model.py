@@ -154,11 +154,18 @@ class process:
 
     def __init__(self, pid = None):
         self.pid = pid
+        self.exe = None
         self.threads = []
 	self.threadgroups = []
 
     def __str__(self):
         s = ''
+        if self.pid:
+            s += 'Pid %s ' % self.pid
+        if self.exe:
+            s += 'Executable %s ' % self.exe
+        if s != '':
+            s += '\n'
         for tg in self.threadgroups:
 	    s += '%d * ' % len(tg.threads)
             s += tg.__str__()
@@ -168,6 +175,12 @@ class process:
     def describe(self, level = 0):
         if level >= 1:
             s = ''
+            if self.pid:
+                s += 'Pid %s ' % self.pid
+            if self.exe:
+                s += 'Executable %s ' % self.exe
+            if s != '':
+                s += '\n'
             for t in self.threads:
                 s += t.describe(level)
                 s += '\n'
@@ -182,9 +195,14 @@ class process:
         threadgroups = []
         for t in self.threadgroups:
             threadgroups.append(t.description())
-        return {'processname': 'no-name',
+        data = {'processname': 'no-name',
                 'threads': threads,
                 'threadgroups': threadgroups}
+        if self.pid:
+            data['pid'] = self.pid
+        if self.exe:
+            data['exe'] = self.exe
+        return data
 
     def add_thread(self, thr):
         self.threads.append(thr)
