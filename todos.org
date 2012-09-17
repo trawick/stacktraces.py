@@ -36,6 +36,7 @@
 *** TODO Add some color coding
 *** TODO Make that upload button prettier
 *** TODO Display current version of collect.py in the explorer and download pages
+*** TODO Test final version in Safari and Firefox
 ** Web server
 *** DONE Put a limit on upload size
 *** TODO Upload latest collect.py
