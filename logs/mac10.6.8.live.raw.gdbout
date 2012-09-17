@@ -1,0 +1,961 @@
+
+Thread 27 (process 7860):
+#0  0x96028382 in kevent ()
+No symbol table info available.
+#1  0x00147ac8 in impl_pollset_poll (pollset=0x100a058, timeout=-1, num=0xb0db4f18, descriptors=0xb0db4f10) at poll/unix/kqueue.c:263
+	ret = 8804772
+	i = 1
+	j = 1389740
+	tv = {
+  tv_sec = 8542456, 
+  tv_nsec = -1777564698
+}
+	tvptr = (struct timespec *) 0x0
+	rv = 0
+	fd = {
+  p = 0xb0db5000, 
+  desc_type = APR_NO_DESC, 
+  reqevents = 20056, 
+  rtnevents = -20261, 
+  desc = {
+    f = 0x13e846, 
+    s = 0x13e846
+  }, 
+  client_data = 0x86584c
+}
+#2  0x001496d4 in apr_pollset_poll (pollset=0x100a058, timeout=-1, num=0xb0db4f18, descriptors=0xb0db4f10) at poll/unix/pollset.c:343
+No locals.
+warning: .o file "/Users/trawick/svn/2.4.x/server/mpm/worker/.libs/worker.o" more recent than executable timestamp in "/Users/trawick/inst/24/modules/mod_mpm_worker.so"
+warning: Couldn't open object file '/Users/trawick/svn/2.4.x/server/mpm/worker/.libs/worker.o'
+#3  0x0033b858 in listener_thread ()
+No symbol table info available.
+#4  0x0014f78e in dummy_worker (opaque=0x865db0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865db0
+#5  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#6  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 26 (process 7860):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+warning: .o file "/Users/trawick/svn/2.4.x/server/mpm/worker/.libs/fdqueue.o" more recent than executable timestamp in "/Users/trawick/inst/24/modules/mod_mpm_worker.so"
+warning: Couldn't open object file '/Users/trawick/svn/2.4.x/server/mpm/worker/.libs/fdqueue.o'
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865d90) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865d90
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 25 (process 7860):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865d70) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865d70
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 24 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x971e60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 22, 
+  events = 1, 
+  revents = 1
+}
+	rc = 1305643
+	timeout = 60000
+#2  0x00143576 in apr_socket_recv (sock=0x971e60, buf=0x9a7e28 "", len=0xb0c2eb84) at network_io/unix/sendrecv.c:87
+	rv = -1
+	arv = 10083840
+#3  0x000dcc3d in socket_bucket_read (a=0x99de38, str=0xb0c2eb88, len=0xb0c2eb84, block=APR_BLOCK_READ) at buckets/apr_buckets_socket.c:36
+	p = (apr_socket_t *) 0x971e60
+	buf = 0x9a7e28 ""
+	rv = 0
+	timeout = 43310312773910573
+#4  0x000da34d in apr_brigade_split_line (bbOut=0x9a6aa0, bbIn=0x972348, block=APR_BLOCK_READ, maxbytes=8192) at buckets/apr_brigade.c:319
+	str = 0x0
+	len = 8000
+	rv = 8
+	e = (apr_bucket *) 0x99de38
+	pos = 0x8af648 "\017(\003"
+	readbytes = 0
+warning: .o file "/Users/trawick/svn/2.4.x/server/.libs/libmain.a(core_filters.o)" more recent than executable timestamp in "/Users/trawick/inst/24/bin/httpd"
+warning: Couldn't open object file '/Users/trawick/svn/2.4.x/server/.libs/libmain.a(core_filters.o)'
+#5  0x00038c76 in ap_core_input_filter ()
+No symbol table info available.
+warning: .o file "/Users/trawick/svn/2.4.x/server/.libs/libmain.a(util_filter.o)" more recent than executable timestamp in "/Users/trawick/inst/24/bin/httpd"
+warning: Couldn't open object file '/Users/trawick/svn/2.4.x/server/.libs/libmain.a(util_filter.o)'
+#6  0x000218e1 in ap_get_brigade ()
+No symbol table info available.
+warning: .o file "/Users/trawick/svn/2.4.x/server/.libs/libmain.a(protocol.o)" more recent than executable timestamp in "/Users/trawick/inst/24/bin/httpd"
+warning: Couldn't open object file '/Users/trawick/svn/2.4.x/server/.libs/libmain.a(protocol.o)'
+#7  0x000244c9 in ap_rgetline_core ()
+No symbol table info available.
+#8  0x00024cf1 in read_request_line ()
+No symbol table info available.
+#9  0x00025e09 in ap_read_request ()
+No symbol table info available.
+warning: .o file "/Users/trawick/svn/2.4.x/modules/http/.libs/libmod_http.a(http_core.o)" more recent than executable timestamp in "/Users/trawick/inst/24/bin/httpd"
+warning: Couldn't open object file '/Users/trawick/svn/2.4.x/modules/http/.libs/libmod_http.a(http_core.o)'
+#10 0x00043daa in ap_process_http_sync_connection ()
+No symbol table info available.
+#11 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+warning: .o file "/Users/trawick/svn/2.4.x/server/.libs/libmain.a(connection.o)" more recent than executable timestamp in "/Users/trawick/inst/24/bin/httpd"
+warning: Couldn't open object file '/Users/trawick/svn/2.4.x/server/.libs/libmain.a(connection.o)'
+#12 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#13 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#14 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#15 0x0033c012 in worker_thread ()
+No symbol table info available.
+#16 0x0014f78e in dummy_worker (opaque=0x865d50) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865d50
+#17 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#18 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 23 (process 7860):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865d30) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865d30
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 22 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x96de60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 26, 
+  events = 1, 
+  revents = 17
+}
+	rc = 204195
+	timeout = 2000
+#2  0x00143576 in apr_socket_recv (sock=0x96de60, buf=0xb0b2ac9c "", len=0xb0b2ac98) at network_io/unix/sendrecv.c:87
+	rv = 1
+	arv = -1330467720
+#3  0x00019273 in ap_lingering_close ()
+No symbol table info available.
+#4  0x0033b1bd in process_socket ()
+No symbol table info available.
+#5  0x0033c012 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865d10) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865d10
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 21 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x9f3e60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 15, 
+  events = 1, 
+  revents = 1
+}
+	rc = 1305643
+	timeout = 60000
+#2  0x00143576 in apr_socket_recv (sock=0x9f3e60, buf=0x1094028 "", len=0xb0aa8b84) at network_io/unix/sendrecv.c:87
+	rv = -1
+	arv = 17358848
+#3  0x000dcc3d in socket_bucket_read (a=0x108e038, str=0xb0aa8b88, len=0xb0aa8b84, block=APR_BLOCK_READ) at buckets/apr_buckets_socket.c:36
+	p = (apr_socket_t *) 0x9f3e60
+	buf = 0x1094028 ""
+	rv = 0
+	timeout = 74556234212048941
+#4  0x000da34d in apr_brigade_split_line (bbOut=0x1096ca0, bbIn=0x9f4348, block=APR_BLOCK_READ, maxbytes=8192) at buckets/apr_brigade.c:319
+	str = 0x0
+	len = 8000
+	rv = 8
+	e = (apr_bucket *) 0x108e038
+	pos = 0x8af648 "\017(\003"
+	readbytes = 0
+#5  0x00038c76 in ap_core_input_filter ()
+No symbol table info available.
+#6  0x000218e1 in ap_get_brigade ()
+No symbol table info available.
+#7  0x000244c9 in ap_rgetline_core ()
+No symbol table info available.
+#8  0x00024cf1 in read_request_line ()
+No symbol table info available.
+#9  0x00025e09 in ap_read_request ()
+No symbol table info available.
+#10 0x00043daa in ap_process_http_sync_connection ()
+No symbol table info available.
+#11 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#12 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#13 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#14 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#15 0x0033c012 in worker_thread ()
+No symbol table info available.
+#16 0x0014f78e in dummy_worker (opaque=0x865cf0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865cf0
+#17 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#18 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 20 (process 7860):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865cd0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865cd0
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 19 (process 7860):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865cb0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865cb0
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 18 (process 7860):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865c90) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865c90
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 17 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x9e9e60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 16, 
+  events = 1, 
+  revents = 1
+}
+	rc = 1305643
+	timeout = 60000
+#2  0x00143576 in apr_socket_recv (sock=0x9e9e60, buf=0x9efe28 "", len=0xb08a0b84) at network_io/unix/sendrecv.c:87
+	rv = -1
+	arv = 10403328
+#3  0x000dcc3d in socket_bucket_read (a=0x9ebe38, str=0xb08a0b88, len=0xb08a0b84, block=APR_BLOCK_READ) at buckets/apr_buckets_socket.c:36
+	p = (apr_socket_t *) 0x9e9e60
+	buf = 0x9efe28 ""
+	rv = 0
+	timeout = 44682503285375021
+#4  0x000da34d in apr_brigade_split_line (bbOut=0x9eeaa0, bbIn=0x9ea348, block=APR_BLOCK_READ, maxbytes=8192) at buckets/apr_brigade.c:319
+	str = 0x0
+	len = 8000
+	rv = 8
+	e = (apr_bucket *) 0x9ebe38
+	pos = 0x8af648 "\017(\003"
+	readbytes = 0
+#5  0x00038c76 in ap_core_input_filter ()
+No symbol table info available.
+#6  0x000218e1 in ap_get_brigade ()
+No symbol table info available.
+#7  0x000244c9 in ap_rgetline_core ()
+No symbol table info available.
+#8  0x00024cf1 in read_request_line ()
+No symbol table info available.
+#9  0x00025e09 in ap_read_request ()
+No symbol table info available.
+#10 0x00043daa in ap_process_http_sync_connection ()
+No symbol table info available.
+#11 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#12 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#13 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#14 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#15 0x0033c012 in worker_thread ()
+No symbol table info available.
+#16 0x0014f78e in dummy_worker (opaque=0x865c70) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865c70
+#17 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#18 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 16 (process 7860):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865c50) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865c50
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 15 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x977e60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 12, 
+  events = 1, 
+  revents = 17
+}
+	rc = 204195
+	timeout = 2000
+#2  0x00143576 in apr_socket_recv (sock=0x977e60, buf=0xb079cc9c "", len=0xb079cc98) at network_io/unix/sendrecv.c:87
+	rv = 1
+	arv = -1334195080
+#3  0x00019273 in ap_lingering_close ()
+No symbol table info available.
+#4  0x0033b1bd in process_socket ()
+No symbol table info available.
+#5  0x0033c012 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865c30) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865c30
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 14 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x9d3e60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 17, 
+  events = 1, 
+  revents = 1
+}
+	rc = 1305643
+	timeout = 60000
+#2  0x00143576 in apr_socket_recv (sock=0x9d3e60, buf=0x1084028 "", len=0xb071ab84) at network_io/unix/sendrecv.c:87
+	rv = -1
+	arv = 10313216
+#3  0x000dcc3d in socket_bucket_read (a=0x9d5e38, str=0xb071ab88, len=0xb071ab84, block=APR_BLOCK_READ) at buckets/apr_buckets_socket.c:36
+	p = (apr_socket_t *) 0x9d3e60
+	buf = 0x1084028 ""
+	rv = 0
+	timeout = 44295475192397869
+#4  0x000da34d in apr_brigade_split_line (bbOut=0x9e2aa0, bbIn=0x9d4348, block=APR_BLOCK_READ, maxbytes=8192) at buckets/apr_brigade.c:319
+	str = 0x0
+	len = 8000
+	rv = 8
+	e = (apr_bucket *) 0x9d5e38
+	pos = 0x8af648 "\017(\003"
+	readbytes = 0
+#5  0x00038c76 in ap_core_input_filter ()
+No symbol table info available.
+#6  0x000218e1 in ap_get_brigade ()
+No symbol table info available.
+#7  0x000244c9 in ap_rgetline_core ()
+No symbol table info available.
+#8  0x00024cf1 in read_request_line ()
+No symbol table info available.
+#9  0x00025e09 in ap_read_request ()
+No symbol table info available.
+#10 0x00043daa in ap_process_http_sync_connection ()
+No symbol table info available.
+#11 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#12 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#13 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#14 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#15 0x0033c012 in worker_thread ()
+No symbol table info available.
+#16 0x0014f78e in dummy_worker (opaque=0x865c10) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865c10
+#17 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#18 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 13 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0xa15e60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 19, 
+  events = 1, 
+  revents = 1
+}
+	rc = 1305643
+	timeout = 60000
+#2  0x00143576 in apr_socket_recv (sock=0xa15e60, buf=0x10aa028 "", len=0xb0698b84) at network_io/unix/sendrecv.c:87
+	rv = -1
+	arv = 17448960
+#3  0x000dcc3d in socket_bucket_read (a=0x10a4038, str=0xb0698b88, len=0xb0698b84, block=APR_BLOCK_READ) at buckets/apr_buckets_socket.c:36
+	p = (apr_socket_t *) 0xa15e60
+	buf = 0x10aa028 ""
+	rv = 0
+	timeout = 74943262305026093
+#4  0x000da34d in apr_brigade_split_line (bbOut=0x10acca0, bbIn=0xa16348, block=APR_BLOCK_READ, maxbytes=8192) at buckets/apr_brigade.c:319
+	str = 0x0
+	len = 8000
+	rv = 8
+	e = (apr_bucket *) 0x10a4038
+	pos = 0x8af648 "\017(\003"
+	readbytes = 0
+#5  0x00038c76 in ap_core_input_filter ()
+No symbol table info available.
+#6  0x000218e1 in ap_get_brigade ()
+No symbol table info available.
+#7  0x000244c9 in ap_rgetline_core ()
+No symbol table info available.
+#8  0x00024cf1 in read_request_line ()
+No symbol table info available.
+#9  0x00025e09 in ap_read_request ()
+No symbol table info available.
+#10 0x00043daa in ap_process_http_sync_connection ()
+No symbol table info available.
+#11 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#12 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#13 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#14 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#15 0x0033c012 in worker_thread ()
+No symbol table info available.
+#16 0x0014f78e in dummy_worker (opaque=0x865bf0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865bf0
+#17 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#18 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 12 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x96fe60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 18, 
+  events = 1, 
+  revents = 1
+}
+	rc = 1305643
+	timeout = 60000
+#2  0x00143576 in apr_socket_recv (sock=0x96fe60, buf=0x1034028 "", len=0xb0616b84) at network_io/unix/sendrecv.c:87
+	rv = -1
+	arv = 16973824
+#3  0x000dcc3d in socket_bucket_read (a=0x1030038, str=0xb0616b88, len=0xb0616b84, block=APR_BLOCK_READ) at buckets/apr_buckets_socket.c:36
+	p = (apr_socket_t *) 0x96fe60
+	buf = 0x1034028 ""
+	rv = 0
+	timeout = 72902568723873837
+#4  0x000da34d in apr_brigade_split_line (bbOut=0x1032ca0, bbIn=0x970348, block=APR_BLOCK_READ, maxbytes=8192) at buckets/apr_brigade.c:319
+	str = 0x0
+	len = 8000
+	rv = 8
+	e = (apr_bucket *) 0x1030038
+	pos = 0x8af648 "\017(\003"
+	readbytes = 0
+#5  0x00038c76 in ap_core_input_filter ()
+No symbol table info available.
+#6  0x000218e1 in ap_get_brigade ()
+No symbol table info available.
+#7  0x000244c9 in ap_rgetline_core ()
+No symbol table info available.
+#8  0x00024cf1 in read_request_line ()
+No symbol table info available.
+#9  0x00025e09 in ap_read_request ()
+No symbol table info available.
+#10 0x00043daa in ap_process_http_sync_connection ()
+No symbol table info available.
+#11 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#12 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#13 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#14 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#15 0x0033c012 in worker_thread ()
+No symbol table info available.
+#16 0x0014f78e in dummy_worker (opaque=0x865bd0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865bd0
+#17 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#18 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 11 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x9cbe60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 27, 
+  events = 1, 
+  revents = 17
+}
+	rc = 204195
+	timeout = 2000
+#2  0x00143576 in apr_socket_recv (sock=0x9cbe60, buf=0xb0594c9c "", len=0xb0594c98) at network_io/unix/sendrecv.c:87
+	rv = 1
+	arv = -1336325000
+#3  0x00019273 in ap_lingering_close ()
+No symbol table info available.
+#4  0x0033b1bd in process_socket ()
+No symbol table info available.
+#5  0x0033c012 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865bb0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865bb0
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 10 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x9f5e60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 20, 
+  events = 1, 
+  revents = 1
+}
+	rc = 1305643
+	timeout = 60000
+#2  0x00143576 in apr_socket_recv (sock=0x9f5e60, buf=0x9fbe28 "", len=0xb0512b84) at network_io/unix/sendrecv.c:87
+	rv = -1
+	arv = 10452480
+#3  0x000dcc3d in socket_bucket_read (a=0x9f7e38, str=0xb0512b88, len=0xb0512b84, block=APR_BLOCK_READ) at buckets/apr_buckets_socket.c:36
+	p = (apr_socket_t *) 0x9f5e60
+	buf = 0x9fbe28 ""
+	rv = 0
+	timeout = 44893609517908013
+#4  0x000da34d in apr_brigade_split_line (bbOut=0x9faaa0, bbIn=0x9f6348, block=APR_BLOCK_READ, maxbytes=8192) at buckets/apr_brigade.c:319
+	str = 0x0
+	len = 8000
+	rv = 8
+	e = (apr_bucket *) 0x9f7e38
+	pos = 0x8af648 "\017(\003"
+	readbytes = 0
+#5  0x00038c76 in ap_core_input_filter ()
+No symbol table info available.
+#6  0x000218e1 in ap_get_brigade ()
+No symbol table info available.
+#7  0x000244c9 in ap_rgetline_core ()
+No symbol table info available.
+#8  0x00024cf1 in read_request_line ()
+No symbol table info available.
+#9  0x00025e09 in ap_read_request ()
+No symbol table info available.
+#10 0x00043daa in ap_process_http_sync_connection ()
+No symbol table info available.
+#11 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#12 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#13 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#14 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#15 0x0033c012 in worker_thread ()
+No symbol table info available.
+#16 0x0014f78e in dummy_worker (opaque=0x865b90) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865b90
+#17 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#18 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 9 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x95fe60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 24, 
+  events = 1, 
+  revents = 1
+}
+	rc = 1305643
+	timeout = 60000
+#2  0x00143576 in apr_socket_recv (sock=0x95fe60, buf=0x1058028 "", len=0xb0490b84) at network_io/unix/sendrecv.c:87
+	rv = -1
+	arv = 9969152
+#3  0x000dcc3d in socket_bucket_read (a=0x981e38, str=0xb0490b88, len=0xb0490b84, block=APR_BLOCK_READ) at buckets/apr_buckets_socket.c:36
+	p = (apr_socket_t *) 0x95fe60
+	buf = 0x1058028 ""
+	rv = 0
+	timeout = 42817731564666925
+#4  0x000da34d in apr_brigade_split_line (bbOut=0x986aa0, bbIn=0x960348, block=APR_BLOCK_READ, maxbytes=8192) at buckets/apr_brigade.c:319
+	str = 0x0
+	len = 8000
+	rv = 8
+	e = (apr_bucket *) 0x981e38
+	pos = 0x8af648 "\017(\003"
+	readbytes = 0
+#5  0x00038c76 in ap_core_input_filter ()
+No symbol table info available.
+#6  0x000218e1 in ap_get_brigade ()
+No symbol table info available.
+#7  0x000244c9 in ap_rgetline_core ()
+No symbol table info available.
+#8  0x00024cf1 in read_request_line ()
+No symbol table info available.
+#9  0x00025e09 in ap_read_request ()
+No symbol table info available.
+#10 0x00043daa in ap_process_http_sync_connection ()
+No symbol table info available.
+#11 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#12 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#13 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#14 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#15 0x0033c012 in worker_thread ()
+No symbol table info available.
+#16 0x0014f78e in dummy_worker (opaque=0x865b70) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865b70
+#17 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#18 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 8 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x973e60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 25, 
+  events = 1, 
+  revents = 17
+}
+	rc = 204195
+	timeout = 2000
+#2  0x00143576 in apr_socket_recv (sock=0x973e60, buf=0xb040ec9c "", len=0xb040ec98) at network_io/unix/sendrecv.c:87
+	rv = 1
+	arv = -1337922440
+#3  0x00019273 in ap_lingering_close ()
+No symbol table info available.
+#4  0x0033b1bd in process_socket ()
+No symbol table info available.
+#5  0x0033c012 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865b50) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865b50
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 7 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x961e60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 14, 
+  events = 1, 
+  revents = 1
+}
+	rc = 1305643
+	timeout = 60000
+#2  0x00143576 in apr_socket_recv (sock=0x961e60, buf=0x1018028 "", len=0xb038cb84) at network_io/unix/sendrecv.c:87
+	rv = -1
+	arv = 16867328
+#3  0x000dcc3d in socket_bucket_read (a=0x1016038, str=0xb038cb88, len=0xb038cb84, block=APR_BLOCK_READ) at buckets/apr_buckets_socket.c:36
+	p = (apr_socket_t *) 0x961e60
+	buf = 0x1018028 ""
+	rv = 0
+	timeout = 72445171886719021
+#4  0x000da34d in apr_brigade_split_line (bbOut=0x101cca0, bbIn=0x962348, block=APR_BLOCK_READ, maxbytes=8192) at buckets/apr_brigade.c:319
+	str = 0x0
+	len = 8000
+	rv = 8
+	e = (apr_bucket *) 0x1016038
+	pos = 0x8af648 "\017(\003"
+	readbytes = 0
+#5  0x00038c76 in ap_core_input_filter ()
+No symbol table info available.
+#6  0x000218e1 in ap_get_brigade ()
+No symbol table info available.
+#7  0x000244c9 in ap_rgetline_core ()
+No symbol table info available.
+#8  0x00024cf1 in read_request_line ()
+No symbol table info available.
+#9  0x00025e09 in ap_read_request ()
+No symbol table info available.
+#10 0x00043daa in ap_process_http_sync_connection ()
+No symbol table info available.
+#11 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#12 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#13 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#14 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#15 0x0033c012 in worker_thread ()
+No symbol table info available.
+#16 0x0014f78e in dummy_worker (opaque=0x865b30) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865b30
+#17 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#18 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 6 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x96be60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 21, 
+  events = 1, 
+  revents = 17
+}
+	rc = 204195
+	timeout = 2000
+#2  0x00143576 in apr_socket_recv (sock=0x96be60, buf=0xb030ac9c "", len=0xb030ac98) at network_io/unix/sendrecv.c:87
+	rv = 1
+	arv = -1338987400
+#3  0x00019273 in ap_lingering_close ()
+No symbol table info available.
+#4  0x0033b1bd in process_socket ()
+No symbol table info available.
+#5  0x0033c012 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865b10) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865b10
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 5 (process 7860):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865af0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865af0
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 4 (process 7860):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865ad0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865ad0
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 3 (process 7860):
+#0  0x9609568e in poll$UNIX2003 ()
+No symbol table info available.
+#1  0x0014ddfc in apr_wait_for_io_or_timeout (f=0x0, s=0x95be60, for_read=1) at support/unix/waitio.c:51
+	pfd = {
+  fd = 13, 
+  events = 1, 
+  revents = 1
+}
+	rc = 1305643
+	timeout = 60000
+#2  0x00143576 in apr_socket_recv (sock=0x95be60, buf=0x100e028 "", len=0xb0184b84) at network_io/unix/sendrecv.c:87
+	rv = -1
+	arv = 16826368
+#3  0x000dcc3d in socket_bucket_read (a=0x100c038, str=0xb0184b88, len=0xb0184b84, block=APR_BLOCK_READ) at buckets/apr_buckets_socket.c:36
+	p = (apr_socket_t *) 0x95be60
+	buf = 0x100e028 ""
+	rv = 0
+	timeout = 72269250026274861
+#4  0x000da34d in apr_brigade_split_line (bbOut=0x1012ca0, bbIn=0x95c348, block=APR_BLOCK_READ, maxbytes=8192) at buckets/apr_brigade.c:319
+	str = 0x0
+	len = 8000
+	rv = 8
+	e = (apr_bucket *) 0x100c038
+	pos = 0x8af648 "\017(\003"
+	readbytes = 0
+#5  0x00038c76 in ap_core_input_filter ()
+No symbol table info available.
+#6  0x000218e1 in ap_get_brigade ()
+No symbol table info available.
+#7  0x000244c9 in ap_rgetline_core ()
+No symbol table info available.
+#8  0x00024cf1 in read_request_line ()
+No symbol table info available.
+#9  0x00025e09 in ap_read_request ()
+No symbol table info available.
+#10 0x00043daa in ap_process_http_sync_connection ()
+No symbol table info available.
+#11 0x00043dff in ap_process_http_connection ()
+No symbol table info available.
+#12 0x00018e75 in ap_run_process_connection ()
+No symbol table info available.
+#13 0x000193ab in ap_process_connection ()
+No symbol table info available.
+#14 0x0033b1b2 in process_socket ()
+No symbol table info available.
+#15 0x0033c012 in worker_thread ()
+No symbol table info available.
+#16 0x0014f78e in dummy_worker (opaque=0x865ab0) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865ab0
+#17 0x9602f259 in _pthread_start ()
+No symbol table info available.
+#18 0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 2 (process 7860):
+#0  0x9602faa2 in __semwait_signal ()
+No symbol table info available.
+#1  0x9602f75e in _pthread_cond_wait ()
+No symbol table info available.
+#2  0x960313f8 in pthread_cond_wait$UNIX2003 ()
+No symbol table info available.
+#3  0x0013e4e7 in apr_thread_cond_wait (cond=0x865888, mutex=0x865848) at locks/unix/thread_cond.c:68
+	rv = 0
+#4  0x00340c81 in ap_queue_pop ()
+No symbol table info available.
+#5  0x0033bf17 in worker_thread ()
+No symbol table info available.
+#6  0x0014f78e in dummy_worker (opaque=0x865a90) at threadproc/unix/thread.c:142
+	thread = (apr_thread_t *) 0x865a90
+#7  0x9602f259 in _pthread_start ()
+No symbol table info available.
+#8  0x9602f0de in thread_start ()
+No symbol table info available.
+
+Thread 1 (process 7860):
+#0  0x9600ce59 in read$UNIX2003 ()
+No symbol table info available.
+warning: .o file "/Users/trawick/svn/2.4.x/server/mpm/worker/.libs/pod.o" more recent than executable timestamp in "/Users/trawick/inst/24/modules/mod_mpm_worker.so"
+warning: Couldn't open object file '/Users/trawick/svn/2.4.x/server/mpm/worker/.libs/pod.o'
+#1  0x00340ed0 in ap_worker_pod_check ()
+No symbol table info available.
+#2  0x0033cef5 in child_main ()
+No symbol table info available.
+#3  0x0033d0d0 in make_child ()
+No symbol table info available.
+#4  0x0033d82b in perform_idle_server_maintenance ()
+No symbol table info available.
+#5  0x0033dbd3 in server_main_loop ()
+No symbol table info available.
+#6  0x0033dfe6 in worker_run ()
+No symbol table info available.
+warning: .o file "/Users/trawick/svn/2.4.x/server/.libs/libmain.a(mpm_common.o)" more recent than executable timestamp in "/Users/trawick/inst/24/bin/httpd"
+warning: Couldn't open object file '/Users/trawick/svn/2.4.x/server/.libs/libmain.a(mpm_common.o)'
+#7  0x0001bf69 in ap_run_mpm ()
+No symbol table info available.
+warning: .o file "/Users/trawick/svn/2.4.x/server/.libs/libmain.a(main.o)" more recent than executable timestamp in "/Users/trawick/inst/24/bin/httpd"
+warning: Couldn't open object file '/Users/trawick/svn/2.4.x/server/.libs/libmain.a(main.o)'
+#8  0x0000e51d in main ()
+No symbol table info available.
+Detaching from program: `/Users/trawick/inst/24/bin/httpd', process 7860.
