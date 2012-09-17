@@ -36,19 +36,17 @@ def is_hdr(l):
 def get_pid(l):
     if not is_hdr(l):
         raise Exception('Bad header >%s< passed to get_pid()' % l)
-    for expr in [' -p=(\d+)', ' -p (\d+)', ' --pid=(\d+)', ' --pid (\d+)']:
-        m = re.search(expr, l)
-        if m:
-            return m.group(1)
+    m = re.search(' (--pid|-p)([ =])?(\d+)', l)
+    if m:
+        return m.group(3)
     return None
 
 def get_exe(l):
     if not is_hdr(l):
         raise Exception('Bad header >%s< passed to get_exe()' % l)
-    for expr in [' -e=([^ ]+)', ' -e ([^ ]+)', ' --exe=([^ ]+)', ' --exe ([^ ]+)']:
-        m = re.search(expr, l)
-        if m:
-            return m.group(1)
+    m = re.search(' (--exe|-e)([ =])?([^ ]+)', l)
+    if m:
+        return m.group(3)
     return None
 
 def get_tool(l):
