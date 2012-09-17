@@ -132,14 +132,14 @@ def pstack_collect(outfilename, pid, corefile):
     print >> outfile, build_hdr('pstack')
     outfile.flush()
 
-    for proggie in ['/usr/bin/pstack', '/usr/bin/pldd', '/usr/bin/pflags']:
-        print >> outfile, 'REM %s' % proggie
+    for program in ['/usr/bin/pstack', '/usr/bin/pldd', '/usr/bin/pflags']:
+        print >> outfile, 'REM %s' % program
         outfile.flush()
         try:
-            cmdline = [proggie, pid_or_core]
+            cmdline = [program, pid_or_core]
             rc = subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
         except:
-            raise Exception("couldn't run %s, error" % proggie, sys.exc_info()[0])
+            raise Exception("couldn't run %s, error" % program, sys.exc_info()[0])
         
     outfile.close()
 
