@@ -5,7 +5,7 @@
 *** DONE Simple gather-only script for download
 *** DONE Add label at top of debugger output file with collector tool version, OS version, etc.
 *** DONE Add pflags and pldd on Solaris
-*** TODO Use better Python in this public code
+*** DONE Use better Python in this public code
 *** DONE gdb: Save the instructions around the instruction pointer
 ** Parsers, model
 *** DONE Support multiple processes in same invocation
@@ -22,8 +22,8 @@
 **** DONE collect on busy process
 **** DONE raw gdb output on busy process
 *** Linux: Save these outputs
-**** TODO collect on core of busy process
-**** TODO collect on busy process
+**** DONE collect on core of busy process
+**** DONE collect on busy process
 *** FreeBSD: Save these outputs
 **** TODO collect on core of busy process
 **** TODO collect on busy process

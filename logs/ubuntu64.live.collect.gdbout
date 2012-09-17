@@ -1,0 +1,1714 @@
+REM collect.py 1.01 TOOL=gdb  PYPLATFORM=linux2 ./collect.py --debuglog=busy.live --exe=/home/trawick/inst/24-64/bin/httpd --pid=8106
+[Thread debugging using libthread_db enabled]
+[New Thread 0x7fdb695e0700 (LWP 8134)]
+[New Thread 0x7fdb69de1700 (LWP 8133)]
+[New Thread 0x7fdb6a5e2700 (LWP 8132)]
+[New Thread 0x7fdb6ade3700 (LWP 8131)]
+[New Thread 0x7fdb6b5e4700 (LWP 8130)]
+[New Thread 0x7fdb6bde5700 (LWP 8129)]
+[New Thread 0x7fdb6c5e6700 (LWP 8128)]
+[New Thread 0x7fdb6cde7700 (LWP 8127)]
+[New Thread 0x7fdb6d5e8700 (LWP 8126)]
+[New Thread 0x7fdb6dde9700 (LWP 8125)]
+[New Thread 0x7fdb6e5ea700 (LWP 8124)]
+[New Thread 0x7fdb6edeb700 (LWP 8123)]
+[New Thread 0x7fdb6f5ec700 (LWP 8122)]
+[New Thread 0x7fdb6fded700 (LWP 8121)]
+[New Thread 0x7fdb705ee700 (LWP 8120)]
+[New Thread 0x7fdb70def700 (LWP 8119)]
+[New Thread 0x7fdb715f0700 (LWP 8118)]
+[New Thread 0x7fdb71df1700 (LWP 8117)]
+[New Thread 0x7fdb725f2700 (LWP 8116)]
+[New Thread 0x7fdb72df3700 (LWP 8115)]
+[New Thread 0x7fdb735f4700 (LWP 8114)]
+[New Thread 0x7fdb73df5700 (LWP 8113)]
+[New Thread 0x7fdb745f6700 (LWP 8112)]
+[New Thread 0x7fdb74df7700 (LWP 8111)]
+[New Thread 0x7fdb755f8700 (LWP 8110)]
+[New Thread 0x7fdb75df9700 (LWP 8109)]
+0x00007fdb7f0420dd in read () at ../sysdeps/unix/syscall-template.S:82
+82	../sysdeps/unix/syscall-template.S: No such file or directory.
+	in ../sysdeps/unix/syscall-template.S
+From                To                  Syms Read   Shared Object Library
+0x00007fdb7f8df5c0  0x00007fdb7f9059b8  Yes (*)     /lib/x86_64-linux-gnu/libpcre.so.3
+0x00007fdb7f6bbc70  0x00007fdb7f6d6768  Yes         /home/trawick/inst/apr14-64/lib/libaprutil-1.so.0
+0x00007fdb7f48cb10  0x00007fdb7f4a6918  Yes (*)     /lib/x86_64-linux-gnu/libexpat.so.1
+0x00007fdb7f25c230  0x00007fdb7f27fe88  Yes         /home/trawick/inst/apr14-64/lib/libapr-1.so.0
+0x00007fdb7f038690  0x00007fdb7f0446e8  Yes         /lib/x86_64-linux-gnu/libpthread.so.0
+0x00007fdb7ecb0b80  0x00007fdb7edd8ccc  Yes         /lib/x86_64-linux-gnu/libc.so.6
+0x00007fdb7ea6bcf0  0x00007fdb7ea850f8  Yes         /home/trawick/inst/apr14-64/lib/libexpat.so.0
+0x00007fdb7e82fa50  0x00007fdb7e836108  Yes         /lib/x86_64-linux-gnu/libcrypt.so.1
+0x00007fdb7e62bde0  0x00007fdb7e62c918  Yes         /lib/x86_64-linux-gnu/libdl.so.2
+0x00007fdb7fb1aaf0  0x00007fdb7fb3365a  Yes (*)     /lib64/ld-linux-x86-64.so.2
+0x00007fdb76ef7260  0x00007fdb76efe958  Yes         /lib/x86_64-linux-gnu/libnss_files.so.2
+0x00007fdb7e41dda0  0x00007fdb7e4262a8  Yes         /home/trawick/inst/24-64/modules/mod_mpm_event.so
+0x00007fdb7e2170f0  0x00007fdb7e218658  Yes         /home/trawick/inst/24-64/modules/mod_slotmem_shm.so
+0x00007fdb7e013b90  0x00007fdb7e0145e8  Yes         /home/trawick/inst/24-64/modules/mod_unique_id.so
+0x00007fdb7de10820  0x00007fdb7de111b8  Yes         /home/trawick/inst/24-64/modules/mod_authz_owner.so
+0x00007fdb7dc0dc40  0x00007fdb7dc0e708  Yes         /home/trawick/inst/24-64/modules/mod_userdir.so
+0x00007fdb7da09c20  0x00007fdb7da0a958  Yes         /home/trawick/inst/24-64/modules/mod_access_compat.so
+0x00007fdb7d8068b0  0x00007fdb7d807128  Yes         /home/trawick/inst/24-64/modules/mod_slotmem_plain.so
+0x00007fdb7d602340  0x00007fdb7d603858  Yes         /home/trawick/inst/24-64/modules/mod_authn_socache.so
+0x00007fdb7d3fc270  0x00007fdb7d3fe358  Yes         /home/trawick/inst/24-64/modules/mod_info.so
+0x00007fdb7d1f78e0  0x00007fdb7d1f8128  Yes         /home/trawick/inst/24-64/modules/mod_version.so
+0x00007fdb7cff4b80  0x00007fdb7cff5598  Yes         /home/trawick/inst/24-64/modules/mod_authz_dbm.so
+0x00007fdb7cdf1ad0  0x00007fdb7cdf2318  Yes         /home/trawick/inst/24-64/modules/mod_authn_file.so
+0x00007fdb7cbe2260  0x00007fdb7cbed258  Yes         /home/trawick/inst/24-64/modules/mod_include.so
+0x00007fdb7c9db6c0  0x00007fdb7c9ddb88  Yes         /home/trawick/inst/24-64/modules/mod_mime.so
+0x00007fdb7c7d6130  0x00007fdb7c7d7618  Yes         /home/trawick/inst/24-64/modules/mod_alias.so
+0x00007fdb7c5cc340  0x00007fdb7c5d2168  Yes         /home/trawick/inst/24-64/modules/mod_autoindex.so
+0x00007fdb7c3c7140  0x00007fdb7c3c7e68  Yes         /home/trawick/inst/24-64/modules/mod_test.so
+0x00007fdb7c1c2d80  0x00007fdb7c1c3a98  Yes         /home/trawick/inst/24-64/modules/mod_dir.so
+0x00007fdb7bf90b60  0x00007fdb7bfb17c8  Yes         /home/trawick/inst/24-64/modules/mod_ssl.so
+0x00007fdb7bd43e40  0x00007fdb7bd72388  Yes (*)     /lib/x86_64-linux-gnu/libssl.so.1.0.0
+0x00007fdb7b9e1a80  0x00007fdb7bab9c38  Yes (*)     /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+0x00007fdb7b76f050  0x00007fdb7b77c058  Yes (*)     /lib/x86_64-linux-gnu/libz.so.1
+0x00007fdb7b56ab30  0x00007fdb7b56b2c8  Yes         /home/trawick/inst/24-64/modules/mod_actions.so
+0x00007fdb7b365520  0x00007fdb7b367938  Yes         /home/trawick/inst/24-64/modules/mod_authz_core.so
+0x00007fdb7b160eb0  0x00007fdb7b161ba8  Yes         /home/trawick/inst/24-64/modules/mod_expires.so
+0x00007fdb7af5d960  0x00007fdb7af5df78  Yes         /home/trawick/inst/24-64/modules/mod_asis.so
+0x00007fdb7ad5acc0  0x00007fdb7ad5b998  Yes         /home/trawick/inst/24-64/modules/mod_ratelimit.so
+0x00007fdb7ab57800  0x00007fdb7ab57c78  Yes         /home/trawick/inst/24-64/modules/mod_allowmethods.so
+0x00007fdb7a952690  0x00007fdb7a9546e8  Yes         /home/trawick/inst/24-64/modules/mod_headers.so
+0x00007fdb7a73b1e0  0x00007fdb7a74b028  Yes         /home/trawick/inst/24-64/modules/mod_proxy.so
+0x00007fdb7a525420  0x00007fdb7a5313f8  Yes         /home/trawick/inst/24-64/modules/mod_rewrite.so
+0x00007fdb7a31d030  0x00007fdb7a31f738  Yes         /home/trawick/inst/24-64/modules/mod_status.so
+0x00007fdb7a118260  0x00007fdb7a11a138  Yes         /home/trawick/inst/24-64/modules/mod_filter.so
+0x00007fdb79f10d40  0x00007fdb79f148f8  Yes         /home/trawick/inst/24-64/modules/mod_log_config.so
+0x00007fdb79d0cbe0  0x00007fdb79d0d4b8  Yes         /home/trawick/inst/24-64/modules/mod_authz_host.so
+0x00007fdb79b08ee0  0x00007fdb79b09d98  Yes         /home/trawick/inst/24-64/modules/mod_unixd.so
+0x00007fdb79904f30  0x00007fdb79905b38  Yes         /home/trawick/inst/24-64/modules/mod_log_debug.so
+0x00007fdb79701a50  0x00007fdb79701f38  Yes         /home/trawick/inst/24-64/modules/mod_env.so
+0x00007fdb794fdf80  0x00007fdb794ff618  Yes         /home/trawick/inst/24-64/modules/mod_reqtimeout.so
+0x00007fdb792fadf0  0x00007fdb792fb7d8  Yes         /home/trawick/inst/24-64/modules/mod_authz_groupfile.so
+0x00007fdb790f6e60  0x00007fdb790f7878  Yes         /home/trawick/inst/24-64/modules/mod_authn_core.so
+0x00007fdb78ef3c40  0x00007fdb78ef4578  Yes         /home/trawick/inst/24-64/modules/mod_auth_basic.so
+0x00007fdb78cf0080  0x00007fdb78cf1358  Yes         /home/trawick/inst/24-64/modules/mod_setenvif.so
+0x00007fdb78ae7050  0x00007fdb78aec618  Yes         /home/trawick/inst/24-64/modules/mod_cgid.so
+0x00007fdb788decf0  0x00007fdb788e1d68  Yes         /home/trawick/inst/24-64/modules/mod_socache_shmcb.so
+0x00007fdb786d4580  0x00007fdb786db1b8  Yes         /home/trawick/inst/24-64/modules/mod_proxy_http.so
+0x00007fdb784cf6e0  0x00007fdb784cfd28  Yes         /home/trawick/inst/24-64/modules/mod_lbmethod_bybusyness.so
+0x00007fdb782c6010  0x00007fdb782cbfd8  Yes         /home/trawick/inst/24-64/modules/mod_proxy_balancer.so
+0x00007fdb780c00c0  0x00007fdb780c1f78  Yes         /home/trawick/inst/24-64/modules/mod_backtrace.so
+0x00007fdb77ebd810  0x00007fdb77ebdb98  Yes         /home/trawick/inst/24-64/modules/mod_crash.so
+0x00007fdb77cb9160  0x00007fdb77cbaf28  Yes         /home/trawick/inst/24-64/modules/mod_whatkilledus.so
+0x00007fdb77a8d310  0x00007fdb77aada88  Yes         /home/trawick/inst/24-64/modules/mod_wsgi.so
+0x00007fdb775d16d0  0x00007fdb77717548  Yes (*)     /usr/lib/libpython2.7.so.1.0
+0x00007fdb77386e10  0x00007fdb77387688  Yes         /lib/x86_64-linux-gnu/libutil.so.1
+0x00007fdb77105ef0  0x00007fdb77145e98  Yes         /lib/x86_64-linux-gnu/libm.so.6
+0x00007fdb76ce18b0  0x00007fdb76cf1178  Yes (*)     /lib/x86_64-linux-gnu/libgcc_s.so.1
+(*): Shared library is missing debugging information.
+  Id   Target Id         Frame 
+  27   Thread 0x7fdb75df9700 (LWP 8109) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  26   Thread 0x7fdb755f8700 (LWP 8110) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  25   Thread 0x7fdb74df7700 (LWP 8111) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  24   Thread 0x7fdb745f6700 (LWP 8112) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  23   Thread 0x7fdb73df5700 (LWP 8113) "httpd" 0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+  22   Thread 0x7fdb735f4700 (LWP 8114) "httpd" 0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+  21   Thread 0x7fdb72df3700 (LWP 8115) "httpd" 0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+  20   Thread 0x7fdb725f2700 (LWP 8116) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  19   Thread 0x7fdb71df1700 (LWP 8117) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  18   Thread 0x7fdb715f0700 (LWP 8118) "httpd" 0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+  17   Thread 0x7fdb70def700 (LWP 8119) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  16   Thread 0x7fdb705ee700 (LWP 8120) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  15   Thread 0x7fdb6fded700 (LWP 8121) "httpd" 0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+  14   Thread 0x7fdb6f5ec700 (LWP 8122) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  13   Thread 0x7fdb6edeb700 (LWP 8123) "httpd" 0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+  12   Thread 0x7fdb6e5ea700 (LWP 8124) "httpd" 0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+  11   Thread 0x7fdb6dde9700 (LWP 8125) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  10   Thread 0x7fdb6d5e8700 (LWP 8126) "httpd" 0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+  9    Thread 0x7fdb6cde7700 (LWP 8127) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  8    Thread 0x7fdb6c5e6700 (LWP 8128) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  7    Thread 0x7fdb6bde5700 (LWP 8129) "httpd" 0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+  6    Thread 0x7fdb6b5e4700 (LWP 8130) "httpd" __lll_lock_wait () at ../nptl/sysdeps/unix/sysv/linux/x86_64/lowlevellock.S:136
+  5    Thread 0x7fdb6ade3700 (LWP 8131) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  4    Thread 0x7fdb6a5e2700 (LWP 8132) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  3    Thread 0x7fdb69de1700 (LWP 8133) "httpd" pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+  2    Thread 0x7fdb695e0700 (LWP 8134) "httpd" pthread_cond_signal@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_signal.S:89
+* 1    Thread 0x7fdb7fd1c720 (LWP 8106) "httpd" 0x00007fdb7f0420dd in read () at ../sysdeps/unix/syscall-template.S:82
+
+Thread 27 (Thread 0x7fdb75df9700 (LWP 8109)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb75df8e38, ecs=0x7fdb75df8e40, p=0x7fdb75df8e48, te_out=0x7fdb75df8e50) at fdqueue.c:438
+        elem = 0x20257c9c8
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d188, dummy=0x26d4540) at event.c:1770
+        ti = 0x26d4540
+        process_slot = 1
+        thread_slot = 0
+        csd = 0x2842ac0
+        cs = 0x0
+        ptrans = 0x2842a38
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d188) at threadproc/unix/thread.c:142
+        thread = 0x257d188
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb75df9700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb75df9700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580552153536, 0, 3, -7900735455517208939, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 26 (Thread 0x7fdb755f8700 (LWP 8110)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb755f7e38, ecs=0x7fdb755f7e40, p=0x7fdb755f7e48, te_out=0x7fdb755f7e50) at fdqueue.c:438
+        elem = 0x20257c968
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d1b8, dummy=0x25f1420) at event.c:1770
+        ti = 0x25f1420
+        process_slot = 1
+        thread_slot = 1
+        csd = 0x2842ac0
+        cs = 0x0
+        ptrans = 0x2842a38
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d1b8) at threadproc/unix/thread.c:142
+        thread = 0x257d1b8
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb755f8700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb755f8700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580543760832, 0, 3, -7900734352247484779, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 25 (Thread 0x7fdb74df7700 (LWP 8111)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb74df6e38, ecs=0x7fdb74df6e40, p=0x7fdb74df6e48, te_out=0x7fdb74df6e50) at fdqueue.c:438
+        elem = 0x20257c9e0
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d1e8, dummy=0x26f5630) at event.c:1770
+        ti = 0x26f5630
+        process_slot = 1
+        thread_slot = 2
+        csd = 0x27f8870
+        cs = 0x0
+        ptrans = 0x27f87e8
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d1e8) at threadproc/unix/thread.c:142
+        thread = 0x257d1e8
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb74df7700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb74df7700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580535368128, 0, 3, -7900737651319239019, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 24 (Thread 0x7fdb745f6700 (LWP 8112)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb745f5e38, ecs=0x7fdb745f5e40, p=0x7fdb745f5e48, te_out=0x7fdb745f5e50) at fdqueue.c:438
+        elem = 0x20257c8d8
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d218, dummy=0x2708350) at event.c:1770
+        ti = 0x2708350
+        process_slot = 1
+        thread_slot = 3
+        csd = 0x27a0e30
+        cs = 0x0
+        ptrans = 0x27a0da8
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d218) at threadproc/unix/thread.c:142
+        thread = 0x257d218
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb745f6700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb745f6700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580526975424, 0, 3, -7900736552344482155, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 23 (Thread 0x7fdb73df5700 (LWP 8113)):
+#0  0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+        resultvar = <optimized out>
+        oldtype = 0
+        result = <optimized out>
+#1  0x00007fdb7f27712d in apr_poll (aprset=0x7fdb73df4a80, num=1, nsds=0x7fdb73df4ad8, timeout=20000) at poll/unix/poll.c:120
+        i = 1
+        num_to_poll = 1
+        pollset = 0x7fdb73df49d0
+#2  0x00007fdb794fe772 in reqtimeout_filter (f=0x27f6fd0, bb=0x2811b78, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at mod_reqtimeout.c:280
+        bblen = 2164663517185
+        nsds = 1275087096
+        poll_timeout = 20000000
+        pollset = {p = 0x27f67d8, desc_type = APR_POLL_SOCKET, reqevents = 33, rtnevents = 0, desc = {f = 0x27f6860, s = 0x27f6860}, client_data = 0x27dfd40}
+        remaining = 8192
+        time_left = 20000000
+        now = 1347892256569334
+        rv = 0
+        saved_sock_timeout = 60000000
+        ccfg = 0x27f6f90
+#3  0x0000000000433310 in ap_get_brigade (next=0x27f6fd0, bb=0x2811b78, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at util_filter.c:496
+No locals.
+#4  0x00000000004356dc in ap_rgetline_core (s=0x2810950, n=8192, read=0x7fdb73df4c30, r=0x2810920, fold=0, bb=0x2811b78) at protocol.c:232
+        rv = 42015568
+        e = 0x2810ad8
+        bytes_handled = 0
+        current_alloc = 0
+        pos = 0x2811a98 "\250\b\201\002"
+        last_char = 0x0
+        do_alloc = 1
+        saw_eos = 0
+#5  0x0000000000435f4d in read_request_line (r=0x2810920, bb=0x2811b78) at protocol.c:599
+        rv = 0
+        ll = 0x28108a8 "\330g\177\002"
+        uri = 0x7fdb73df4c70 "\340L\337s\333\177"
+        pro = 0x2811b98 "\270\032\201\002"
+        major = 1
+        minor = 0
+        http = "x\222K\002"
+        len = 42015608
+        num_blank_lines = 0
+        max_blank_lines = 100
+#6  0x000000000043701f in ap_read_request (conn=0x27f6ae0) at protocol.c:977
+        r = 0x2810920
+        p = 0x28108a8
+        expect = 0x300000000 <Address 0x300000000 out of bounds>
+        access_status = 0
+        tmp_bb = 0x2811b78
+        csd = 0x27f6ae0
+        cur_timeout = 140580518579424
+#7  0x0000000000468d6e in ap_process_http_async_connection (c=0x27f6ae0) at http_core.c:135
+        r = 0x7fdb794febce
+        cs = 0x27f6ab8
+#8  0x0000000000468fb3 in ap_process_http_connection (c=0x27f6ae0) at http_core.c:228
+No locals.
+#9  0x000000000045d68b in ap_run_process_connection (c=0x27f6ae0) at connection.c:41
+        pHook = 0x24b94f0
+        n = 1
+        rv = -1
+#10 0x00007fdb7e41f450 in process_socket (thd=0x257d248, p=0x27f67d8, sock=0x27f6860, cs=0x27f6a68, my_child_num=1, my_thread_num=4) at event.c:964
+        c = 0x27f6ae0
+        conn_id = 68
+        rc = -2
+        sbh = 0x27f6a50
+#11 0x00007fdb7e42187c in worker_thread (thd=0x257d248, dummy=0x2672a80) at event.c:1812
+        ti = 0x2672a80
+        process_slot = 1
+        thread_slot = 4
+        csd = 0x27f6860
+        cs = 0x0
+        ptrans = 0x27f67d8
+        rv = 0
+        is_idle = 0
+        te = 0x0
+#12 0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d248) at threadproc/unix/thread.c:142
+        thread = 0x257d248
+#13 0x00007fdb7f03aefc in start_thread (arg=0x7fdb73df5700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb73df5700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580518582720, 0, 3, -7900722259230191979, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#14 0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#15 0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 22 (Thread 0x7fdb735f4700 (LWP 8114)):
+#0  0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+        resultvar = <optimized out>
+        oldtype = 0
+        result = <optimized out>
+#1  0x00007fdb7f27712d in apr_poll (aprset=0x7fdb735f3a80, num=1, nsds=0x7fdb735f3ad8, timeout=20000) at poll/unix/poll.c:120
+        i = 1
+        num_to_poll = 1
+        pollset = 0x7fdb735f39d0
+#2  0x00007fdb794fe772 in reqtimeout_filter (f=0x2805040, bb=0x7fdb4c023cf8, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at mod_reqtimeout.c:280
+        bblen = 2164663517185
+        nsds = 1275210280
+        poll_timeout = 20000000
+        pollset = {p = 0x2804848, desc_type = APR_POLL_SOCKET, reqevents = 33, rtnevents = 0, desc = {f = 0x28048d0, s = 0x28048d0}, client_data = 0x26fe1f0}
+        remaining = 8192
+        time_left = 20000000
+        now = 1347892261613638
+        rv = 0
+        saved_sock_timeout = 60000000
+        ccfg = 0x2805000
+#3  0x0000000000433310 in ap_get_brigade (next=0x2805040, bb=0x7fdb4c023cf8, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at util_filter.c:496
+No locals.
+#4  0x00000000004356dc in ap_rgetline_core (s=0x7fdb4c022ad0, n=8192, read=0x7fdb735f3c30, r=0x7fdb4c022aa0, fold=0, bb=0x7fdb4c023cf8) at protocol.c:232
+        rv = 1275215056
+        e = 0x7fdb4c022c58
+        bytes_handled = 0
+        current_alloc = 0
+        pos = 0x7fdb4c023c18 "(*\002L\333\177"
+        last_char = 0x0
+        do_alloc = 1
+        saw_eos = 0
+#5  0x0000000000435f4d in read_request_line (r=0x7fdb4c022aa0, bb=0x7fdb4c023cf8) at protocol.c:599
+        rv = 32731
+        ll = 0x7fdb4c022a28 "HH\200\002"
+        uri = 0x7fdb735f3c70 "\340<_s\333\177"
+        pro = 0x7fdb4c023d18 "8<\002L\333\177"
+        major = 1
+        minor = 0
+        http = "x\222K\002"
+        len = 140579849780472
+        num_blank_lines = 0
+        max_blank_lines = 100
+#6  0x000000000043701f in ap_read_request (conn=0x2804b50) at protocol.c:977
+        r = 0x7fdb4c022aa0
+        p = 0x7fdb4c022a28
+        expect = 0x300000000 <Address 0x300000000 out of bounds>
+        access_status = 0
+        tmp_bb = 0x7fdb4c023cf8
+        csd = 0x2804b50
+        cur_timeout = 140580510186720
+#7  0x0000000000468d6e in ap_process_http_async_connection (c=0x2804b50) at http_core.c:135
+        r = 0x7fdb794febce
+        cs = 0x2804b28
+#8  0x0000000000468fb3 in ap_process_http_connection (c=0x2804b50) at http_core.c:228
+No locals.
+#9  0x000000000045d68b in ap_run_process_connection (c=0x2804b50) at connection.c:41
+        pHook = 0x24b94f0
+        n = 1
+        rv = -1
+#10 0x00007fdb7e41f450 in process_socket (thd=0x257d278, p=0x2804848, sock=0x28048d0, cs=0x2804ad8, my_child_num=1, my_thread_num=5) at event.c:964
+        c = 0x2804b50
+        conn_id = 69
+        rc = -2
+        sbh = 0x2804ac0
+#11 0x00007fdb7e42187c in worker_thread (thd=0x257d278, dummy=0x2678ef0) at event.c:1812
+        ti = 0x2678ef0
+        process_slot = 1
+        thread_slot = 5
+        csd = 0x28048d0
+        cs = 0x0
+        ptrans = 0x2804848
+        rv = 0
+        is_idle = 0
+        te = 0x0
+#12 0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d278) at threadproc/unix/thread.c:142
+        thread = 0x257d278
+#13 0x00007fdb7f03aefc in start_thread (arg=0x7fdb735f4700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb735f4700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580510190016, 0, 3, -7900721155960467819, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#14 0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#15 0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 21 (Thread 0x7fdb72df3700 (LWP 8115)):
+#0  0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+        resultvar = <optimized out>
+        oldtype = 0
+        result = <optimized out>
+#1  0x00007fdb7f27712d in apr_poll (aprset=0x7fdb72df2a80, num=1, nsds=0x7fdb72df2ad8, timeout=20000) at poll/unix/poll.c:120
+        i = 1
+        num_to_poll = 1
+        pollset = 0x7fdb72df29d0
+#2  0x00007fdb794fe772 in reqtimeout_filter (f=0x27a35b0, bb=0x7fdb58017c78, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at mod_reqtimeout.c:280
+        bblen = 2164663517185
+        nsds = 1678019384
+        poll_timeout = 20000000
+        pollset = {p = 0x27a2db8, desc_type = APR_POLL_SOCKET, reqevents = 33, rtnevents = 0, desc = {f = 0x27a2e40, s = 0x27a2e40}, client_data = 0x25ca2f0}
+        remaining = 8192
+        time_left = 20000000
+        now = 1347892256809657
+        rv = 0
+        saved_sock_timeout = 60000000
+        ccfg = 0x27a3570
+#3  0x0000000000433310 in ap_get_brigade (next=0x27a35b0, bb=0x7fdb58017c78, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at util_filter.c:496
+No locals.
+#4  0x00000000004356dc in ap_rgetline_core (s=0x7fdb58016a50, n=8192, read=0x7fdb72df2c30, r=0x7fdb58016a20, fold=0, bb=0x7fdb58017c78) at protocol.c:232
+        rv = 1476492368
+        e = 0x7fdb58016bd8
+        bytes_handled = 0
+        current_alloc = 0
+        pos = 0x7fdb58017b98 "\250i\001X\333\177"
+        last_char = 0x0
+        do_alloc = 1
+        saw_eos = 0
+#5  0x0000000000435f4d in read_request_line (r=0x7fdb58016a20, bb=0x7fdb58017c78) at protocol.c:599
+        rv = 32731
+        ll = 0x7fdb580169a8 "\270-z\002"
+        uri = 0x7fdb72df2c70 "\340,\337r\333\177"
+        pro = 0x7fdb58017c98 "\270{\001X\333\177"
+        major = 1
+        minor = 0
+        http = "x\222K\002"
+        len = 140580051057784
+        num_blank_lines = 0
+        max_blank_lines = 100
+#6  0x000000000043701f in ap_read_request (conn=0x27a30c0) at protocol.c:977
+        r = 0x7fdb58016a20
+        p = 0x7fdb580169a8
+        expect = 0x300000000 <Address 0x300000000 out of bounds>
+        access_status = 0
+        tmp_bb = 0x7fdb58017c78
+        csd = 0x27a30c0
+        cur_timeout = 140580501794016
+#7  0x0000000000468d6e in ap_process_http_async_connection (c=0x27a30c0) at http_core.c:135
+        r = 0x7fdb794febce
+        cs = 0x27a3098
+#8  0x0000000000468fb3 in ap_process_http_connection (c=0x27a30c0) at http_core.c:228
+No locals.
+#9  0x000000000045d68b in ap_run_process_connection (c=0x27a30c0) at connection.c:41
+        pHook = 0x24b94f0
+        n = 1
+        rv = -1
+#10 0x00007fdb7e41f450 in process_socket (thd=0x257d2a8, p=0x27a2db8, sock=0x27a2e40, cs=0x27a3048, my_child_num=1, my_thread_num=6) at event.c:964
+        c = 0x27a30c0
+        conn_id = 70
+        rc = -2
+        sbh = 0x27a3030
+#11 0x00007fdb7e42187c in worker_thread (thd=0x257d2a8, dummy=0x26f9580) at event.c:1812
+        ti = 0x26f9580
+        process_slot = 1
+        thread_slot = 6
+        csd = 0x27a2e40
+        cs = 0x0
+        ptrans = 0x27a2db8
+        rv = 0
+        is_idle = 0
+        te = 0x0
+#12 0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d2a8) at threadproc/unix/thread.c:142
+        thread = 0x257d2a8
+#13 0x00007fdb7f03aefc in start_thread (arg=0x7fdb72df3700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb72df3700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580501797312, 0, 3, -7900724455032222059, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#14 0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#15 0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 20 (Thread 0x7fdb725f2700 (LWP 8116)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb725f1e38, ecs=0x7fdb725f1e40, p=0x7fdb725f1e48, te_out=0x7fdb725f1e50) at fdqueue.c:438
+        elem = 0x20257c938
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d2d8, dummy=0x25d6a50) at event.c:1770
+        ti = 0x25d6a50
+        process_slot = 1
+        thread_slot = 7
+        csd = 0x27a0e30
+        cs = 0x0
+        ptrans = 0x27a0da8
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d2d8) at threadproc/unix/thread.c:142
+        thread = 0x257d2d8
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb725f2700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb725f2700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580493404608, 0, 3, -7900723356057465195, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 19 (Thread 0x7fdb71df1700 (LWP 8117)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb71df0e38, ecs=0x7fdb71df0e40, p=0x7fdb71df0e48, te_out=0x7fdb71df0e50) at fdqueue.c:438
+        elem = 0x20257c8f0
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d308, dummy=0x25d6a70) at event.c:1770
+        ti = 0x25d6a70
+        process_slot = 1
+        thread_slot = 8
+        csd = 0x2842ac0
+        cs = 0x0
+        ptrans = 0x2842a38
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d308) at threadproc/unix/thread.c:142
+        thread = 0x257d308
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb71df1700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb71df1700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580485011904, 0, 3, -7900726655129219435, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 18 (Thread 0x7fdb715f0700 (LWP 8118)):
+#0  0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+        resultvar = <optimized out>
+        oldtype = 0
+        result = <optimized out>
+#1  0x00007fdb7f27712d in apr_poll (aprset=0x7fdb715efa80, num=1, nsds=0x7fdb715efad8, timeout=20000) at poll/unix/poll.c:120
+        i = 1
+        num_to_poll = 1
+        pollset = 0x7fdb715ef9d0
+#2  0x00007fdb794fe772 in reqtimeout_filter (f=0x2791520, bb=0x2798028, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at mod_reqtimeout.c:280
+        bblen = 2164663517185
+        nsds = 1677904472
+        poll_timeout = 20000000
+        pollset = {p = 0x2790d28, desc_type = APR_POLL_SOCKET, reqevents = 33, rtnevents = 0, desc = {f = 0x2790db0, s = 0x2790db0}, client_data = 0x27f0510}
+        remaining = 8192
+        time_left = 20000000
+        now = 1347892257011149
+        rv = 0
+        saved_sock_timeout = 60000000
+        ccfg = 0x27914e0
+#3  0x0000000000433310 in ap_get_brigade (next=0x2791520, bb=0x2798028, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at util_filter.c:496
+No locals.
+#4  0x00000000004356dc in ap_rgetline_core (s=0x2796e00, n=8192, read=0x7fdb715efc30, r=0x2796dd0, fold=0, bb=0x2798028) at protocol.c:232
+        rv = 41517056
+        e = 0x2796f88
+        bytes_handled = 0
+        current_alloc = 0
+        pos = 0x2797f48 "Xmy\002"
+        last_char = 0x0
+        do_alloc = 1
+        saw_eos = 0
+#5  0x0000000000435f4d in read_request_line (r=0x2796dd0, bb=0x2798028) at protocol.c:599
+        rv = 0
+        ll = 0x2796d58 "(\ry\002"
+        uri = 0x7fdb715efc70 "\340\374^q\333\177"
+        pro = 0x2798048 "h\177y\002"
+        major = 1
+        minor = 0
+        http = "x\222K\002"
+        len = 41517096
+        num_blank_lines = 0
+        max_blank_lines = 100
+#6  0x000000000043701f in ap_read_request (conn=0x2791030) at protocol.c:977
+        r = 0x2796dd0
+        p = 0x2796d58
+        expect = 0x300000000 <Address 0x300000000 out of bounds>
+        access_status = 0
+        tmp_bb = 0x2798028
+        csd = 0x2791030
+        cur_timeout = 140580476615904
+#7  0x0000000000468d6e in ap_process_http_async_connection (c=0x2791030) at http_core.c:135
+        r = 0x7fdb794febce
+        cs = 0x2791008
+#8  0x0000000000468fb3 in ap_process_http_connection (c=0x2791030) at http_core.c:228
+No locals.
+#9  0x000000000045d68b in ap_run_process_connection (c=0x2791030) at connection.c:41
+        pHook = 0x24b94f0
+        n = 1
+        rv = -1
+#10 0x00007fdb7e41f450 in process_socket (thd=0x257d338, p=0x2790d28, sock=0x2790db0, cs=0x2790fb8, my_child_num=1, my_thread_num=9) at event.c:964
+        c = 0x2791030
+        conn_id = 73
+        rc = -2
+        sbh = 0x2790fa0
+#11 0x00007fdb7e42187c in worker_thread (thd=0x257d338, dummy=0x26cfa00) at event.c:1812
+        ti = 0x26cfa00
+        process_slot = 1
+        thread_slot = 9
+        csd = 0x2790db0
+        cs = 0x0
+        ptrans = 0x2790d28
+        rv = 0
+        is_idle = 0
+        te = 0x0
+#12 0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d338) at threadproc/unix/thread.c:142
+        thread = 0x257d338
+#13 0x00007fdb7f03aefc in start_thread (arg=0x7fdb715f0700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb715f0700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580476619200, 0, 3, -7900725569039364459, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#14 0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#15 0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 17 (Thread 0x7fdb70def700 (LWP 8119)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb70deee38, ecs=0x7fdb70deee40, p=0x7fdb70deee48, te_out=0x7fdb70deee50) at fdqueue.c:438
+        elem = 0x20257c980
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d368, dummy=0x26cfa20) at event.c:1770
+        ti = 0x26cfa20
+        process_slot = 1
+        thread_slot = 10
+        csd = 0x27f8870
+        cs = 0x0
+        ptrans = 0x27f87e8
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d368) at threadproc/unix/thread.c:142
+        thread = 0x257d368
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb70def700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb70def700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580468226496, 0, 3, -7900728868111118699, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 16 (Thread 0x7fdb705ee700 (LWP 8120)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb705ede38, ecs=0x7fdb705ede40, p=0x7fdb705ede48, te_out=0x7fdb705ede50) at fdqueue.c:438
+        elem = 0x20257c9f8
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d398, dummy=0x26d3aa0) at event.c:1770
+        ti = 0x26d3aa0
+        process_slot = 1
+        thread_slot = 11
+        csd = 0x27a0e30
+        cs = 0x0
+        ptrans = 0x27a0da8
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d398) at threadproc/unix/thread.c:142
+        thread = 0x257d398
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb705ee700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb705ee700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580459833792, 0, 3, -7900727769136361835, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 15 (Thread 0x7fdb6fded700 (LWP 8121)):
+#0  0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+        resultvar = <optimized out>
+        oldtype = 0
+        result = <optimized out>
+#1  0x00007fdb7f27712d in apr_poll (aprset=0x7fdb6fdeca80, num=1, nsds=0x7fdb6fdecad8, timeout=20000) at poll/unix/poll.c:120
+        i = 1
+        num_to_poll = 1
+        pollset = 0x7fdb6fdec9d0
+#2  0x00007fdb794fe772 in reqtimeout_filter (f=0x273f290, bb=0x7fdb5c03feb8, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at mod_reqtimeout.c:280
+        bblen = 2164663517185
+        nsds = 1678495480
+        poll_timeout = 20000000
+        pollset = {p = 0x273ea98, desc_type = APR_POLL_SOCKET, reqevents = 33, rtnevents = 0, desc = {f = 0x273eb20, s = 0x273eb20}, client_data = 0x2775510}
+        remaining = 8192
+        time_left = 20000000
+        now = 1347892260812836
+        rv = 0
+        saved_sock_timeout = 60000000
+        ccfg = 0x273f250
+#3  0x0000000000433310 in ap_get_brigade (next=0x273f290, bb=0x7fdb5c03feb8, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at util_filter.c:496
+No locals.
+#4  0x00000000004356dc in ap_rgetline_core (s=0x7fdb5c03ec90, n=8192, read=0x7fdb6fdecc30, r=0x7fdb5c03ec60, fold=0, bb=0x7fdb5c03feb8) at protocol.c:232
+        rv = 1543765648
+        e = 0x7fdb5c03ee18
+        bytes_handled = 0
+        current_alloc = 0
+        pos = 0x7fdb5c03fdd8 "\350\353\003\\\333\177"
+        last_char = 0x0
+        do_alloc = 1
+        saw_eos = 0
+#5  0x0000000000435f4d in read_request_line (r=0x7fdb5c03ec60, bb=0x7fdb5c03feb8) at protocol.c:599
+        rv = 32731
+        ll = 0x7fdb5c03ebe8 "\230\352s\002"
+        uri = 0x7fdb6fdecc70 "\340\314\336o\333\177"
+        pro = 0x7fdb5c03fed8 "\370\375\003\\\333\177"
+        major = 1
+        minor = 0
+        http = "x\222K\002"
+        len = 140580118331064
+        num_blank_lines = 0
+        max_blank_lines = 100
+#6  0x000000000043701f in ap_read_request (conn=0x273eda0) at protocol.c:977
+        r = 0x7fdb5c03ec60
+        p = 0x7fdb5c03ebe8
+        expect = 0x300000000 <Address 0x300000000 out of bounds>
+        access_status = 0
+        tmp_bb = 0x7fdb5c03feb8
+        csd = 0x273eda0
+        cur_timeout = 140580451437792
+#7  0x0000000000468d6e in ap_process_http_async_connection (c=0x273eda0) at http_core.c:135
+        r = 0x7fdb794febce
+        cs = 0x273ed78
+#8  0x0000000000468fb3 in ap_process_http_connection (c=0x273eda0) at http_core.c:228
+No locals.
+#9  0x000000000045d68b in ap_run_process_connection (c=0x273eda0) at connection.c:41
+        pHook = 0x24b94f0
+        n = 1
+        rv = -1
+#10 0x00007fdb7e41f450 in process_socket (thd=0x257d3c8, p=0x273ea98, sock=0x273eb20, cs=0x273ed28, my_child_num=1, my_thread_num=12) at event.c:964
+        c = 0x273eda0
+        conn_id = 76
+        rc = -2
+        sbh = 0x273ed10
+#11 0x00007fdb7e42187c in worker_thread (thd=0x257d3c8, dummy=0x26d3ac0) at event.c:1812
+        ti = 0x26d3ac0
+        process_slot = 1
+        thread_slot = 12
+        csd = 0x273eb20
+        cs = 0x0
+        ptrans = 0x273ea98
+        rv = 0
+        is_idle = 0
+        te = 0x0
+#12 0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d3c8) at threadproc/unix/thread.c:142
+        thread = 0x257d3c8
+#13 0x00007fdb7f03aefc in start_thread (arg=0x7fdb6fded700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6fded700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580451441088, 0, 3, -7900783844766249323, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#14 0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#15 0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 14 (Thread 0x7fdb6f5ec700 (LWP 8122)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb6f5ebe38, ecs=0x7fdb6f5ebe40, p=0x7fdb6f5ebe48, te_out=0x7fdb6f5ebe50) at fdqueue.c:438
+        elem = 0x20257c9b0
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d3f8, dummy=0x26d47e0) at event.c:1770
+        ti = 0x26d47e0
+        process_slot = 1
+        thread_slot = 13
+        csd = 0x27f8870
+        cs = 0x0
+        ptrans = 0x27f87e8
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d3f8) at threadproc/unix/thread.c:142
+        thread = 0x257d3f8
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb6f5ec700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6f5ec700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580443048384, 0, 3, -7900782741496525163, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 13 (Thread 0x7fdb6edeb700 (LWP 8123)):
+#0  0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+        resultvar = <optimized out>
+        oldtype = 0
+        result = <optimized out>
+#1  0x00007fdb7f27712d in apr_poll (aprset=0x7fdb6edeaa80, num=1, nsds=0x7fdb6edeaad8, timeout=20000) at poll/unix/poll.c:120
+        i = 1
+        num_to_poll = 1
+        pollset = 0x7fdb6edea9d0
+#2  0x00007fdb794fe772 in reqtimeout_filter (f=0x27b1620, bb=0x7fdb4c061ee8, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at mod_reqtimeout.c:280
+        bblen = 2164663517185
+        nsds = 1275423688
+        poll_timeout = 20000000
+        pollset = {p = 0x27b0e28, desc_type = APR_POLL_SOCKET, reqevents = 33, rtnevents = 0, desc = {f = 0x27b0eb0, s = 0x27b0eb0}, client_data = 0x2775100}
+        remaining = 8192
+        time_left = 20000000
+        now = 1347892261613583
+        rv = 0
+        saved_sock_timeout = 60000000
+        ccfg = 0x27b15e0
+#3  0x0000000000433310 in ap_get_brigade (next=0x27b1620, bb=0x7fdb4c061ee8, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at util_filter.c:496
+No locals.
+#4  0x00000000004356dc in ap_rgetline_core (s=0x7fdb4c060cc0, n=8192, read=0x7fdb6edeac30, r=0x7fdb4c060c90, fold=0, bb=0x7fdb4c061ee8) at protocol.c:232
+        rv = 1275469504
+        e = 0x7fdb4c060e48
+        bytes_handled = 0
+        current_alloc = 0
+        pos = 0x7fdb4c061e08 "\030\f\006L\333\177"
+        last_char = 0x0
+        do_alloc = 1
+        saw_eos = 0
+#5  0x0000000000435f4d in read_request_line (r=0x7fdb4c060c90, bb=0x7fdb4c061ee8) at protocol.c:599
+        rv = 32731
+        ll = 0x7fdb4c060c18 "(\016{\002"
+        uri = 0x7fdb6edeac70 "\340\254\336n\333\177"
+        pro = 0x7fdb4c061f08 "(\036\006L\333\177"
+        major = 1
+        minor = 0
+        http = "x\222K\002"
+        len = 140579850034920
+        num_blank_lines = 0
+        max_blank_lines = 100
+#6  0x000000000043701f in ap_read_request (conn=0x27b1130) at protocol.c:977
+        r = 0x7fdb4c060c90
+        p = 0x7fdb4c060c18
+        expect = 0x300000000 <Address 0x300000000 out of bounds>
+        access_status = 0
+        tmp_bb = 0x7fdb4c061ee8
+        csd = 0x27b1130
+        cur_timeout = 140580434652384
+#7  0x0000000000468d6e in ap_process_http_async_connection (c=0x27b1130) at http_core.c:135
+        r = 0x7fdb794febce
+        cs = 0x27b1108
+#8  0x0000000000468fb3 in ap_process_http_connection (c=0x27b1130) at http_core.c:228
+No locals.
+#9  0x000000000045d68b in ap_run_process_connection (c=0x27b1130) at connection.c:41
+        pHook = 0x24b94f0
+        n = 1
+        rv = -1
+#10 0x00007fdb7e41f450 in process_socket (thd=0x257d428, p=0x27b0e28, sock=0x27b0eb0, cs=0x27b10b8, my_child_num=1, my_thread_num=14) at event.c:964
+        c = 0x27b1130
+        conn_id = 78
+        rc = -2
+        sbh = 0x27b10a0
+#11 0x00007fdb7e42187c in worker_thread (thd=0x257d428, dummy=0x26d4800) at event.c:1812
+        ti = 0x26d4800
+        process_slot = 1
+        thread_slot = 14
+        csd = 0x27b0eb0
+        cs = 0x0
+        ptrans = 0x27b0e28
+        rv = 0
+        is_idle = 0
+        te = 0x0
+#12 0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d428) at threadproc/unix/thread.c:142
+        thread = 0x257d428
+#13 0x00007fdb7f03aefc in start_thread (arg=0x7fdb6edeb700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6edeb700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580434655680, 0, 3, -7900786040568279403, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#14 0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#15 0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 12 (Thread 0x7fdb6e5ea700 (LWP 8124)):
+#0  0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+        resultvar = <optimized out>
+        oldtype = 0
+        result = <optimized out>
+#1  0x00007fdb7f27712d in apr_poll (aprset=0x7fdb6e5e9a80, num=1, nsds=0x7fdb6e5e9ad8, timeout=20000) at poll/unix/poll.c:120
+        i = 1
+        num_to_poll = 1
+        pollset = 0x7fdb6e5e99d0
+#2  0x00007fdb794fe772 in reqtimeout_filter (f=0x273b270, bb=0x7fdb5401bc98, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at mod_reqtimeout.c:280
+        bblen = 2164663517185
+        nsds = 1409370520
+        poll_timeout = 20000000
+        pollset = {p = 0x273aa78, desc_type = APR_POLL_SOCKET, reqevents = 33, rtnevents = 0, desc = {f = 0x273ab00, s = 0x273ab00}, client_data = 0x27f02a0}
+        remaining = 8192
+        time_left = 20000000
+        now = 1347892260609554
+        rv = 0
+        saved_sock_timeout = 60000000
+        ccfg = 0x273b230
+#3  0x0000000000433310 in ap_get_brigade (next=0x273b270, bb=0x7fdb5401bc98, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at util_filter.c:496
+No locals.
+#4  0x00000000004356dc in ap_rgetline_core (s=0x7fdb5401aa70, n=8192, read=0x7fdb6e5e9c30, r=0x7fdb5401aa40, fold=0, bb=0x7fdb5401bc98) at protocol.c:232
+        rv = 1409399920
+        e = 0x7fdb5401abf8
+        bytes_handled = 0
+        current_alloc = 0
+        pos = 0x7fdb5401bbb8 "ȩ\001T\333\177"
+        last_char = 0x0
+        do_alloc = 1
+        saw_eos = 0
+#5  0x0000000000435f4d in read_request_line (r=0x7fdb5401aa40, bb=0x7fdb5401bc98) at protocol.c:599
+        rv = 32731
+        ll = 0x7fdb5401a9c8 "x\252s\002"
+        uri = 0x7fdb6e5e9c70 "\340\234^n\333\177"
+        pro = 0x7fdb5401bcb8 "ػ\001T\333\177"
+        major = 1
+        minor = 0
+        http = "x\222K\002"
+        len = 140579983965336
+        num_blank_lines = 0
+        max_blank_lines = 100
+#6  0x000000000043701f in ap_read_request (conn=0x273ad80) at protocol.c:977
+        r = 0x7fdb5401aa40
+        p = 0x7fdb5401a9c8
+        expect = 0x300000000 <Address 0x300000000 out of bounds>
+        access_status = 0
+        tmp_bb = 0x7fdb5401bc98
+        csd = 0x273ad80
+        cur_timeout = 140580426259680
+#7  0x0000000000468d6e in ap_process_http_async_connection (c=0x273ad80) at http_core.c:135
+        r = 0x7fdb794febce
+        cs = 0x273ad58
+#8  0x0000000000468fb3 in ap_process_http_connection (c=0x273ad80) at http_core.c:228
+No locals.
+#9  0x000000000045d68b in ap_run_process_connection (c=0x273ad80) at connection.c:41
+        pHook = 0x24b94f0
+        n = 1
+        rv = -1
+#10 0x00007fdb7e41f450 in process_socket (thd=0x257d458, p=0x273aa78, sock=0x273ab00, cs=0x273ad08, my_child_num=1, my_thread_num=15) at event.c:964
+        c = 0x273ad80
+        conn_id = 79
+        rc = -2
+        sbh = 0x273acf0
+#11 0x00007fdb7e42187c in worker_thread (thd=0x257d458, dummy=0x26f3ba0) at event.c:1812
+        ti = 0x26f3ba0
+        process_slot = 1
+        thread_slot = 15
+        csd = 0x273ab00
+        cs = 0x0
+        ptrans = 0x273aa78
+        rv = 0
+        is_idle = 0
+        te = 0x0
+#12 0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d458) at threadproc/unix/thread.c:142
+        thread = 0x257d458
+#13 0x00007fdb7f03aefc in start_thread (arg=0x7fdb6e5ea700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6e5ea700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580426262976, 0, 3, -7900784941593522539, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#14 0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#15 0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 11 (Thread 0x7fdb6dde9700 (LWP 8125)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb6dde8e38, ecs=0x7fdb6dde8e40, p=0x7fdb6dde8e48, te_out=0x7fdb6dde8e50) at fdqueue.c:438
+        elem = 0x20257c998
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d488, dummy=0x26f3bc0) at event.c:1770
+        ti = 0x26f3bc0
+        process_slot = 1
+        thread_slot = 16
+        csd = 0x2842ac0
+        cs = 0x0
+        ptrans = 0x2842a38
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d488) at threadproc/unix/thread.c:142
+        thread = 0x257d488
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb6dde9700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6dde9700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580417870272, 0, 3, -7900788240665276779, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 10 (Thread 0x7fdb6d5e8700 (LWP 8126)):
+#0  0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+        resultvar = <optimized out>
+        oldtype = 0
+        result = <optimized out>
+#1  0x00007fdb7f27712d in apr_poll (aprset=0x7fdb6d5e7a80, num=1, nsds=0x7fdb6d5e7ad8, timeout=20000) at poll/unix/poll.c:120
+        i = 1
+        num_to_poll = 1
+        pollset = 0x7fdb6d5e79d0
+#2  0x00007fdb794fe772 in reqtimeout_filter (f=0x2777450, bb=0x7fdb6400fc38, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at mod_reqtimeout.c:280
+        bblen = 2164663517185
+        nsds = 41446616
+        poll_timeout = 20000000
+        pollset = {p = 0x2776c58, desc_type = APR_POLL_SOCKET, reqevents = 33, rtnevents = 0, desc = {f = 0x2776ce0, s = 0x2776ce0}, client_data = 0x26759d0}
+        remaining = 8192
+        time_left = 20000000
+        now = 1347892256569531
+        rv = 0
+        saved_sock_timeout = 60000000
+        ccfg = 0x2777410
+#3  0x0000000000433310 in ap_get_brigade (next=0x2777450, bb=0x7fdb6400fc38, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at util_filter.c:496
+No locals.
+#4  0x00000000004356dc in ap_rgetline_core (s=0x7fdb6400ea10, n=8192, read=0x7fdb6d5e7c30, r=0x7fdb6400e9e0, fold=0, bb=0x7fdb6400fc38) at protocol.c:232
+        rv = 1677786128
+        e = 0x7fdb6400eb98
+        bytes_handled = 0
+        current_alloc = 0
+        pos = 0x7fdb6400fb58  <incomplete sequence \351>
+        last_char = 0x0
+        do_alloc = 1
+        saw_eos = 0
+#5  0x0000000000435f4d in read_request_line (r=0x7fdb6400e9e0, bb=0x7fdb6400fc38) at protocol.c:599
+        rv = 32731
+        ll = 0x7fdb6400e968 "Xlw\002"
+        uri = 0x7fdb6d5e7c70 "\340|^m\333\177"
+        pro = 0x7fdb6400fc58  <incomplete sequence \373>
+        major = 1
+        minor = 0
+        http = "x\222K\002"
+        len = 140580252351544
+        num_blank_lines = 0
+        max_blank_lines = 100
+#6  0x000000000043701f in ap_read_request (conn=0x2776f60) at protocol.c:977
+        r = 0x7fdb6400e9e0
+        p = 0x7fdb6400e968
+        expect = 0x300000000 <Address 0x300000000 out of bounds>
+        access_status = 0
+        tmp_bb = 0x7fdb6400fc38
+        csd = 0x2776f60
+        cur_timeout = 140580409474272
+#7  0x0000000000468d6e in ap_process_http_async_connection (c=0x2776f60) at http_core.c:135
+        r = 0x7fdb794febce
+        cs = 0x2776f38
+#8  0x0000000000468fb3 in ap_process_http_connection (c=0x2776f60) at http_core.c:228
+No locals.
+#9  0x000000000045d68b in ap_run_process_connection (c=0x2776f60) at connection.c:41
+        pHook = 0x24b94f0
+        n = 1
+        rv = -1
+#10 0x00007fdb7e41f450 in process_socket (thd=0x257d4b8, p=0x2776c58, sock=0x2776ce0, cs=0x2776ee8, my_child_num=1, my_thread_num=17) at event.c:964
+        c = 0x2776f60
+        conn_id = 81
+        rc = -2
+        sbh = 0x2776ed0
+#11 0x00007fdb7e42187c in worker_thread (thd=0x257d4b8, dummy=0x265fae0) at event.c:1812
+        ti = 0x265fae0
+        process_slot = 1
+        thread_slot = 17
+        csd = 0x2776ce0
+        cs = 0x0
+        ptrans = 0x2776c58
+        rv = 0
+        is_idle = 0
+        te = 0x0
+#12 0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d4b8) at threadproc/unix/thread.c:142
+        thread = 0x257d4b8
+#13 0x00007fdb7f03aefc in start_thread (arg=0x7fdb6d5e8700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6d5e8700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580409477568, 0, 3, -7900787137395552619, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#14 0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#15 0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 9 (Thread 0x7fdb6cde7700 (LWP 8127)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb6cde6e38, ecs=0x7fdb6cde6e40, p=0x7fdb6cde6e48, te_out=0x7fdb6cde6e50) at fdqueue.c:438
+        elem = 0x20257c908
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d4e8, dummy=0x265fb00) at event.c:1770
+        ti = 0x265fb00
+        process_slot = 1
+        thread_slot = 18
+        csd = 0x27a0e30
+        cs = 0x0
+        ptrans = 0x27a0da8
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d4e8) at threadproc/unix/thread.c:142
+        thread = 0x257d4e8
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb6cde7700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6cde7700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580401084864, 0, 3, -7900790436467306859, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 8 (Thread 0x7fdb6c5e6700 (LWP 8128)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb6c5e5e38, ecs=0x7fdb6c5e5e40, p=0x7fdb6c5e5e48, te_out=0x7fdb6c5e5e50) at fdqueue.c:438
+        elem = 0x20257ca10
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d518, dummy=0x2674980) at event.c:1770
+        ti = 0x2674980
+        process_slot = 1
+        thread_slot = 19
+        csd = 0x2842ac0
+        cs = 0x0
+        ptrans = 0x2842a38
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d518) at threadproc/unix/thread.c:142
+        thread = 0x257d518
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb6c5e6700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6c5e6700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580392692160, 0, 3, -7900789337492549995, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 7 (Thread 0x7fdb6bde5700 (LWP 8129)):
+#0  0x00007fdb7ed69473 in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:87
+        resultvar = <optimized out>
+        oldtype = 0
+        result = <optimized out>
+#1  0x00007fdb7f27712d in apr_poll (aprset=0x7fdb6bde4a80, num=1, nsds=0x7fdb6bde4ad8, timeout=20000) at poll/unix/poll.c:120
+        i = 1
+        num_to_poll = 1
+        pollset = 0x7fdb6bde49d0
+#2  0x00007fdb794fe772 in reqtimeout_filter (f=0x282b170, bb=0x7fdb64009c08, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at mod_reqtimeout.c:280
+        bblen = 2164663517185
+        nsds = 41512280
+        poll_timeout = 20000000
+        pollset = {p = 0x282a978, desc_type = APR_POLL_SOCKET, reqevents = 33, rtnevents = 0, desc = {f = 0x282aa00, s = 0x282aa00}, client_data = 0x267eb40}
+        remaining = 8192
+        time_left = 20000000
+        now = 1347892255561050
+        rv = 0
+        saved_sock_timeout = 60000000
+        ccfg = 0x282b130
+#3  0x0000000000433310 in ap_get_brigade (next=0x282b170, bb=0x7fdb64009c08, mode=AP_MODE_GETLINE, block=APR_BLOCK_READ, readbytes=0) at util_filter.c:496
+No locals.
+#4  0x00000000004356dc in ap_rgetline_core (s=0x7fdb640089e0, n=8192, read=0x7fdb6bde4c30, r=0x7fdb640089b0, fold=0, bb=0x7fdb64009c08) at protocol.c:232
+        rv = 1677761504
+        e = 0x7fdb64008b68
+        bytes_handled = 0
+        current_alloc = 0
+        pos = 0x7fdb64009b28 "8\211"
+        last_char = 0x0
+        do_alloc = 1
+        saw_eos = 0
+#5  0x0000000000435f4d in read_request_line (r=0x7fdb640089b0, bb=0x7fdb64009c08) at protocol.c:599
+        rv = 32731
+        ll = 0x7fdb64008938 "x\251\202\002"
+        uri = 0x7fdb6bde4c70 "\340L\336k\333\177"
+        pro = 0x7fdb64009c28 "H\233"
+        major = 1
+        minor = 0
+        http = "x\222K\002"
+        len = 140580252326920
+        num_blank_lines = 0
+        max_blank_lines = 100
+#6  0x000000000043701f in ap_read_request (conn=0x282ac80) at protocol.c:977
+        r = 0x7fdb640089b0
+        p = 0x7fdb64008938
+        expect = 0x300000000 <Address 0x300000000 out of bounds>
+        access_status = 0
+        tmp_bb = 0x7fdb64009c08
+        csd = 0x282ac80
+        cur_timeout = 140580384296160
+#7  0x0000000000468d6e in ap_process_http_async_connection (c=0x282ac80) at http_core.c:135
+        r = 0x7fdb794febce
+        cs = 0x282ac58
+#8  0x0000000000468fb3 in ap_process_http_connection (c=0x282ac80) at http_core.c:228
+No locals.
+#9  0x000000000045d68b in ap_run_process_connection (c=0x282ac80) at connection.c:41
+        pHook = 0x24b94f0
+        n = 1
+        rv = -1
+#10 0x00007fdb7e41f450 in process_socket (thd=0x257d548, p=0x282a978, sock=0x282aa00, cs=0x282ac08, my_child_num=1, my_thread_num=20) at event.c:964
+        c = 0x282ac80
+        conn_id = 84
+        rc = -2
+        sbh = 0x282abf0
+#11 0x00007fdb7e42187c in worker_thread (thd=0x257d548, dummy=0x26749a0) at event.c:1812
+        ti = 0x26749a0
+        process_slot = 1
+        thread_slot = 20
+        csd = 0x282aa00
+        cs = 0x0
+        ptrans = 0x282a978
+        rv = 0
+        is_idle = 0
+        te = 0x0
+#12 0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d548) at threadproc/unix/thread.c:142
+        thread = 0x257d548
+#13 0x00007fdb7f03aefc in start_thread (arg=0x7fdb6bde5700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6bde5700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580384299456, 0, 3, -7900775044378259819, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#14 0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#15 0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 6 (Thread 0x7fdb6b5e4700 (LWP 8130)):
+#0  __lll_lock_wait () at ../nptl/sysdeps/unix/sysv/linux/x86_64/lowlevellock.S:136
+No locals.
+#1  0x00007fdb7f044648 in _L_cond_lock_899 () from /lib/x86_64-linux-gnu/libpthread.so.0
+        libgcc_s_getcfa = 0x925af4d41e700e95
+        libgcc_s_resume = 0x925af4d445d00e95
+        libgcc_s_forcedunwind = 0x925af4d444300e95
+        libgcc_s_personality = 0x925af4d785700e95
+        libgcc_s_handle = 0x25b18e0
+#2  0x00007fdb7f044418 in __pthread_mutex_cond_lock (mutex=0x257c748) at ../nptl/pthread_mutex_lock.c:61
+        __PRETTY_FUNCTION__ = "__pthread_mutex_cond_lock"
+        type = 4294966784
+#3  0x00007fdb7f03f0e6 in pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:236
+No locals.
+#4  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#5  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb6b5e3e38, ecs=0x7fdb6b5e3e40, p=0x7fdb6b5e3e48, te_out=0x7fdb6b5e3e50) at fdqueue.c:438
+        elem = 0x20257c8a8
+        rv = 0
+#6  0x00007fdb7e421723 in worker_thread (thd=0x257d578, dummy=0x265c580) at event.c:1770
+        ti = 0x265c580
+        process_slot = 1
+        thread_slot = 21
+        csd = 0x27a0e30
+        cs = 0x0
+        ptrans = 0x27a0da8
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#7  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d578) at threadproc/unix/thread.c:142
+        thread = 0x257d578
+#8  0x00007fdb7f03aefc in start_thread (arg=0x7fdb6b5e4700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6b5e4700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580375906752, 0, 3, -7900773941108535659, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#9  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#10 0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 5 (Thread 0x7fdb6ade3700 (LWP 8131)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb6ade2e38, ecs=0x7fdb6ade2e40, p=0x7fdb6ade2e48, te_out=0x7fdb6ade2e50) at fdqueue.c:438
+        elem = 0x20257c950
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d5a8, dummy=0x265c5a0) at event.c:1770
+        ti = 0x265c5a0
+        process_slot = 1
+        thread_slot = 22
+        csd = 0x27f8870
+        cs = 0x0
+        ptrans = 0x27f87e8
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d5a8) at threadproc/unix/thread.c:142
+        thread = 0x257d5a8
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb6ade3700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6ade3700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580367514048, 0, 3, -7900777240180289899, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 4 (Thread 0x7fdb6a5e2700 (LWP 8132)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb6a5e1e38, ecs=0x7fdb6a5e1e40, p=0x7fdb6a5e1e48, te_out=0x7fdb6a5e1e50) at fdqueue.c:438
+        elem = 0x20257c8c0
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d5d8, dummy=0x2614290) at event.c:1770
+        ti = 0x2614290
+        process_slot = 1
+        thread_slot = 23
+        csd = 0x2842ac0
+        cs = 0x0
+        ptrans = 0x2842a38
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d5d8) at threadproc/unix/thread.c:142
+        thread = 0x257d5d8
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb6a5e2700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb6a5e2700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580359121344, 0, 3, -7900776141205533035, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 3 (Thread 0x7fdb69de1700 (LWP 8133)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:162
+No locals.
+#1  0x00007fdb7f26c6fc in apr_thread_cond_wait (cond=0x257c790, mutex=0x257c740) at locks/unix/thread_cond.c:68
+        rv = 0
+#2  0x00007fdb7e425dcf in ap_queue_pop_something (queue=0x257c700, sd=0x7fdb69de0e38, ecs=0x7fdb69de0e40, p=0x7fdb69de0e48, te_out=0x7fdb69de0e50) at fdqueue.c:438
+        elem = 0x20257c920
+        rv = 0
+#3  0x00007fdb7e421723 in worker_thread (thd=0x257d608, dummy=0x26142b0) at event.c:1770
+        ti = 0x26142b0
+        process_slot = 1
+        thread_slot = 24
+        csd = 0x2842ac0
+        cs = 0x0
+        ptrans = 0x2842a38
+        rv = 0
+        is_idle = 1
+        te = 0x0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d608) at threadproc/unix/thread.c:142
+        thread = 0x257d608
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb69de1700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb69de1700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580350728640, 0, 3, -7900779440277287275, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 2 (Thread 0x7fdb695e0700 (LWP 8134)):
+#0  pthread_cond_signal@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/x86_64/pthread_cond_signal.S:89
+No locals.
+#1  0x00007fdb7f26c7ea in apr_thread_cond_signal (cond=0x257c790) at locks/unix/thread_cond.c:106
+        rv = 0
+#2  0x00007fdb7e425c65 in ap_queue_push (queue=0x257c700, sd=0x27f8870, ecs=0x0, p=0x27f87e8) at fdqueue.c:388
+        elem = 0x257ca28
+        rv = 0
+#3  0x00007fdb7e421110 in listener_thread (thd=0x257d638, dummy=0x26da600) at event.c:1628
+        workers_were_busy = 0
+        ep = 0x7fdb7e62a6b0
+        te = 0x0
+        rc = 0
+        ti = 0x26da600
+        process_slot = 1
+        tpool = 0x27107f8
+        csd = 0x27f8870
+        ptrans = 0x27f87e8
+        lr = 0x2422180
+        have_idle_worker = 1
+        cs = 0x27f8a78
+        out_pfd = 0x257cd80
+        num = 3
+        timeout_interval = 100000
+        timeout_time = 1347892268863376
+        now = 1347892268853775
+        last_log = 1347892208078661
+        pt = 0x27108c0
+        closed = 0
+        listeners_disabled = 0
+#4  0x00007fdb7f27e4ab in dummy_worker (opaque=0x257d638) at threadproc/unix/thread.c:142
+        thread = 0x257d638
+#5  0x00007fdb7f03aefc in start_thread (arg=0x7fdb695e0700) at pthread_create.c:304
+        __res = <optimized out>
+        pd = 0x7fdb695e0700
+        now = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, 7920733648380235413, 39306872, 140580342335936, 0, 3, -7900778354187432299, -7900748270623519083}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        robust = <optimized out>
+        pagesize_m1 = <optimized out>
+        sp = <optimized out>
+        freesize = <optimized out>
+        __PRETTY_FUNCTION__ = "start_thread"
+#6  0x00007fdb7ed7559d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+No locals.
+#7  0x0000000000000000 in ?? ()
+No symbol table info available.
+
+Thread 1 (Thread 0x7fdb7fd1c720 (LWP 8106)):
+#0  0x00007fdb7f0420dd in read () at ../sysdeps/unix/syscall-template.S:82
+No locals.
+#1  0x00007fdb7e4260ce in ap_event_pod_check (pod=0x24b3da0) at pod.c:58
+        c = 0 '\000'
+        fd = 5
+        rc = 0
+#2  0x00007fdb7e4226e8 in child_main (child_num_arg=1) at event.c:2185
+        threads = 0x25d0ef0
+        rv = 0
+        ts = 0x257c650
+        thread_attr = 0x257c670
+        start_thread_id = 0x257c6d0
+#3  0x00007fdb7e422888 in make_child (s=0x2428348, slot=1) at event.c:2272
+        pid = 0
+#4  0x00007fdb7e422958 in startup_children (number_to_start=2) at event.c:2298
+        i = 1
+#5  0x00007fdb7e42338e in event_run (_pconf=0x23fd138, plog=0x245a4d8, s=0x2428348) at event.c:2638
+        remaining_children_to_start = 3
+#6  0x000000000043099d in ap_run_mpm (pconf=0x23fd138, plog=0x245a4d8, s=0x2428348) at mpm_common.c:98
+        pHook = 0x24b9640
+        n = 0
+        rv = -1
+#7  0x0000000000429036 in main (argc=3, argv=0x7fff9edf3e68) at main.c:777
+        c = 0 '\000'
+        showcompile = 0
+        showdirectives = 0
+        confname = 0x474bab "conf/httpd.conf"
+        def_server_root = 0x474bbb "/home/trawick/inst/24-64"
+        temp_error_log = 0x0
+        error = 0x0
+        process = 0x23fb218
+        pconf = 0x23fd138
+        plog = 0x245a4d8
+        ptemp = 0x24262f8
+        pcommands = 0x241f248
+        opt = 0x241f338
+        rv = 0
+        mod = 0x690718
+        opt_arg = 0x7fdb7fd3c620 "\200\305\323\177\333\177"
+        signal_server = 0x460f7a <ap_signal_server>
+
+Thread 27 (Thread 0x7fdb75df9700 (LWP 8109)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 26 (Thread 0x7fdb755f8700 (LWP 8110)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 25 (Thread 0x7fdb74df7700 (LWP 8111)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 24 (Thread 0x7fdb745f6700 (LWP 8112)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 23 (Thread 0x7fdb73df5700 (LWP 8113)):
+=> 0x7fdb7ed69473 <__GI___poll+83>:	cmp    $0xfffffffffffff000,%rax
+
+Thread 22 (Thread 0x7fdb735f4700 (LWP 8114)):
+=> 0x7fdb7ed69473 <__GI___poll+83>:	cmp    $0xfffffffffffff000,%rax
+
+Thread 21 (Thread 0x7fdb72df3700 (LWP 8115)):
+=> 0x7fdb7ed69473 <__GI___poll+83>:	cmp    $0xfffffffffffff000,%rax
+
+Thread 20 (Thread 0x7fdb725f2700 (LWP 8116)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 19 (Thread 0x7fdb71df1700 (LWP 8117)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 18 (Thread 0x7fdb715f0700 (LWP 8118)):
+=> 0x7fdb7ed69473 <__GI___poll+83>:	cmp    $0xfffffffffffff000,%rax
+
+Thread 17 (Thread 0x7fdb70def700 (LWP 8119)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 16 (Thread 0x7fdb705ee700 (LWP 8120)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 15 (Thread 0x7fdb6fded700 (LWP 8121)):
+=> 0x7fdb7ed69473 <__GI___poll+83>:	cmp    $0xfffffffffffff000,%rax
+
+Thread 14 (Thread 0x7fdb6f5ec700 (LWP 8122)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 13 (Thread 0x7fdb6edeb700 (LWP 8123)):
+=> 0x7fdb7ed69473 <__GI___poll+83>:	cmp    $0xfffffffffffff000,%rax
+
+Thread 12 (Thread 0x7fdb6e5ea700 (LWP 8124)):
+=> 0x7fdb7ed69473 <__GI___poll+83>:	cmp    $0xfffffffffffff000,%rax
+
+Thread 11 (Thread 0x7fdb6dde9700 (LWP 8125)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 10 (Thread 0x7fdb6d5e8700 (LWP 8126)):
+=> 0x7fdb7ed69473 <__GI___poll+83>:	cmp    $0xfffffffffffff000,%rax
+
+Thread 9 (Thread 0x7fdb6cde7700 (LWP 8127)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 8 (Thread 0x7fdb6c5e6700 (LWP 8128)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 7 (Thread 0x7fdb6bde5700 (LWP 8129)):
+=> 0x7fdb7ed69473 <__GI___poll+83>:	cmp    $0xfffffffffffff000,%rax
+
+Thread 6 (Thread 0x7fdb6b5e4700 (LWP 8130)):
+=> 0x7fdb7f041be4 <__lll_lock_wait+36>:	mov    %edx,%eax
+
+Thread 5 (Thread 0x7fdb6ade3700 (LWP 8131)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 4 (Thread 0x7fdb6a5e2700 (LWP 8132)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 3 (Thread 0x7fdb69de1700 (LWP 8133)):
+=> 0x7fdb7f03f04c <pthread_cond_wait@@GLIBC_2.3.2+204>:	mov    (%rsp),%edi
+
+Thread 2 (Thread 0x7fdb695e0700 (LWP 8134)):
+=> 0x7fdb7f03f858 <pthread_cond_signal@@GLIBC_2.3.2+104>:	cmp    $0xfffffffffffff001,%rax
+
+Thread 1 (Thread 0x7fdb7fd1c720 (LWP 8106)):
+=> 0x7fdb7f0420dd <read+45>:	mov    (%rsp),%rdi
