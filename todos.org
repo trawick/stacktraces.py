@@ -11,7 +11,7 @@
 *** DONE Support multiple processes in same invocation
 *** DONE Process group has processes
 *** DONE Process can have parallel representations of threads -- [] of threadgroups and [] of threads
-*** TODO Make sure Mac OS X output is parseable on Linux.
+*** DONE Make sure Mac OS X output is parseable on Linux.
 *** DONE gdb: Any way to get the pid or exe saved to the process?
 *** DONE process: display/return pid and exe if available
 ** Regression
@@ -41,6 +41,7 @@
 *** DONE Put a limit on upload size
 *** TODO Upload latest collect.py
 *** TODO Create "live" hg checkout from which to run
+*** TODO Upload the latest client app
 * Release 2
 ** Regression
 *** TODO Need rich set of logs created by gather-only script.
