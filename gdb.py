@@ -71,8 +71,10 @@ class gdb:
             if l[:7] == 'Thread ':
                 m = re.search('Thread (\d+) ', l)
                 gdbtid = m.group(1)
-                thr = process_model.thread(gdbtid)
-                self.proc.add_thread(thr)
+                thr = self.proc.find_thread(gdbtid)
+                if not thr:
+                    thr = process_model.thread(gdbtid)
+                    self.proc.add_thread(thr)
                 fr = None
             elif thr and l[:1] == '#':
                 m = re.search('\#(\d+) +((0x[\da-f]+) in )?([^ ]+) (\([^)]*\))', l)
