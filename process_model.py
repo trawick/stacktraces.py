@@ -37,6 +37,8 @@ class thread:
         if self.name:
             s += self.name
             s += ' '
+        else:
+            s += '(Unrecognized thread) '
         if self.state:
             s += '(%s) ' % self.state
         s += '\n  '
@@ -54,6 +56,8 @@ class thread:
         if self.name:
             s += self.name
             s += ' '
+        else:
+            s += '(Unrecognized thread) '
         if self.state:
             s += '(%s) ' % self.state
         s += '\n'
@@ -206,6 +210,12 @@ class process:
 
     def add_thread(self, thr):
         self.threads.append(thr)
+
+    def find_thread(self, thrid):
+        for t in self.threads:
+            if t.tid == thrid:
+                return t
+        return None
 
     def group(self):
 	for t in self.threads:
