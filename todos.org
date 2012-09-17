@@ -3,15 +3,17 @@
 *** DONE Cores, pids, override mechanism
 *** DONE Simple gather-only script for download
 *** DONE Add label at top of debugger output file with collector tool version, OS version, etc.
-*** TODO Add pflags and pldd on Solaris
+*** DONE Add pflags and pldd on Solaris
 ** Parsers, model
 *** DONE Support multiple processes in same invocation
 *** DONE Process group has processes
 *** DONE Process can have parallel representations of threads -- [] of threadgroups and [] of threads
 *** TODO Make sure Mac OS X output is parseable.
+*** TODO gdb: Any way to get the pid or exe saved to the process?
+*** DONE process: display/return pid and exe if available
 ** Explorer
 *** DONE Web display
-*** TODO Display pid (get it available in more situations)
+*** TODO Display pid
 *** TODO Use something more refined for the Expand/Shrink links.
 *** TODO Use hover text over items to show available information
 *** TODO Add some color coding
