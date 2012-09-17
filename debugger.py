@@ -33,6 +33,8 @@ class debugger:
             else:
                 if re.search('^(\d+):[ \t]+', self.debuglog[0]) and re.search('------- +lwp', self.debuglog[1]):
                     self.use_pstack = True
+                elif re.search('^core .* of \d+:', self.debuglog[0]):
+                    self.use_pstack = True
                 else:
                     self.use_gdb = True
         else:
