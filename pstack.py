@@ -26,6 +26,7 @@ class pstack:
     def __init__(self, **kwargs):
         self.corefile = kwargs.get('corefile')
         self.exe = kwargs.get('exe')
+        self.hdr = None
         self.pstackout = kwargs.get('debuglog')
         self.proc = kwargs.get('proc')
         if not self.proc:
