@@ -30,18 +30,18 @@
 *** DONE Run all saved outputs through display, fix any errors
 ** Explorer
 *** DONE Web display
-*** TODO Display pid and executable if available
-*** TODO Use something more refined for the Expand/Shrink links.
-*** TODO Use hover text over items to show available information
-*** TODO Add some color coding
-*** TODO Make that upload button prettier
-*** TODO Display current version of collect.py in the explorer and download pages
-*** TODO Test final version in Safari and Firefox
+*** DONE Display pid and executable if available
+*** DONE Use something more refined for the Expand/Shrink links.
+*** DONE Add some color coding
+*** DONE Display current version of collect.py in the explorer and download pages
+*** DONE Test final version in Safari and Firefox
 ** Web server
 *** DONE Put a limit on upload size
-*** TODO Upload latest collect.py
-*** TODO Create "live" hg checkout from which to run
-*** TODO Upload the latest client app
+*** DONE Create "live" hg checkout from which to run
+*** DONE Upload the latest client app (htdocs)
+*** DONE Upload latest collect.py
+*** DONE Update the "live" checkout
+*** DONE Redirect /projects/httpd/ to /projects/
 * Release 2
 ** Regression
 *** TODO Need rich set of logs created by gather-only script.
@@ -56,3 +56,5 @@
 *** TODO Don't delete frames; "hide" them instead.
 ** Explorer
 *** TODO icon to show hidden frames
+*** TODO Make that upload button prettier
+*** TODO Use hover text over items to show available information
