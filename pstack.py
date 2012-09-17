@@ -39,12 +39,21 @@ class pstack:
         if collect.is_hdr(self.pstackout[0]):
             self.hdr = self.pstackout[0]
             self.pstackout = self.pstackout[1:]
+        if 'REM /usr/bin/pstack' in self.pstackout[0]:
+            self.pstackout = self.pstackout[1:]
         m = re.search('^(\d+):[ \t]+(/[^ ]+)', self.pstackout[0])
-        if not m:
-            raise Exception('could not parse %s' % self.pstackout[0])
-        self.pid = m.group(1)
-        self.exe = m.group(2)
+        if m:
+            self.pid = m.group(1)
+            self.exe = m.group(2)
+        else:
+            m = re.search('^core +.* of (\d+):[ \t]+([^ ]+)', self.pstackout[0])
+            if not m:
+                raise Exception('could not parse >%s<' % self.pstackout[0])
+            self.pid = m.group(1)
+            self.exe = m.group(2)
         for l in self.pstackout[1:]:
+            if 'REM ' in l and l[0:3] == 'REM ':
+                break
             m = re.search('^-+ +lwp# +\d+ +/ +thread# +(\d+) +', l)
             if m:
                 thr = process_model.thread(m.group(1))
@@ -63,6 +72,10 @@ class pstack:
             m = re.search('^ +([\da-f]+) +([^ ]+) *(\([^)]*\)), exit value =', l)
             if m:
                 thr.set_exited()
+        if self.pid and not self.proc.pid:
+            self.proc.pid = self.pid
+        if self.exe and not self.proc.exe:
+            self.proc.exe = self.exe
 
     def get_output(self):
         self.pstackout = collect.pstack_collect(None, self.pid, self.corefile)
