@@ -25,8 +25,8 @@
 **** DONE collect on core of busy process
 **** DONE collect on busy process
 *** FreeBSD: Save these outputs
-**** TODO collect on core of busy process
-**** TODO collect on busy process
+**** DONE collect on core of busy process
+**** DONE collect on busy process
 *** Run all saved outputs through display, fix any errors
 ** Explorer
 *** DONE Web display
