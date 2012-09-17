@@ -72,6 +72,7 @@ def gdb_collect(outfilename, pid, corefile, exe):
     print >> scrfile, 'info sharedlibrary'
     print >> scrfile, 'info threads'
     print >> scrfile, 'thread apply all bt full'
+    print >> scrfile, 'thread apply all x/i $pc'
     if not corefile:
         print >> scrfile, 'detach'
     print >> scrfile, 'quit'
