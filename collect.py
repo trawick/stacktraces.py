@@ -134,6 +134,9 @@ def pstack_collect(outfilename, pid, corefile):
 
 def main():
     parser = OptionParser()
+    parser.add_option("-v", "--version", dest="version",
+                      action="store_true",
+                      help="show version")
     parser.add_option("-l", "--debuglog", dest="debuglog", type="string",
                       action="store",
                       help="specify file for debugger output")
@@ -152,8 +155,12 @@ def main():
     
     (options, args) = parser.parse_args()
 
+    if options.version:
+        print 'collect.py %s' % VERSION
+        sys.exit(1)
+
     if not options.debuglog:
-        parser.error("--debuglog is required.")
+        parser.error("--debuglog or --version is required.")
 
     if not options.pid and not options.corefile:
         parser.error("Either --pid or --corefile is required.")
