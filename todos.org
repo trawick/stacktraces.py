@@ -27,7 +27,7 @@
 *** FreeBSD: Save these outputs
 **** DONE collect on core of busy process
 **** DONE collect on busy process
-*** Run all saved outputs through display, fix any errors
+*** DONE Run all saved outputs through display, fix any errors
 ** Explorer
 *** DONE Web display
 *** TODO Display pid and executable if available
