@@ -52,11 +52,15 @@ annotations = [
 
 # 'db': delete frames before
 # 'da': delete frames after
+# 'dda': delete frame and frames after
+# 'd': delete frames in range
+# 'df': delete first fram in range
 
 cleanups = [
 ('db', ['is', 'apr_thread_mutex_unlock']),
 ('db', ['cdb', 'apr_thread_cond_wait', 'ap_queue_pop']),
 ('db', ['is', 'apr_sleep']),
+('df', ['cdb', 'poll', 'poll']),
 ('da', ['is', 'dummy_worker']),
 ('db', ['is', 'apr_proc_mutex_lock']),
 ('db', ['is', 'ap_mpm_pod_check']),
@@ -99,6 +103,10 @@ def cleanup(p):
                     t.frames = t.frames[:i[1] + 1]
                 elif c[0] == 'dda':
                     t.frames = t.frames[:i[1]]
+                elif c[0] == 'd':
+                    t.frames = t.frames[:i[0]] + t.frames[i[1] + 1:]
+                elif c[0] == 'df':
+                    t.frames = t.frames[:i[0]] + t.frames[i[0] + 1:]
                 else:
                     raise Exception('Unexpected cleanup type >%s<' % c[0])
     
