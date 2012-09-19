@@ -40,18 +40,21 @@ annotations = [
 ('s', ['is', 'ap_event_pod_check'], 'waiting for termination event'),
 ('s', ['is', 'ap_worker_pod_check'], 'waiting for termination event'),
 ('s', ['is', 'ap_mpm_pod_check'], 'waiting for termination event'),
+('s', ['is', 'ap_read_request'], 'reading client request'),
 ('s', ['cdb', 'apr_proc_mutex_lock', 'listener_thread'], 'waiting for accept mutex'),
 ('s', ['cdb', 'apr_thread_join', 'child_main'], 'waiting for threads to exit'),
 ('s', ['is', '__1cIcm_sleep6FLl_v_'], 'idle'),
 ('s', ['is', '__1cPCSmWorkerThreadFSleep6MLl_v_'], 'idle'),
 ('s', ['is', 'ap_lingering_close'], 'waiting for client to acknowledge connection close'),
 ('s', ['is', 'ap_run_handler'], 'running request handler'),
+('s', ['cdb', 'ap_queue_push', 'listener_thread'], 'sending connection to worker thread'),
 ]
 
 # 'db': delete frames before
 # 'da': delete frames after
 
 cleanups = [
+('db', ['is', 'apr_thread_mutex_unlock']),
 ('db', ['cdb', 'apr_thread_cond_wait', 'ap_queue_pop']),
 ('db', ['is', 'apr_sleep']),
 ('da', ['is', 'dummy_worker']),
@@ -61,6 +64,7 @@ cleanups = [
 ('db', ['is', 'apr_pollset_poll']),
 ('db', ['is', 'apr_thread_cond_wait']),
 ('db', ['is', 'apr_thread_join']),
+('db', ['is', 'apr_poll']),
 ('da', ['is', 'main']),
 ('dda', ['is', '_lwp_start']),
 ]
