@@ -48,6 +48,7 @@ annotations = [
 ('s', ['is', 'ap_lingering_close'], 'waiting for client to acknowledge connection close'),
 ('s', ['is', 'ap_run_handler'], 'running request handler'),
 ('s', ['cdb', 'ap_queue_push', 'listener_thread'], 'sending connection to worker thread'),
+('s', ['cib', 'ap_wait_or_timeout', 'ap_run_mpm'], 'idle'),
 ]
 
 # 'db': delete frames before
