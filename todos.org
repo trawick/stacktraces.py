@@ -42,19 +42,3 @@
 *** DONE Upload latest collect.py
 *** DONE Update the "live" checkout
 *** DONE Redirect /projects/httpd/ to /projects/
-* Release 2
-** Regression
-*** TODO Need rich set of logs created by gather-only script.
-** Gatherers
-*** TODO Allow stuffing the debugger output from multiple pids in the same file
-** Parsers, model
-*** TODO Use unique ids for string values for smaller downloads
-*** TODO Support Windows
-*** TODO Parsers shouldn't throw anything away; everything potentially useful should fit in the model
-*** TODO Identify third-party modules
-*** TODO Identify crashers
-*** TODO Don't delete frames; "hide" them instead.
-** Explorer
-*** TODO icon to show hidden frames
-*** TODO Make that upload button prettier
-*** TODO Use hover text over items to show available information
