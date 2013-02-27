@@ -57,7 +57,7 @@ class gdb:
             if pending:
                 l = pending + l
                 pending = None
-            if l[0] == '#' and (l[-1:] == ',' or l[-17:] == 'is not available.'):
+            if l[0] == '#' and (l[-1:] == ',' or l[-2:] == ', ' or l[-17:] == 'is not available.'):
                 pending = l[:-1]
                 continue
             if 'Attaching to program:' in l:
