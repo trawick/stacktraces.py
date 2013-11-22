@@ -57,8 +57,11 @@ class gdb:
             if pending:
                 l = pending + l
                 pending = None
-            if l[0] == '#' and (l[-1:] == ',' or l[-2:] == ', ' or l[-17:] == 'is not available.'):
-                pending = l[:-1]
+            if l[0] == '#' and (l[-1:] == ',' or l[-2:] == ', ' or l[-17:] == 'is not available.' or l[-2:] == ' ('):
+                if l[-2:] == ' (':
+                    pending = l
+                else:
+                    pending = l[:-1]
                 continue
             if 'Attaching to program:' in l:
                 m = re.search('Attaching to program: .([^\']+)\', process (\d+)', l)
