@@ -80,22 +80,39 @@ class gdb:
                     self.proc.add_thread(thr)
                 fr = None
             elif thr and l[:1] == '#':
+                m = re.search('signal handler called', l)
+                if m:
+                    # XXX Mark thread as crashed.
+                    continue
                 m = re.search('\#(\d+) +((0x[\da-f]+) in )?([^ ]+) (\([^)]*\))', l)
                 if m:
                     frameno = m.group(1)
                     addr = m.group(3)
                     fn = m.group(4)
                     fnargs = m.group(5)
-                # filter out frames with address 0 (seen on both Linux and FreeBSD)
+                    # filter out frames with address 0 (seen on both Linux and FreeBSD)
                     if addr and int(addr, 16) == 0:
                         continue
                     fr = process_model.frame(frameno, fn, fnargs)
                     thr.add_frame(fr)
                     continue
-                m = re.search('signal handler called', l)
+                # try again; make sure to handle
+                #   #5  0xdeadbeef in Foo::Parse(SynTree&, int&) () from /path/to/lib
+                m = re.search('\#(\d+) +((0x[\da-f]+) in )?(.*)$', l)
                 if m:
-                    # XXX Mark thread as crashed.
-                    continue
+                    frameno = m.group(1)
+                    addr = m.group(3)
+                    rest = m.group(4)
+                    # filter out frames with address 0 (seen on both Linux and FreeBSD)
+                    if addr and int(addr, 16) == 0:
+                        continue
+                    m = re.match('(.*) (\([^)]*\)) (from .*)?', rest)
+                    if m:
+                        fn = m.group(1)
+                        fnargs = m.group(2)
+                        fr = process_model.frame(frameno, fn, fnargs)
+                        thr.add_frame(fr)
+                        continue
                 print >> sys.stderr, 'could not parse >%s<' % l
                 sys.exit(1)
             elif fr:
