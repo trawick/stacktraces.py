@@ -40,6 +40,7 @@ annotations = [
 ('s', ['is', 'ap_event_pod_check'], 'waiting for termination event'),
 ('s', ['is', 'ap_worker_pod_check'], 'waiting for termination event'),
 ('s', ['is', 'ap_mpm_pod_check'], 'waiting for termination event'),
+('s', ['is', 'ap_mpm_podx_check'], 'waiting for termination event'),
 ('s', ['is', 'ap_read_request'], 'reading client request'),
 ('s', ['cdb', 'apr_proc_mutex_lock', 'listener_thread'], 'waiting for accept mutex'),
 ('s', ['cdb', 'apr_thread_join', 'child_main'], 'waiting for threads to exit'),
