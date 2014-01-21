@@ -1,0 +1,252 @@
+core './core' of 10078: /local/products/sslproxy/bin/httpd -k start
+-----------------  lwp# 1 / thread# 1  --------------------
+ ff04c5c0 _read    (7, ffbff953, 1, 0, 1cf4, ff0b5fc0) + c
+ 00058c64 ap_mpm_podx_check (250168, fe3f36f4, 0, fe40b0f4, fe40b0f0, 230) + 18
+ fe3f52a4 child_main (1, fe3f304c, 0, 0, ff0b58a0, ff202a00) + 494
+ fe3f554c make_child (c57e0, 1, 1, b9660, 19, fe40b0e8) + 24c
+ fe3f6124 worker_run (fd8000c0, 0, 0, 18, c8, 1) + a98
+ 000355fc ap_run_mpm (976a8, be378, c57e0, c57e0, 207000, 134) + 44
+ 0002ed50 main     (95730, 976a8, 69f78, 69de0, 69dd0, 8c020) + 8f8
+ 0002da60 _start   (0, 0, 0, 0, 0, 0) + 5c
+-----------------  lwp# 2 / thread# 2  --------------------
+ ff293fcc dummy_worker(), exit value = 0x00000000
+        ** zombie (exited, not detached, not yet joined) **
+-----------------  lwp# 3 / thread# 3  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cc9b5) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fd67bf1c, fd67bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (124b28, fd67c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 4 / thread# 4  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cca15) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fd57bf1c, fd57bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (124b48, fd57c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 5 / thread# 5  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cca9b) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fd47bf1c, fd47bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (124b68, fd47c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 6 / thread# 6  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, ccb24) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fd37bf1c, fd37bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (124b88, fd37c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 7 / thread# 7  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, ccbc7) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fd27bf1c, fd27bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (124ba8, fd27c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 8 / thread# 8  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, ccc6a) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fd17bf1c, fd17bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (124bc8, fd17c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 9 / thread# 9  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, ccd2d) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fd07bf1c, fd07bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720cd0, fd07c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 10 / thread# 10  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, ccdb5) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fcf7bf1c, fcf7bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720cf0, fcf7c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 11 / thread# 11  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cce43) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fce7bf1c, fce7bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720d10, fce7c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 12 / thread# 12  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, ccec2) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fcd7bf1c, fcd7bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720d30, fcd7c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 13 / thread# 13  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, ccf65) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fcc7bf1c, fcc7bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720d50, fcc7c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 14 / thread# 14  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd04e) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fcb7bf1c, fcb7bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720d70, fcb7c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 15 / thread# 15  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd0f9) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fca7bf1c, fca7bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720d90, fca7c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 16 / thread# 16  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd191) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fc97bf1c, fc97bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720db0, fc97c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 17 / thread# 17  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd223) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fc87bf1c, fc87bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720dd0, fc87c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 18 / thread# 18  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd2b9) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fc77bf1c, fc77bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720df0, fc77c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 19 / thread# 19  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd34f) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fc67bf1c, fc67bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720e10, fc67c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 20 / thread# 20  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd3e7) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fc57bf1c, fc57bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720e30, fc57c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 21 / thread# 21  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd47a) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fc47bf1c, fc47bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720e50, fc47c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 22 / thread# 22  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd513) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fc37bf1c, fc37bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720e70, fc37c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 23 / thread# 23  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd5a5) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fc27bf1c, fc27bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720e90, fc27c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 24 / thread# 24  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd646) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fc17bf1c, fc17bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720eb0, fc17c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 25 / thread# 25  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 1128f340) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, cd6e3) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fc07bf1c, fc07bf18, 0, 0, 78) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720ed0, fc07c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 26 / thread# 26  --------------------
+ bbf48740 ???????? (fd8067f8, 751df8, 6, 74b098, 751df8, 1)
+ 00047e14 eor_bucket_cleanup (74d0c8, 74ee80, ff28b578, 2, 0, 753628) + 44
+ ff288c70 run_cleanups (751df0, 74ee80, ff28b578, 0, 0, 74ede8) + 20
+ ff289d2c apr_pool_destroy (751db8, 0, 11e1a300, 6fd0c, 74cdc8, 47eb0) + 4
+ 000485a4 remove_empty_buckets (74b490, fbf7bb90, 2, 74b490, 74b40c, 0) + 58
+ 00048aa0 send_brigade_nonblocking (0, 74b490, 74b40c, 74b098, 74b494, 1) + 194
+ 00048fc8 ap_core_output_filter (0, 74ade8, 74b390, 8ca30, 74b368, 1) + 2c8
+ 00037248 ap_pass_brigade (74b390, 74b490, 8cd10, 5f0af8, 0, 74b494) + 44
+ 00061bc0 ap_process_request (751df8, 74b098, 4, 74b098, 751df8, 0) + 74
+ 0005ddf8 ap_process_http_connection (74b098, 74ade8, 74ade8, 57, 8c860, 24fc08) + 104
+ 0005650c ap_run_process_connection (74b098, 74ade8, 74ade8, 57, 74b090, 74cda8) + 3c
+ fe3f445c worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 2e0
+ ff293fd8 dummy_worker (720ef0, fbf7c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 27 / thread# 27  --------------------
+ ff048c80 __lwp_park (0, 124918, 0, 0, 6da08, 0) + 14
+ ff042c90 cond_wait_queue (124948, 124918, 0, 0, 1c00, 0) + 4c
+ ff0431d8 cond_wait (124948, 124918, 0, 1c00, 4ede6, 133f0200) + 10
+ ff043214 pthread_cond_wait (124948, 124918, 0, 0, 0, d1205) + 8
+ fe3f8a0c ap_queue_pop (1248f0, fbe7bf1c, fbe7bf18, 0, 0, 0) + 64
+ fe3f4340 worker_thread (20c, 1, 160, 1117e, 8c020, 7c) + 1c4
+ ff293fd8 dummy_worker (720f10, fbe7c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
+-----------------  lwp# 28 / thread# 28  --------------------
+ ff04bbf8 _portfs  (9, 748e48, 3, fbd7bddc, 0, 748f08) + 8
+ ff2900e8 call_port_getn (0, 748e48, 3, fbd7bddc, ffffffff, ffffffff) + 7c
+ ff2906d0 impl_pollset_poll (748dd8, ffffffff, ffffffff, fbd7befc, fbd7bef8, 0) + 10c
+ ff28ffac apr_pollset_poll (748dd8, ffffffff, ffffffff, fbd7befc, fbd7bef8, 64) + 1c
+ fe3f3c10 listener_thread (27c, b7058, 1f4, 1, fe40b098, 1) + 328
+ ff293fd8 dummy_worker (720f30, fbd7c000, 0, 0, ff293fcc, 1) + c
+ ff048bdc _lwp_start (0, 0, 0, 0, 0, 0)
