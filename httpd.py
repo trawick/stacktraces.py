@@ -36,6 +36,7 @@ annotations = [
 ('t', ['ismatch', 'ManageAgentThread'], 'SiteMinder thread'),
 ('s', ['cdb', 'ap_queue_pop_something', 'worker_thread'], 'waiting for connection to handle'),
 ('s', ['cdb', 'ap_queue_pop', 'worker_thread'], 'waiting for connection to handle'),
+('s', ['cdb', 'ap_queue_pop', 'dummy_worker'], 'waiting for connection to handle'),
 ('s', ['cdb', 'apr_pollset_poll', 'listener_thread'], 'waiting for connection to accept'),
 ('s', ['is', 'ap_event_pod_check'], 'waiting for termination event'),
 ('s', ['is', 'ap_worker_pod_check'], 'waiting for termination event'),
