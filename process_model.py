@@ -21,6 +21,7 @@ LVL_SHOW_FRAMES = 2
 LVL_SHOW_ARGS = 3
 LVL_SHOW_VARS = 4
 
+
 class thread:
 
     def __init__(self, tid):
@@ -96,31 +97,33 @@ class thread:
         self.state = state
 
     def same_backtrace(self, thr2):
-	if len(self.frames) != len(thr2.frames):
-	    return False
+        if len(self.frames) != len(thr2.frames):
+            return False
         for i in range(len(self.frames)):
-	    if self.frames[i].fn != thr2.frames[i].fn:
-		return False
-	return True
+            if self.frames[i].fn != thr2.frames[i].fn:
+                return False
+        return True
+
 
 class threadgroup:
     """ group of threads with same characteristics, such as active frames """
 
     def __init__(self, thr):
-	self.count = 0
-	self.threads = [thr]
+        self.count = 0
+        self.threads = [thr]
 
     def __str__(self):
-	return self.threads[0].__str__()
+        return self.threads[0].__str__()
 
     def add_thread(self, thr):
-	self.threads.append(thr)
+        self.threads.append(thr)
 
     def description(self):
         tids = []
         for t in self.threads:
             tids.append(t.tid)
         return {'thread_ids': tids}
+
 
 class process_group:
 
@@ -160,7 +163,7 @@ class process:
         self.pid = pid
         self.exe = None
         self.threads = []
-	self.threadgroups = []
+        self.threadgroups = []
 
     def __str__(self):
         s = ''
@@ -171,7 +174,7 @@ class process:
         if s != '':
             s += '\n'
         for tg in self.threadgroups:
-	    s += '%d * ' % len(tg.threads)
+            s += '%d * ' % len(tg.threads)
             s += tg.__str__()
             s += '\n'
         return s
@@ -218,20 +221,21 @@ class process:
         return None
 
     def group(self):
-	for t in self.threads:
+        for t in self.threads:
             if t.exited:
                 continue
-	    found = False
-	    for g in self.threadgroups:
-		if t.same_backtrace(g.threads[0]):
-		    g.add_thread(t)
-		    found = True
-		    break
-	    if not found:
-		self.threadgroups.append(threadgroup(t))
+            found = False
+            for g in self.threadgroups:
+                if t.same_backtrace(g.threads[0]):
+                    g.add_thread(t)
+                    found = True
+                    break
+            if not found:
+                self.threadgroups.append(threadgroup(t))
 
     def get_pid(self):
         return self.pid
+
 
 class frame:
 

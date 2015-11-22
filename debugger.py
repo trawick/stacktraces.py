@@ -13,7 +13,6 @@
 # limitations under the License.
 #
 
-import os
 import re
 import sys
 
@@ -21,6 +20,7 @@ import collect
 import gdb
 import pstack
 import process_model
+
 
 class debugger:
 

@@ -14,12 +14,11 @@
 #
 
 import re
-import subprocess
 import sys
 
 import collect
-import httpd
 import process_model
+
 
 class pstack:
 

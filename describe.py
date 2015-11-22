@@ -15,16 +15,15 @@
 # limitations under the License.
 #
 
-import os
 import re
 import subprocess
-import sys
 
 from optparse import OptionParser
 
 import debugger
 import httpd
 import process_model
+
 
 def add_children(pids):
     cmd = ['ps', '-A', '-o', 'pid,ppid']
