@@ -70,15 +70,17 @@ def main():
     else:
         options.format = 'TEXT'
 
-    mutually_exclusive = {"debuglog": "pid",
-                          "debuglog": "corefile",
-                          "debuglog": "follow",
-                          "pid": "corefile",
-                          "follow": "corefile"}
+    mutually_exclusive = (
+        ("debuglog", "pid"),
+        ("debuglog", "corefile"),
+        ("debuglog", "follow"),
+        ("pid", "corefile"),
+        ("follow", "corefile")
+    )
 
-    for k, v in mutually_exclusive.items():
-        if eval('options.' + k) and eval('options.' + v):
-            parser.error("--%s and --%s are mutually exclusive" % (k, v))
+    for opt1, opt2 in mutually_exclusive:
+        if hasattr(options, opt1) and hasattr(options, opt2):
+            parser.error("--%s and --%s are mutually exclusive" % (opt1, opt2))
 
     if options.debuglog:
         debuglog = open(options.debuglog).readlines()

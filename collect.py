@@ -190,14 +190,14 @@ def main():
     if not options.pid and not options.corefile:
         parser.error("Either --pid or --corefile is required.")
 
-    mutually_exclusive = {
-        "pid": "corefile",
-        # "follow": "corefile"
-    }
+    mutually_exclusive = (
+        ("pid", "corefile"),
+        # ("follow", "corefile"),
+    )
 
-    for k, v in mutually_exclusive.items():
-        if eval('options.' + k) and eval('options.' + v):
-            parser.error("--%s and --%s are mutually exclusive." % (k, v))
+    for opt1, opt2 in mutually_exclusive:
+        if hasattr(options, opt1) and hasattr(options, opt2):
+            parser.error("--%s and --%s are mutually exclusive." % (opt1, opt2))
 
     if 'sunos' in sys.platform:
         pstack_collect(options.debuglog, options.pid, options.corefile)
