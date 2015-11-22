@@ -22,7 +22,7 @@ LVL_SHOW_ARGS = 3
 LVL_SHOW_VARS = 4
 
 
-class thread:
+class Thread:
 
     def __init__(self, tid):
         self.tid = tid
@@ -48,7 +48,7 @@ class thread:
             s += ', '
         return s
 
-    def describe(self, level = 0):
+    def describe(self, level=0):
         if level < LVL_SHOW_FRAMES:
             return self.__str__()
         s = ''
@@ -84,7 +84,7 @@ class thread:
 
         return info
 
-    def set_exited(self, flag = True):
+    def set_exited(self, flag=True):
         self.exited = flag
 
     def add_frame(self, frame):
@@ -105,7 +105,7 @@ class thread:
         return True
 
 
-class threadgroup:
+class ThreadGroup:
     """ group of threads with same characteristics, such as active frames """
 
     def __init__(self, thr):
@@ -125,7 +125,7 @@ class threadgroup:
         return {'thread_ids': tids}
 
 
-class process_group:
+class ProcessGroup:
 
     def __init__(self):
         self.processes = []
@@ -140,7 +140,7 @@ class process_group:
             s += '\n'
         return s
 
-    def describe(self, level = 0):
+    def describe(self, level=0):
         if level >= 1:
             s = ''
             for p in self.processes:
@@ -157,9 +157,10 @@ class process_group:
         return {'processgroupname': 'no-name',
                 'processes': procs}
 
-class process:
 
-    def __init__(self, pid = None):
+class Process:
+
+    def __init__(self, pid=None):
         self.pid = pid
         self.exe = None
         self.threads = []
@@ -179,7 +180,7 @@ class process:
             s += '\n'
         return s
 
-    def describe(self, level = 0):
+    def describe(self, level=0):
         if level >= 1:
             s = ''
             if self.pid:
@@ -231,18 +232,18 @@ class process:
                     found = True
                     break
             if not found:
-                self.threadgroups.append(threadgroup(t))
+                self.threadgroups.append(ThreadGroup(t))
 
     def get_pid(self):
         return self.pid
 
 
-class frame:
+class Frame:
 
-    def __init__(self, id, fn, args = None):
-        self.id = id
+    def __init__(self, frame_id, fn, args=None):
+        self.id = frame_id
         self.fn = fn
-        self.args = args;
+        self.args = args
         self.vars = {}
 
         if '@@GLIBC' in fn:
@@ -251,7 +252,7 @@ class frame:
     def __str__(self):
         return self.fn
 
-    def describe(self, level = 0):
+    def describe(self, level=0):
         if level < LVL_SHOW_ARGS:
             return self.__str__()
         s = '#%s %s' % (self.id, self.fn)

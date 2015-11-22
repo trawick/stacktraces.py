@@ -20,7 +20,7 @@ import collect
 import process_model
 
 
-class gdb:
+class Gdb:
 
     def __init__(self, **kwargs):
         self.corefile = kwargs.get('corefile')
@@ -29,7 +29,7 @@ class gdb:
         self.gdbout = kwargs.get('debuglog')
         self.proc = kwargs.get('proc')
         if not self.proc:
-            self.proc = process_model.process()
+            self.proc = process_model.Process()
         self.pid = self.proc.get_pid()
 
     def parse(self):
@@ -75,7 +75,7 @@ class gdb:
                 gdbtid = m.group(1)
                 thr = self.proc.find_thread(gdbtid)
                 if not thr:
-                    thr = process_model.thread(gdbtid)
+                    thr = process_model.Thread(gdbtid)
                     self.proc.add_thread(thr)
                 fr = None
             elif thr and l[:1] == '#':
@@ -83,7 +83,7 @@ class gdb:
                 if m:
                     # XXX Mark thread as crashed.
                     continue
-                m = re.search('\#(\d+) +((0x[\da-f]+) in )?([^ ]+) (\([^)]*\))', l)
+                m = re.search('#(\d+) +((0x[\da-f]+) in )?([^ ]+) (\([^)]*\))', l)
                 if m:
                     frameno = m.group(1)
                     addr = m.group(3)
@@ -92,12 +92,12 @@ class gdb:
                     # filter out frames with address 0 (seen on both Linux and FreeBSD)
                     if addr and int(addr, 16) == 0:
                         continue
-                    fr = process_model.frame(frameno, fn, fnargs)
+                    fr = process_model.Frame(frameno, fn, fnargs)
                     thr.add_frame(fr)
                     continue
                 # try again; make sure to handle
                 #   #5  0xdeadbeef in Foo::Parse(SynTree&, int&) () from /path/to/lib
-                m = re.search('\#(\d+) +((0x[\da-f]+) in )?(.*)$', l)
+                m = re.search('#(\d+) +((0x[\da-f]+) in )?(.*)$', l)
                 if m:
                     frameno = m.group(1)
                     addr = m.group(3)
@@ -109,7 +109,7 @@ class gdb:
                     if m:
                         fn = m.group(1)
                         fnargs = m.group(2)
-                        fr = process_model.frame(frameno, fn, fnargs)
+                        fr = process_model.Frame(frameno, fn, fnargs)
                         thr.add_frame(fr)
                         continue
                 print >> sys.stderr, 'could not parse >%s<' % l
@@ -117,7 +117,7 @@ class gdb:
             elif fr:
                 m = re.search('^[ \t]+([^ ]+) = (.*)$', l)
                 if m:
-                    fr.add_var(m.group(1), m.group(2));
+                    fr.add_var(m.group(1), m.group(2))
         if self.pid and not self.proc.pid:
             self.proc.pid = self.pid
         if self.exe and not self.proc.exe:

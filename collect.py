@@ -27,11 +27,14 @@ HDR_EYECATCHER = 'REM collect.py'
 VERSION = '1.01'
 HDR_PREFIX = HDR_EYECATCHER + ' ' + VERSION
 
+
 def build_hdr(tool):
     return HDR_PREFIX + ' TOOL=%s ' % tool + ' PYPLATFORM=%s ' % sys.platform + ' '.join(sys.argv)
 
+
 def is_hdr(l):
     return HDR_EYECATCHER in l
+
 
 def get_pid(l):
     if not is_hdr(l):
@@ -41,6 +44,7 @@ def get_pid(l):
         return m.group(3)
     return None
 
+
 def get_exe(l):
     if not is_hdr(l):
         raise Exception('Bad header >%s< passed to get_exe()' % l)
@@ -48,6 +52,7 @@ def get_exe(l):
     if m:
         return m.group(3)
     return None
+
 
 def get_tool(l):
     if not is_hdr(l):
@@ -57,6 +62,7 @@ def get_tool(l):
         raise Exception('Bad header >%s< passed to get_tool()' % l)
     return m.group(1)
 
+
 def gdb_collect(outfilename, pid, corefile, exe):
     if outfilename:
         fn = outfilename
@@ -65,7 +71,7 @@ def gdb_collect(outfilename, pid, corefile, exe):
         (outfilefd, fn) = tempfile.mkstemp()
         outfile = os.fdopen(outfilefd, "w")
 
-    (scrfilefd, scrfilename) = tempfile.mkstemp()
+    scrfilefd, scrfilename = tempfile.mkstemp()
     scrfile = os.fdopen(scrfilefd, "w")
     print >> scrfile, 'info sharedlibrary'
     print >> scrfile, 'info threads'
@@ -99,7 +105,7 @@ def gdb_collect(outfilename, pid, corefile, exe):
     outfile.flush()
 
     try:
-        rc = subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
+        subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
     except:
         raise Exception("couldn't run, error", sys.exc_info()[0])
     outfile.close()
@@ -112,12 +118,13 @@ def gdb_collect(outfilename, pid, corefile, exe):
 
     return output
 
+
 def pstack_collect(outfilename, pid, corefile):
     if outfilename:
         fn = outfilename
         outfile = open(fn, "w")
     else:
-        (outfilefd, fn) = tempfile.mkstemp()
+        outfilefd, fn = tempfile.mkstemp()
         outfile = os.fdopen(outfilefd, "w")
 
     pid_or_core = None
@@ -137,7 +144,7 @@ def pstack_collect(outfilename, pid, corefile):
         outfile.flush()
         try:
             cmdline = [program, pid_or_core]
-            rc = subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
+            subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
         except:
             raise Exception("couldn't run %s, error" % program, sys.exc_info()[0])
         
@@ -148,6 +155,7 @@ def pstack_collect(outfilename, pid, corefile):
         os.unlink(fn)
 
     return output
+
 
 def main():
     parser = OptionParser()
@@ -170,7 +178,7 @@ def main():
                       action="store",
                       help="point to core file to examine")
     
-    (options, args) = parser.parse_args()
+    options, args = parser.parse_args()
 
     if options.version:
         print 'collect.py %s' % VERSION
@@ -182,11 +190,12 @@ def main():
     if not options.pid and not options.corefile:
         parser.error("Either --pid or --corefile is required.")
 
-    mutually_exclusive = {"pid": "corefile",
-#                         "follow": "corefile"
-                          }
+    mutually_exclusive = {
+        "pid": "corefile",
+        # "follow": "corefile"
+    }
 
-    for (k,v) in mutually_exclusive.items():
+    for k, v in mutually_exclusive.items():
         if eval('options.' + k) and eval('options.' + v):
             parser.error("--%s and --%s are mutually exclusive." % (k, v))
 

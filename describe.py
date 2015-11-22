@@ -33,75 +33,80 @@ def add_children(pids):
         if m:
             pids.append(m.group(1))
 
-parser = OptionParser()
-parser.add_option("-l", "--debuglog", dest="debuglog", type="string",
-                  action="store",
-                  help="specify log with debugger output to analyze")
-parser.add_option("-p", "--pid", dest="pid", type="int",
-                  action="store",
-                  help="specify process id to analyze")
-parser.add_option("-f", "--follow", dest="follow",
-                  action="store_true",
-                  help="describe child processes too")
-parser.add_option("-e", "--exe", dest="exe", type="string",
-                  action="store",
-                  help="point to executable for process")
-parser.add_option("-c", "--corefile", dest="corefile", type="string",
-                  action="store",
-                  help="point to core file to examine")
-parser.add_option("-i", "--infolvl", dest="infolvl", type="int",
-                  action="store",
-                  help="specify level of information to be displayed")
-parser.add_option("--format", dest="format", type="string",
-                  action="store",
-                  help="output format -- text (default) or raw")
 
-(options, args) = parser.parse_args()
+def main():
+    parser = OptionParser()
+    parser.add_option("-l", "--debuglog", dest="debuglog", type="string",
+                      action="store",
+                      help="specify log with debugger output to analyze")
+    parser.add_option("-p", "--pid", dest="pid", type="int",
+                      action="store",
+                      help="specify process id to analyze")
+    parser.add_option("-f", "--follow", dest="follow",
+                      action="store_true",
+                      help="describe child processes too")
+    parser.add_option("-e", "--exe", dest="exe", type="string",
+                      action="store",
+                      help="point to executable for process")
+    parser.add_option("-c", "--corefile", dest="corefile", type="string",
+                      action="store",
+                      help="point to core file to examine")
+    parser.add_option("-i", "--infolvl", dest="infolvl", type="int",
+                      action="store",
+                      help="specify level of information to be displayed")
+    parser.add_option("--format", dest="format", type="string",
+                      action="store",
+                      help="output format -- text (default) or raw")
 
-if not options.pid and not options.corefile and not options.debuglog:
-    parser.error("Either --pid or --corefile or --debuglog is required.")
+    (options, args) = parser.parse_args()
 
-if options.format:
-    options.format = options.format.upper()
-    if not options.format == 'TEXT' and not options.format == 'RAW':
-        parser.error('Invalid value "%s" for --format' % options.format)
-else:
-    options.format = 'TEXT'
+    if not options.pid and not options.corefile and not options.debuglog:
+        parser.error("Either --pid or --corefile or --debuglog is required.")
 
-mutually_exclusive = {"debuglog": "pid",
-                      "debuglog": "corefile",
-                      "debuglog": "follow",
-                      "pid": "corefile",
-                      "follow": "corefile"}
+    if options.format:
+        options.format = options.format.upper()
+        if not options.format == 'TEXT' and not options.format == 'RAW':
+            parser.error('Invalid value "%s" for --format' % options.format)
+    else:
+        options.format = 'TEXT'
 
-for (k,v) in mutually_exclusive.items():
-    if eval('options.' + k) and eval('options.' + v):
-        parser.error("--%s and --%s are mutually exclusive" % (k, v))
+    mutually_exclusive = {"debuglog": "pid",
+                          "debuglog": "corefile",
+                          "debuglog": "follow",
+                          "pid": "corefile",
+                          "follow": "corefile"}
 
-if options.debuglog:
-    debuglog = open(options.debuglog).readlines()
-else:
-    debuglog = None
+    for k, v in mutually_exclusive.items():
+        if eval('options.' + k) and eval('options.' + v):
+            parser.error("--%s and --%s are mutually exclusive" % (k, v))
 
-pids = [options.pid]
+    if options.debuglog:
+        debuglog = open(options.debuglog).readlines()
+    else:
+        debuglog = None
 
-if options.follow:
-    add_children(pids)
+    pids = [options.pid]
 
-group = process_model.process_group()
+    if options.follow:
+        add_children(pids)
 
-for pid in pids:
-    p = process_model.process(pid)
-    group.add_process(p)
+    group = process_model.ProcessGroup()
 
-    x = debugger.debugger(proc = p, exe = options.exe, corefile = options.corefile, debuglog = debuglog)
-    x.parse()
+    for pid in pids:
+        p = process_model.Process(pid)
+        group.add_process(p)
 
-    httpd.cleanup(p)
-    httpd.annotate(p)
-    p.group()
+        x = debugger.Debugger(proc=p, exe=options.exe, corefile=options.corefile, debuglog=debuglog)
+        x.parse()
 
-if options.format == 'TEXT':
-    print group.describe(options.infolvl)
-else:
-    print group.description()
+        httpd.cleanup(p)
+        httpd.annotate(p)
+        p.group()
+
+    if options.format == 'TEXT':
+        print group.describe(options.infolvl)
+    else:
+        print group.description()
+
+if __name__ == '__main__':
+    main()

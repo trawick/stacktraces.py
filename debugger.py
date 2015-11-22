@@ -22,7 +22,7 @@ import pstack
 import process_model
 
 
-class debugger:
+class Debugger:
 
     def __init__(self, **kwargs):
         self.pid = kwargs.get('pid')
@@ -31,7 +31,7 @@ class debugger:
         self.debuglog = kwargs.get('debuglog')
         self.proc = kwargs.get('proc')
         if not self.proc:
-            self.proc = process_model.process(self.pid)
+            self.proc = process_model.Process(self.pid)
 
         self.use_pstack = False
         self.use_gdb = False
@@ -59,9 +59,9 @@ class debugger:
                 self.use_gdb = True
 
         if self.use_pstack:
-            self.x = pstack.pstack(proc = self.proc, exe = self.exe, corefile = self.corefile, debuglog = self.debuglog)
+            self.x = pstack.Pstack(proc=self.proc, exe=self.exe, corefile=self.corefile, debuglog=self.debuglog)
         else:
-            self.x = gdb.gdb(proc = self.proc, exe = self.exe, corefile = self.corefile, debuglog = self.debuglog)
+            self.x = gdb.Gdb(proc=self.proc, exe=self.exe, corefile=self.corefile, debuglog=self.debuglog)
 
     def parse(self):
         self.x.parse()
