@@ -79,7 +79,7 @@ def main():
     )
 
     for opt1, opt2 in mutually_exclusive:
-        if hasattr(options, opt1) and hasattr(options, opt2):
+        if getattr(options, opt1) and getattr(options, opt2):
             parser.error("--%s and --%s are mutually exclusive" % (opt1, opt2))
 
     if options.debuglog:
