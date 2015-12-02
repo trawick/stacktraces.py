@@ -30,6 +30,7 @@ class Thread:
         self.name = None
         self.state = None
         self.exited = False
+        self.failure_text = None
 
     def __str__(self):
         s = ''
@@ -42,6 +43,8 @@ class Thread:
             s += '(Unrecognized thread) '
         if self.state:
             s += '(%s) ' % self.state
+        if self.failure_text:
+            s += ', Failure was %s ' % self.failure_text
         s += '\n  '
         for f in self.frames:
             s += f.__str__()
@@ -61,6 +64,8 @@ class Thread:
             s += '(Unrecognized thread) '
         if self.state:
             s += '(%s) ' % self.state
+        if self.failure_text:
+            s += ', Failure was %s ' % self.failure_text
         s += '\n'
         for f in self.frames:
             s += ' ' + f.describe(level)
@@ -95,6 +100,9 @@ class Thread:
 
     def set_state(self, state):
         self.state = state
+
+    def set_failure(self, failure_text):
+        self.failure_text = failure_text
 
     def same_backtrace(self, thr2):
         if len(self.frames) != len(thr2.frames):
