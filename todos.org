@@ -1,3 +1,8 @@
+* Release 2: Python support
+** TODO Lots of regression tests for existing features
+** TODO Put on GitHub
+** TODO Which Python versions?  Can it support 2.7 and 3.4 for libraries?
+** TODO PyPI
 * Release 1
 ** Gatherers
 *** DO NOT ADD ANYTHING ELSE TO THIS LIST IN RELEASE 1!!!
