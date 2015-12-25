@@ -31,21 +31,30 @@ class Thread:
         self.state = None
         self.exited = False
         self.failure_text = None
+        self.error_msg = None
+        self.timestamp = None
 
-    def __str__(self):
+    def common_str(self):
         s = ''
         s += '[%s]' % self.tid
-        s += ' '
         if self.name:
-            s += self.name
             s += ' '
+            s += self.name
         else:
-            s += '(Unrecognized thread) '
+            s += ' (Unrecognized thread)'
         if self.state:
-            s += '(%s) ' % self.state
+            s += ' (%s)' % self.state
+        if self.error_msg:
+            s += ', <%s>' % self.failure_text
         if self.failure_text:
-            s += ', Failure was %s ' % self.failure_text
-        s += '\n  '
+            s += ', Failure was <%s>' % self.failure_text
+        if self.timestamp:
+            s += ', at <%s>' % self.timestamp
+        s += '\n'
+        return s
+
+    def __str__(self):
+        s = self.common_str() + '  '
         for f in self.frames:
             s += f.__str__()
             s += ', '
@@ -54,19 +63,7 @@ class Thread:
     def describe(self, level=0):
         if level < LVL_SHOW_FRAMES:
             return self.__str__()
-        s = ''
-        s += '[%s]' % self.tid
-        s += ' '
-        if self.name:
-            s += self.name
-            s += ' '
-        else:
-            s += '(Unrecognized thread) '
-        if self.state:
-            s += '(%s) ' % self.state
-        if self.failure_text:
-            s += ', Failure was %s ' % self.failure_text
-        s += '\n'
+        s = self.common_str()
         for f in self.frames:
             s += ' ' + f.describe(level)
         return s
@@ -103,6 +100,10 @@ class Thread:
 
     def set_failure(self, failure_text):
         self.failure_text = failure_text
+
+    def set_error_data(self, timestamp=None, error_msg=None):
+        self.timestamp = timestamp
+        self.error_msg = error_msg
 
     def same_backtrace(self, thr2):
         if len(self.frames) != len(thr2.frames):
@@ -182,6 +183,8 @@ class Process:
             s += 'Executable %s ' % self.exe
         if s != '':
             s += '\n'
+        if self.threads and not self.threadgroups:
+            raise ValueError('Call Process.group() first to group threads')
         for tg in self.threadgroups:
             s += '%d * ' % len(tg.threads)
             s += tg.__str__()

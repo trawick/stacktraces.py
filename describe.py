@@ -23,6 +23,7 @@ from optparse import OptionParser
 import debugger
 import httpd
 import process_model
+import thread_analyzer
 
 
 def add_children(pids):
@@ -101,8 +102,8 @@ def main():
         x = debugger.Debugger(proc=p, exe=options.exe, corefile=options.corefile, debuglog=debuglog)
         x.parse()
 
-        httpd.cleanup(p)
-        httpd.annotate(p)
+        thread_analyzer.cleanup(p, httpd.httpd_cleanups)
+        thread_analyzer.annotate(p, httpd.httpd_annotations)
         p.group()
 
     if options.format == 'TEXT':
