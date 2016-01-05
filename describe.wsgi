@@ -8,6 +8,7 @@ from webob import Request
 import debugger
 import httpd
 import process_model
+import thread_analyzer
 
 
 def application(environ, start_response):
@@ -30,8 +31,8 @@ def application(environ, start_response):
         p = process_model.Process(None)
         dbg = debugger.Debugger(debuglog=debugger_output, proc=p)
         dbg.parse()
-        httpd.cleanup(p)
-        httpd.annotate(p)
+        thread_analyzer.cleanup(p, httpd.httpd_cleanups)
+        thread_analyzer.annotate(p, httpd.httpd_annotations)
         p.group()
         converting = True
         output = json.dumps({"success": True, 'procinfo': p.description()})
