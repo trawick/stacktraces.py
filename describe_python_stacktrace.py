@@ -17,8 +17,7 @@
 
 import sys
 
-import python_traceback
-import process_model
+from stacktraces.py_shortcuts import describe_lines
 
 
 def main():
@@ -27,15 +26,7 @@ def main():
         sys.exit(1)
 
     traceback_lines = sys.stdin.readlines()
-    p = process_model.Process(0)
-    ptb = python_traceback.PythonTraceback(
-        proc=p, lines=traceback_lines, name='Python Exception'
-    )
-    ptb.parse()
-    # thread_analyzer.cleanup(p, my_cleanups)
-    # thread_analyzer.annotate(p, my_annotations)
-    p.group()  # only one thread, but this allows str(p) to work
-    print(p)
+    print(describe_lines(traceback_lines))
 
 if __name__ == '__main__':
     main()

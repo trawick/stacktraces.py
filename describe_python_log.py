@@ -22,9 +22,7 @@ import io
 import re
 import sys
 
-import python_traceback
-import process_model
-import thread_analyzer
+from stacktraces import python_traceback, process_model, thread_analyzer
 
 
 # XXX pass module on command-line?  or YAML file?

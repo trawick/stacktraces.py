@@ -3,10 +3,7 @@ import json
 import os
 import unittest
 
-import debugger
-import httpd
-import process_model
-import thread_analyzer
+from stacktraces import debugger, httpd, process_model, thread_analyzer
 
 
 class TestHttpdLogs(unittest.TestCase):

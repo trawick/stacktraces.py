@@ -20,10 +20,7 @@ import subprocess
 
 from optparse import OptionParser
 
-import debugger
-import httpd
-import process_model
-import thread_analyzer
+from stacktraces import debugger, httpd, process_model, thread_analyzer
 
 
 def add_children(pids):
