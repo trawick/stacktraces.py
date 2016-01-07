@@ -1,9 +1,10 @@
-from stacktraces import python_traceback, process_model
+from stacktraces import process_model
+from stacktraces.python import stacktrace
 
 
 def describe_lines(traceback_lines):
     p = process_model.Process(0)
-    ptb = python_traceback.PythonTraceback(
+    ptb = stacktrace.PythonTraceback(
         proc=p, lines=traceback_lines, name='Python Exception'
     )
     ptb.parse()

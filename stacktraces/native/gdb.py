@@ -17,7 +17,7 @@ import re
 import sys
 
 import collect
-import process_model
+import stacktraces.process_model
 
 
 class Gdb:
@@ -29,7 +29,7 @@ class Gdb:
         self.gdbout = kwargs.get('debuglog')
         self.proc = kwargs.get('proc')
         if not self.proc:
-            self.proc = process_model.Process()
+            self.proc = stacktraces.process_model.Process()
         self.pid = self.proc.get_pid()
 
     def parse(self):
@@ -75,7 +75,7 @@ class Gdb:
                 gdbtid = m.group(1)
                 thr = self.proc.find_thread(gdbtid)
                 if not thr:
-                    thr = process_model.Thread(gdbtid)
+                    thr = stacktraces.process_model.Thread(gdbtid)
                     self.proc.add_thread(thr)
                 fr = None
             elif thr and l[:1] == '#':
@@ -92,7 +92,7 @@ class Gdb:
                     # filter out frames with address 0 (seen on both Linux and FreeBSD)
                     if addr and int(addr, 16) == 0:
                         continue
-                    fr = process_model.Frame(frameno, fn, fnargs)
+                    fr = stacktraces.process_model.Frame(frameno, fn, fnargs)
                     thr.add_frame(fr)
                     continue
                 # try again; make sure to handle
@@ -109,7 +109,7 @@ class Gdb:
                     if m:
                         fn = m.group(1)
                         fnargs = m.group(2)
-                        fr = process_model.Frame(frameno, fn, fnargs)
+                        fr = stacktraces.process_model.Frame(frameno, fn, fnargs)
                         thr.add_frame(fr)
                         continue
                 print >> sys.stderr, 'could not parse >%s<' % l

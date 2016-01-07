@@ -1,6 +1,6 @@
 import unittest
 
-from stacktraces.py_shortcuts import describe_lines
+from stacktraces.python.shortcuts import describe_lines
 
 PYTHON_STACKTRACE = u"""[14/Mar/2015 01:37:05] ERROR [django.request:231] Internal Server Error: /walk/ExYu
 Traceback (most recent call last):

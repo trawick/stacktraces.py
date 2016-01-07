@@ -22,8 +22,8 @@ import io
 import re
 import sys
 
-from stacktraces import python_traceback, process_model, thread_analyzer
-
+from stacktraces import process_model, thread_analyzer
+from stacktraces.python import stacktrace
 
 # XXX pass module on command-line?  or YAML file?
 my_django_cleanups = (
@@ -61,7 +61,7 @@ def handle_traceback(traceback_lines, msg, tracelvl):
     # Ignore error message in the related log message for now; it seems to be
     # always duplicated within the traceback output
     p = process_model.Process(0)
-    ptb = python_traceback.PythonTraceback(
+    ptb = stacktrace.PythonTraceback(
         proc=p, lines=traceback_lines, timestamp=timestamp, name='WhatNameHere?'
     )
     ptb.parse()

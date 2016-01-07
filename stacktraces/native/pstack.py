@@ -17,7 +17,7 @@ import re
 import sys
 
 import collect
-import process_model
+import stacktraces.process_model
 
 
 class Pstack:
@@ -29,7 +29,7 @@ class Pstack:
         self.pstackout = kwargs.get('debuglog')
         self.proc = kwargs.get('proc')
         if not self.proc:
-            self.proc = process_model.Process()
+            self.proc = stacktraces.process_model.Process()
         self.pid = self.proc.get_pid()
 
     def parse(self):
@@ -57,7 +57,7 @@ class Pstack:
                 break
             m = re.search('^-+ +lwp# +\d+ +/ +thread# +(\d+) +', l)
             if m:
-                thr = process_model.Thread(m.group(1))
+                thr = stacktraces.process_model.Thread(m.group(1))
                 self.proc.add_thread(thr)
                 frameno = 0
                 continue
@@ -68,7 +68,7 @@ class Pstack:
                 fnargs = m.group(3)
                 assert frameno >= 0  # i.e., frameno found
                 frameno += 1
-                fr = process_model.Frame(frameno, fn, fnargs)
+                fr = stacktraces.process_model.Frame(frameno, fn, fnargs)
                 thr.add_frame(fr)
                 continue
             m = re.search('^ +([\da-f]+) +([^ ]+) *(\([^)]*\)), exit value =', l)
