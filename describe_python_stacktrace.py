@@ -17,7 +17,7 @@
 
 import sys
 
-from stacktraces.py_shortcuts import describe_lines
+from stacktraces.python.shortcuts import describe_lines
 
 
 def main():
