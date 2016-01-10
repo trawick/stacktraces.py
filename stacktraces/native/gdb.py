@@ -13,6 +13,8 @@
 # limitations under the License.
 #
 
+from __future__ import print_function
+
 import re
 import sys
 
@@ -112,7 +114,7 @@ class Gdb:
                         fr = stacktraces.process_model.Frame(frameno, fn, fnargs)
                         thr.add_frame(fr)
                         continue
-                print >> sys.stderr, 'could not parse >%s<' % l
+                print('could not parse >%s<' % l, file=sys.stderr)
                 sys.exit(1)
             elif fr:
                 m = re.search('^[ \t]+([^ ]+) = (.*)$', l)
@@ -125,6 +127,3 @@ class Gdb:
 
     def get_output(self):
         self.gdbout = collect.gdb_collect(None, self.pid, self.corefile, self.exe)
-
-if __name__ == "__main__":
-    print >> sys.stderr, "Don't run this directly."

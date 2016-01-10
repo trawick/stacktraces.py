@@ -1,6 +1,3 @@
-import sys
-
-
 def check_condition(cond, t):
     """ Check specified condition, return range of frames which match the condition (or None) """
     for i in range(len(t.frames)):
@@ -61,6 +58,3 @@ def annotate(p, annotations):
                         t.set_state(sname)
             else:
                 raise Exception('Unexpected annotation type >%s<' % a[0])
-
-if __name__ == "__main__":
-    print >> sys.stderr, "Don't run this directly."

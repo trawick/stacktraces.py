@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+from __future__ import print_function
+
 import os
 import re
 import subprocess
@@ -73,13 +75,13 @@ def gdb_collect(outfilename, pid, corefile, exe):
 
     scrfilefd, scrfilename = tempfile.mkstemp()
     scrfile = os.fdopen(scrfilefd, "w")
-    print >> scrfile, 'info sharedlibrary'
-    print >> scrfile, 'info threads'
-    print >> scrfile, 'thread apply all bt full'
-    print >> scrfile, 'thread apply all x/i $pc'
+    print('info sharedlibrary', file=scrfile)
+    print('info threads', file=scrfile)
+    print('thread apply all bt full', file=scrfile)
+    print('thread apply all x/i $pc', file=scrfile)
     if not corefile:
-        print >> scrfile, 'detach'
-    print >> scrfile, 'quit'
+        print('detach', file=scrfile)
+    print('quit', file=scrfile)
     scrfile.close()
 
     if pid:
@@ -101,7 +103,7 @@ def gdb_collect(outfilename, pid, corefile, exe):
                exe,
                pid_or_core]
 
-    print >> outfile, build_hdr('gdb')
+    print(build_hdr('gdb'), file=outfile)
     outfile.flush()
 
     try:
@@ -136,11 +138,11 @@ def pstack_collect(outfilename, pid, corefile):
     if not pid_or_core:
         raise Exception('Either a process id or core file must be provided')
 
-    print >> outfile, build_hdr('pstack')
+    print(build_hdr('pstack'), file=outfile)
     outfile.flush()
 
     for program in ['/usr/bin/pstack', '/usr/bin/pldd', '/usr/bin/pflags']:
-        print >> outfile, 'REM %s' % program
+        print('REM %s' % program, file=outfile)
         outfile.flush()
         try:
             cmdline = [program, pid_or_core]
@@ -181,7 +183,7 @@ def main():
     options, args = parser.parse_args()
 
     if options.version:
-        print 'collect.py %s' % VERSION
+        print('collect.py %s' % VERSION)
         sys.exit(1)
 
     if not options.debuglog:

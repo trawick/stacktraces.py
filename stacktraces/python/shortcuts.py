@@ -1,3 +1,5 @@
+from six import text_type
+
 from stacktraces import process_model
 from stacktraces.python import stacktrace
 
@@ -11,4 +13,4 @@ def describe_lines(traceback_lines):
     # thread_analyzer.cleanup(p, my_cleanups)
     # thread_analyzer.annotate(p, my_annotations)
     p.group()  # only one thread, but this allows str(p) to work
-    return unicode(p)
+    return text_type(p)

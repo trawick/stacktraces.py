@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+from __future__ import print_function
+
 import re
 from optparse import OptionParser
 import subprocess
@@ -105,9 +107,9 @@ def main():
         p.group()
 
     if options.format == 'TEXT':
-        print group.describe(options.infolvl)
+        print(group.describe(options.infolvl))
     else:
-        print group.description()
+        print(group.description())
 
 if __name__ == '__main__':
     main()

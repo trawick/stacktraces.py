@@ -14,7 +14,6 @@
 #
 
 import re
-import sys
 
 import collect
 import stacktraces.process_model
@@ -81,6 +80,3 @@ class Pstack:
 
     def get_output(self):
         self.pstackout = collect.pstack_collect(None, self.pid, self.corefile)
-
-if __name__ == "__main__":
-    print >> sys.stderr, "Don't run this directly."

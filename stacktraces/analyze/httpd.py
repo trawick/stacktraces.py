@@ -13,8 +13,6 @@
 # limitations under the License.
 #
 
-import sys
-
 # 't': thread name
 # 's': thread state
 #
@@ -76,7 +74,3 @@ httpd_cleanups = [
     ('da', ['is', 'main']),
     ('dda', ['is', '_lwp_start']),
 ]
-
-
-if __name__ == "__main__":
-    print >> sys.stderr, "Don't run this directly."

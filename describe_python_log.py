@@ -18,6 +18,8 @@
 # WHAT SHOULD BE DONE?
 # 1. for nested exceptions, save multiple exceptions with some clear relationship
 
+from __future__ import print_function
+
 import io
 import re
 import sys
@@ -69,9 +71,9 @@ def handle_traceback(traceback_lines, msg, tracelvl):
     thread_analyzer.annotate(p, my_annotations)
     p.group()  # only one thread, but this allows str(p) to work
     if tracelvl > 1:
-        print '-------------'
-        print traceback_lines
-    print p
+        print('-------------')
+        print(traceback_lines)
+    print(p)
 
 
 class Line(object):
@@ -127,7 +129,7 @@ def read_log(tracelvl, logfile_name):
 
 def main():
     if len(sys.argv) != 2:
-        print >> sys.stderr, 'Usage: %s <log file name>' % sys.argv[0]
+        print('Usage: %s <log file name>' % sys.argv[0], file=sys.stderr)
         sys.exit(1)
 
     read_log(tracelvl=1, logfile_name=sys.argv[1])

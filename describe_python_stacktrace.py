@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+from __future__ import print_function
+
 import sys
 
 from stacktraces.python.shortcuts import describe_lines
@@ -22,7 +24,7 @@ from stacktraces.python.shortcuts import describe_lines
 
 def main():
     if len(sys.argv) != 1:
-        print >> sys.stderr, 'Usage: %s' % sys.argv[0]
+        print('Usage: %s' % sys.argv[0], file=sys.stderr)
         sys.exit(1)
 
     traceback_lines = sys.stdin.readlines()

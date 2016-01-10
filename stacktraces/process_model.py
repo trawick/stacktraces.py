@@ -13,8 +13,6 @@
 # limitations under the License.
 #
 
-import sys
-
 LVL_SHOW_PROCESSES = 0
 LVL_SHOW_THREADS = 1
 LVL_SHOW_FRAMES = 2
@@ -285,6 +283,3 @@ class Frame:
         if self.vars:
             desc['vars'] = self.vars
         return desc
-
-if __name__ == "__main__":
-    print >> sys.stderr, "Don't run this directly."
