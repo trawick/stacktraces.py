@@ -147,7 +147,7 @@ def pstack_collect(outfilename, pid, corefile):
             subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
         except:
             raise Exception("couldn't run %s, error" % program, sys.exc_info()[0])
-        
+
     outfile.close()
 
     output = open(fn).readlines()
@@ -177,7 +177,7 @@ def main():
     parser.add_option("-c", "--corefile", dest="corefile", type="string",
                       action="store",
                       help="point to core file to examine")
-    
+
     options, args = parser.parse_args()
 
     if options.version:
