@@ -1,8 +1,15 @@
 * Release 2: Python support
-** TODO Lots of regression tests for existing features
-** TODO Put on GitHub
-** TODO Which Python versions?  Can it support 2.7 and 3.4 for libraries?
 ** TODO PyPI
+** TODO test plan
+*** TODO get tests working with Py 3K
+*** TODO check out old code, port dump_log to old API, make sure we get same JSON for those test files
+** TODO Regression tests
+*** TODO Existing features - httpd log file parsing/annotation
+** DONE use print_function everywhere
+** DONE improve module packaging
+** DONE Put on GitHub
+** DONE Which Python versions?  Can it support 2.7 and 3.4 for libraries?  yes
+** DONE setup.py
 * Release 1
 ** Gatherers
 *** DO NOT ADD ANYTHING ELSE TO THIS LIST IN RELEASE 1!!!
