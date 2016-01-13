@@ -59,9 +59,13 @@ class Debugger:
                 self.use_gdb = True
 
         if self.use_pstack:
-            self.x = stacktraces.native.pstack.Pstack(proc=self.proc, exe=self.exe, corefile=self.corefile, debuglog=self.debuglog)
+            self.x = stacktraces.native.pstack.Pstack(
+                proc=self.proc, exe=self.exe, corefile=self.corefile, debuglog=self.debuglog
+            )
         else:
-            self.x = stacktraces.native.gdb.Gdb(proc=self.proc, exe=self.exe, corefile=self.corefile, debuglog=self.debuglog)
+            self.x = stacktraces.native.gdb.Gdb(
+                proc=self.proc, exe=self.exe, corefile=self.corefile, debuglog=self.debuglog
+            )
 
     def parse(self):
         self.x.parse()

@@ -32,9 +32,13 @@ Traceback (most recent call last):
     self.timeout, self.source_address)
   File "/home/trawick/python-2.7/lib/python2.7/socket.py", line 571, in create_connection
     raise err
-error: [Errno 110] Connection timed out""".split('\n')
+error: [Errno 110] Connection timed out""".split('\n')  # noqa
 
-EXPECTED_PYTHON_STACKTRACE = u'1 * [0] Python Exception, Failure was <error: [Errno 110] Connection timed out>\n  get_response, _wrapped_view, index, weather_forecast, around, _fetch, request, _send_request, endheaders, _send_output, send, connect, create_connection, \n'
+EXPECTED_PYTHON_STACKTRACE = (
+    u'1 * [0] Python Exception, Failure was <error: [Errno 110] Connection timed out>\n  get_response, ' +
+    u'_wrapped_view, index, weather_forecast, around, _fetch, request, _send_request, endheaders, ' +
+    u'_send_output, send, connect, create_connection, \n'
+)
 
 
 class TestPythonStacktrace(unittest.TestCase):
@@ -72,7 +76,7 @@ Traceback (most recent call last):
   File "/home/trawick/python-2.7/lib/python2.7/socket.py", line 571, in create_connection
     raise err
 error: [Errno 110] Connection timed out
-"""
+"""  # noqa
 
 
 global_buffer = []
@@ -95,5 +99,5 @@ class TestPythonLog(unittest.TestCase):
         global_buffer = []
         read_log(tracelvl=1, logfile=logfile, handler=save_to_buffer)
         expected = u"""1 * [0] WhatNameHere?, Failure was <error: [Errno 110] Connection timed out>, at <14/Mar/2015 01:37:05>
-  get_response, _wrapped_view, index, weather_forecast, around, _fetch, request, _send_request, endheaders, _send_output, send, connect, create_connection, \n"""
+  get_response, _wrapped_view, index, weather_forecast, around, _fetch, request, _send_request, endheaders, _send_output, send, connect, create_connection, \n"""  # noqa
         self.assertEqual(global_buffer, [expected])
