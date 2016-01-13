@@ -17,9 +17,9 @@ class TestHttpdLogs(unittest.TestCase):
         thread_analyzer.cleanup(p, httpd.httpd_cleanups)
         thread_analyzer.annotate(p, httpd.httpd_annotations)
         p.group()
-        actual = json.dumps(p.description())
-        expected = io.open(cooked, encoding='utf8').readline()
-        self.assertEqual(actual.strip(), expected.strip())
+        actual = p.description()
+        expected = json.loads(io.open(cooked, encoding='utf8').readline())
+        self.assertEqual(actual, expected)
 
     def test_log_files(self):
         for filename in os.listdir('logs/parsed'):
