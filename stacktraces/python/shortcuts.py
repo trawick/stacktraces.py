@@ -18,14 +18,15 @@ def describe_lines(traceback_lines):
     return text_type(p)
 
 
-TRACE_MSG_RE_1 = re.compile(r'^\[([^]]+)\] ERROR \[[^]]+\] (.*)\n?$')
-TRACE_MSG_RE_2 = re.compile(r'^(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d).*(INFO|WARNING|ERROR) +(.*)\n?$')
+LOGLVL_RE = r'(CRITICAL|ERROR|WARNING|INFO|DEBUG)'
+TRACE_MSG_RE_1 = re.compile(r'^\[([^]]+)\] ' + LOGLVL_RE + ' \[[^]]+\] (.*)\n?$')
+TRACE_MSG_RE_2 = re.compile(r'^(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d).*' + LOGLVL_RE + ' +(.*)\n?$')
 
 
 def parse_trace_msg(msg):
     m = TRACE_MSG_RE_1.match(msg)
     if m:
-        timestamp, error_msg = m.groups()
+        timestamp, _, error_msg = m.groups()
     else:
         m = TRACE_MSG_RE_2.match(msg)
         if m:
@@ -70,6 +71,13 @@ class Line(object):
             if timestamp:
                 self.is_log_msg = True
 
+    def __str__(self):
+        return '%s%s%s' % (
+            'TB ' if self.is_traceback else '',
+            'LG ' if self.is_log_msg else '',
+            self.line,
+        )
+
 
 class ParseState(object):
     def __init__(self):
@@ -77,9 +85,18 @@ class ParseState(object):
         self.traceback_lines = []
         self.traceback_log_msg = None
 
+    def __str__(self):
+        fields = []
+        if self.in_traceback:
+            fields.append('IN-TB')
+            fields.append('%s..' % self.traceback_lines[0])
+            if self.traceback_log_msg:
+                fields.append(self.traceback_log_msg)
+        return ' '.join(fields)
+
 
 def read_log(tracelvl, logfile, handler, cleanups=(), annotations=()):
-    prev = None
+    prev_log_msg = None
     s = ParseState()
 
     while True:
@@ -92,13 +109,14 @@ def read_log(tracelvl, logfile, handler, cleanups=(), annotations=()):
                 handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, handler, cleanups, annotations)
                 s = ParseState()
             s.in_traceback = True
-            s.traceback_log_msg = prev.line
+            s.traceback_log_msg = prev_log_msg.line
         elif l.is_log_msg and s.traceback_lines:
             handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, handler, cleanups, annotations)
             s = ParseState()
-        if s.in_traceback:
+        if s.in_traceback and not l.line.startswith('['):
             s.traceback_lines.append(l.line)
-        prev = l
+        if l.is_log_msg:
+            prev_log_msg = l
     if s.in_traceback:
         handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, handler, cleanups, annotations)
         # s = ParseState()
