@@ -8,7 +8,7 @@ RE_FILE_LINE = re.compile(r'^ *File "[^"]*", line [0-9]+, in (.*)$')
 class PythonTraceback(object):
 
     def __init__(self, **kwargs):
-        self.lines = kwargs.get('lines')
+        self.lines = self._combine_exception_lines(kwargs.get('lines'))
         self.proc = kwargs.get('proc')
         if not self.proc:
             self.proc = stacktraces.process_model.Process()
@@ -20,6 +20,15 @@ class PythonTraceback(object):
         if self.timestamp or self.error_msg:
             self.thr.set_error_data(timestamp=self.timestamp, error_msg=self.error_msg)
         self.proc.add_thread(self.thr)
+
+    @staticmethod
+    def _combine_exception_lines(orig_lines):
+        lines = list(orig_lines)
+        i = len(lines) - 2  # start at next to last line
+        while i > 0 and lines[i][0] != ' ' and lines[i + 1][0] != ' ':
+            lines[i] = lines[i].rstrip() + '|' + lines.pop()
+            i -= 1
+        return lines
 
     def parse(self):
         frameno = 0
