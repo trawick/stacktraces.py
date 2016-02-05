@@ -19,6 +19,8 @@ LVL_SHOW_FRAMES = 2
 LVL_SHOW_ARGS = 3
 LVL_SHOW_VARS = 4
 
+MAJOR_VERSION = 1
+
 
 class Thread:
 
@@ -67,7 +69,9 @@ class Thread:
         return s
 
     def description(self):
-        info = {}
+        info = {
+            'mv': MAJOR_VERSION,
+        }
 
         if len(self.frames):
             frames = []
@@ -129,7 +133,9 @@ class ThreadGroup:
         tids = []
         for t in self.threads:
             tids.append(t.tid)
-        return {'thread_ids': tids}
+        return {
+            'thread_ids': tids,
+        }
 
 
 class ProcessGroup:
@@ -161,8 +167,11 @@ class ProcessGroup:
         procs = []
         for p in self.processes:
             procs.append(p.description())
-        return {'processgroupname': 'no-name',
-                'processes': procs}
+        return {
+            'processgroupname': 'no-name',
+            'processes': procs,
+            'mv': MAJOR_VERSION,
+        }
 
 
 class Process:
@@ -212,9 +221,12 @@ class Process:
         threadgroups = []
         for t in self.threadgroups:
             threadgroups.append(t.description())
-        data = {'processname': 'no-name',
-                'threads': threads,
-                'threadgroups': threadgroups}
+        data = {
+            'processname': 'no-name',
+            'threads': threads,
+            'threadgroups': threadgroups,
+            'mv': MAJOR_VERSION,
+        }
         if self.pid:
             data['pid'] = self.pid
         if self.exe:
@@ -277,7 +289,10 @@ class Frame:
         self.vars[var] = val
 
     def description(self):
-        desc = {'id': self.id, 'fn': self.fn}
+        desc = {
+            'id': self.id,
+            'fn': self.fn,
+        }
         if self.args:
             desc['args'] = self.args
         if self.vars:
