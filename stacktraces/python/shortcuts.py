@@ -56,9 +56,9 @@ def handle_traceback(traceback_lines, msg, tracelvl, handler, cleanups, annotati
     # . Process.group(), which finds threads in a process with same backtrace
 
     if msg:
-        timestamp, error_msg = parse_trace_msg(msg.line)
+        timestamp, _ = parse_trace_msg(msg.line)
     else:
-        timestamp, error_msg = None, None
+        timestamp = None
     # if not timestamp:
     #     raise ValueError('Cannot parse log message "%s"' % msg)
 
