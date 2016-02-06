@@ -6,7 +6,7 @@ from stacktraces import process_model, thread_analyzer
 from stacktraces.python import stacktrace
 
 
-def describe_lines(traceback_lines):
+def get_process_from_traceback(traceback_lines):
     p = process_model.Process(0)
     ptb = stacktrace.PythonTraceback(
         proc=p, lines=traceback_lines, name='Python Exception'
@@ -15,8 +15,11 @@ def describe_lines(traceback_lines):
     # thread_analyzer.cleanup(p, my_cleanups)
     # thread_analyzer.annotate(p, my_annotations)
     p.group()  # only one thread, but this allows str(p) to work
-    return text_type(p)
+    return p
 
+
+def describe_lines(traceback_lines):
+    return text_type(get_process_from_traceback(traceback_lines))
 
 LOGLVL_RE = r'(CRITICAL|ERROR|WARNING|INFO|DEBUG)'
 TRACE_MSG_RE_1 = re.compile(r'^\[([^]]+)\] ' + LOGLVL_RE + ' \[[^]]+\] (.*)\n?$')
