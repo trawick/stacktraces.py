@@ -37,19 +37,26 @@ class Thread:
     def common_str(self):
         s = ''
         s += '[%s]' % self.tid
+        need_comma = False
         if self.name:
             s += ' '
             s += self.name
-        else:
-            s += ' (Unrecognized thread)'
+            need_comma = True
         if self.state:
             s += ' (%s)' % self.state
+            need_comma = True
         if self.error_msg:
-            s += ', <%s>' % self.failure_text
+            if need_comma:
+                s += ','
+            s += ' <%s>' % self.failure_text
         if self.failure_text:
-            s += ', Failure was <%s>' % self.failure_text
+            if need_comma:
+                s += ','
+            s += ' Failure was <%s>' % self.failure_text
         if self.timestamp:
-            s += ', at <%s>' % self.timestamp
+            if need_comma:
+                s += ','
+            s += ' at <%s>' % self.timestamp
         s += '\n'
         return s
 
@@ -59,7 +66,7 @@ class Thread:
             s += f.__str__()
             s += ', '
         return s
-
+Pin 
     def describe(self, level=0):
         if level < LVL_SHOW_FRAMES:
             return self.__str__()

@@ -35,7 +35,7 @@ Traceback (most recent call last):
 error: [Errno 110] Connection timed out""".split('\n')  # noqa
 
 EXPECTED_PYTHON_STACKTRACE = (
-    u'1 * [0] Python Exception, Failure was <error: [Errno 110] Connection timed out>\n  get_response, ' +
+    u'1 * [0] Failure was <error: [Errno 110] Connection timed out>\n  get_response, ' +
     u'_wrapped_view, index, weather_forecast, around, _fetch, request, _send_request, endheaders, ' +
     u'_send_output, send, connect, create_connection, \n'
 )

@@ -6,10 +6,10 @@ from stacktraces import process_model, thread_analyzer
 from stacktraces.python import stacktrace
 
 
-def get_process_from_traceback(traceback_lines):
+def get_process_from_traceback(traceback_lines, name=None):
     p = process_model.Process(0)
     ptb = stacktrace.PythonTraceback(
-        proc=p, lines=traceback_lines, name='Python Exception'
+        proc=p, lines=traceback_lines, name=name,
     )
     ptb.parse()
     # thread_analyzer.cleanup(p, my_cleanups)
