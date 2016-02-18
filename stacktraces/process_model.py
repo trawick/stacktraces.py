@@ -66,7 +66,7 @@ class Thread:
             s += f.__str__()
             s += ', '
         return s
-Pin 
+
     def describe(self, level=0):
         if level < LVL_SHOW_FRAMES:
             return self.__str__()
