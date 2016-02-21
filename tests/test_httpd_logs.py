@@ -22,6 +22,7 @@ class TestHttpdLogs(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_log_files(self):
+        self.maxDiff = None
         for filename in os.listdir('logs/parsed'):
             if filename.endswith('.json'):
                 self._test_one_file(os.path.join('logs', filename[:-5]), os.path.join('logs/parsed', filename))
