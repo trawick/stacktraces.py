@@ -19,6 +19,7 @@ LVL_SHOW_FRAMES = 2
 LVL_SHOW_ARGS = 3
 LVL_SHOW_VARS = 4
 
+MAJOR_VERSION_KEY = 'mv'
 MAJOR_VERSION = 1
 
 
@@ -77,10 +78,8 @@ class Thread:
             s += ' ' + f.describe(level)
         return s
 
-    def description(self):
-        info = {
-            'mv': MAJOR_VERSION,
-        }
+    def description(self, wrapped=False):
+        info = dict()
 
         if len(self.frames):
             frames = []
@@ -104,7 +103,13 @@ class Thread:
         if self.timestamp:
             info['timestamp'] = self.timestamp
 
-        return info
+        if wrapped:
+            return {
+                'thread': info,
+                MAJOR_VERSION_KEY: MAJOR_VERSION,
+            }
+        else:
+            return info
 
     def set_exited(self, flag=True):
         self.exited = flag
@@ -147,13 +152,20 @@ class ThreadGroup:
     def add_thread(self, thr):
         self.threads.append(thr)
 
-    def description(self):
+    def description(self, wrapped=False):
         tids = []
         for t in self.threads:
             tids.append(t.tid)
-        return {
+        desc = {
             'thread_ids': tids,
         }
+        if wrapped:
+            return {
+                'threadgroup': desc,
+                MAJOR_VERSION_KEY: MAJOR_VERSION,
+            }
+        else:
+            return desc
 
 
 class ProcessGroup:
@@ -181,15 +193,21 @@ class ProcessGroup:
         else:
             return self.__str__()
 
-    def description(self):
+    def description(self, wrapped=False):
         procs = []
         for p in self.processes:
             procs.append(p.description())
-        return {
+        desc = {
             'processgroupname': 'no-name',
             'processes': procs,
-            'mv': MAJOR_VERSION,
         }
+        if wrapped:
+            return {
+                'processgroup': desc,
+                MAJOR_VERSION_KEY: MAJOR_VERSION,
+            }
+        else:
+            return desc
 
 
 class Process:
@@ -232,7 +250,7 @@ class Process:
             s = self.__str__()
         return s
 
-    def description(self):
+    def description(self, wrapped=False):
         threads = []
         for t in self.threads:
             threads.append(t.description())
@@ -243,13 +261,18 @@ class Process:
             'processname': 'no-name',
             'threads': threads,
             'threadgroups': threadgroups,
-            'mv': MAJOR_VERSION,
         }
         if self.pid:
             data['pid'] = self.pid
         if self.exe:
             data['exe'] = self.exe
-        return data
+        if wrapped:
+            return {
+                'process': data,
+                MAJOR_VERSION_KEY: MAJOR_VERSION,
+            }
+        else:
+            return data
 
     def add_thread(self, thr):
         self.threads.append(thr)
@@ -306,7 +329,7 @@ class Frame:
     def add_var(self, var, val):
         self.vars[var] = val
 
-    def description(self):
+    def description(self, wrapped=False):
         desc = {
             'id': self.id,
             'fn': self.fn,
@@ -315,4 +338,10 @@ class Frame:
             desc['args'] = self.args
         if self.vars:
             desc['vars'] = self.vars
-        return desc
+        if wrapped:
+            return {
+                'frame': desc,
+                MAJOR_VERSION_KEY: MAJOR_VERSION,
+            }
+        else:
+            return desc

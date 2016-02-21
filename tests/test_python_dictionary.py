@@ -33,7 +33,6 @@ Traceback (most recent call last):
 error: [Errno 110] Connection timed out""".split('\n')  # noqa
 
 EXPECTED_DICT_1 = {
-    'mv': 1,
     'processname': 'no-name',
     'threadgroups': [{'thread_ids': [0]}],
     'threads': [
@@ -54,7 +53,6 @@ EXPECTED_DICT_1 = {
                 {'fn': u'connect', 'id': 12},
                 {'fn': u'create_connection', 'id': 13}
             ],
-            'mv': 1
         }
     ]
 }
@@ -70,7 +68,6 @@ Traceback (most recent call last):
 ValueError: Extra data: line 2 column 1 - line 3 column 1 (char 4 - 67)""".split('\n')  # noqa
 
 EXPECTED_DICT_2 = {
-    'mv': 1,
     'processname': 'no-name',
     'threadgroups': [{'thread_ids': [0]}],
     'threads': [
@@ -81,9 +78,26 @@ EXPECTED_DICT_2 = {
                 {'fn': u'loads', 'id': 2},
                 {'fn': u'decode', 'id': 3}
             ],
-            'mv': 1
         }
     ]
+}
+
+EXPECTED_DICT_2_W = {
+    'mv': 1,
+    'process': {
+        'processname': 'no-name',
+        'threadgroups': [{'thread_ids': [0]}],
+        'threads': [
+            {
+                'failure': u'ValueError: Extra data: line 2 column 1 - line 3 column 1 (char 4 - 67)',
+                'frames': [
+                    {'fn': u'_fetch', 'id': 1},
+                    {'fn': u'loads', 'id': 2},
+                    {'fn': u'decode', 'id': 3}
+                ],
+            }
+        ]
+    }
 }
 
 
@@ -96,6 +110,8 @@ class TestPythonParsing(unittest.TestCase):
 
         p = get_process_from_traceback(PYTHON_STACKTRACE_2)
         self.assertEqual(EXPECTED_DICT_2, p.description(),)
+
+        p = self.assertEqual(EXPECTED_DICT_2_W, p.description(wrapped=True))
 
 if __name__ == '__main__':
     unittest.main()
