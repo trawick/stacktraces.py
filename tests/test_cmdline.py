@@ -174,7 +174,7 @@ class TestPythonLog(unittest.TestCase):
         logfile = file_from_string(LOG_FILE_CONTENTS)
         global_buffer = []
         read_log(tracelvl=1, logfile=logfile, handler=save_to_buffer)
-        expected = u"""1 * [0] WhatNameHere?, Failure was <error: [Errno 110] Connection timed out>, at <14/Mar/2015 01:37:05>
+        expected = u"""1 * [0] Failure was <error: [Errno 110] Connection timed out>, at <14/Mar/2015 01:37:05>
   get_response, _wrapped_view, index, weather_forecast, around, _fetch, request, _send_request, endheaders, _send_output, send, connect, create_connection, \n"""  # noqa
         self.assertEqual(global_buffer, [expected])
 
@@ -183,7 +183,7 @@ class TestPythonLog(unittest.TestCase):
         logfile = file_from_string(LOG_FILE_CONTENTS_2)
         global_buffer = []
         read_log(tracelvl=1, logfile=logfile, handler=save_to_buffer)
-        expected = u"""1 * [0] WhatNameHere?, Failure was <ValueError: aaa|bbb|ccc>\n  <module>, a, b, c, d, \n"""  # noqa
+        expected = u"""1 * [0] Failure was <ValueError: aaa|bbb|ccc>\n  <module>, a, b, c, d, \n"""  # noqa
         self.assertEqual(global_buffer, [expected])
 
     def test_yet_another_logfile(self):
@@ -191,7 +191,7 @@ class TestPythonLog(unittest.TestCase):
         logfile = file_from_string(LOG_FILE_CONTENTS_3)
         global_buffer = []
         read_log(tracelvl=1, logfile=logfile, handler=save_to_buffer)
-        expected = u"""1 * [0] WhatNameHere?, Failure was <IntegrityError: duplicate key value violates unique constraint "walks_walk_walk_group_id_key"|DETAIL:  Key (walk_group_id, walk_datetime)=(ExYu, 2016-01-10 14:30:00+00) already exists.>, at <25/Dec/2015 12:59:55>\n  get_response, wrapper, _wrapped_view, _wrapped_view_func, inner, add_view, _wrapper, _wrapped_view, bound_func, inner, changeform_view, save_model, save, save_base, _save_table, _do_insert, manager_method, _insert, execute_sql, execute, __exit__, execute, \n"""  # noqa
+        expected = u"""1 * [0] Failure was <IntegrityError: duplicate key value violates unique constraint "walks_walk_walk_group_id_key"|DETAIL:  Key (walk_group_id, walk_datetime)=(ExYu, 2016-01-10 14:30:00+00) already exists.>, at <25/Dec/2015 12:59:55>\n  get_response, wrapper, _wrapped_view, _wrapped_view_func, inner, add_view, _wrapper, _wrapped_view, bound_func, inner, changeform_view, save_model, save, save_base, _save_table, _do_insert, manager_method, _insert, execute_sql, execute, __exit__, execute, \n"""  # noqa
         self.assertEqual(global_buffer, [expected])
 
     def test_parse_trace_msg(self):

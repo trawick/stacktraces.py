@@ -69,7 +69,7 @@ def handle_traceback(traceback_lines, msg, tracelvl, handler, cleanups, annotati
     # always duplicated within the traceback output
     p = process_model.Process(0)
     ptb = stacktrace.PythonTraceback(
-        proc=p, lines=traceback_lines, timestamp=timestamp, name='WhatNameHere?'
+        proc=p, lines=traceback_lines, timestamp=timestamp,
     )
     ptb.parse()
     thread_analyzer.cleanup(p, cleanups)
