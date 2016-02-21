@@ -49,10 +49,12 @@ class Thread:
             if need_comma:
                 s += ','
             s += ' <%s>' % self.failure_text
+            need_comma = True
         if self.failure_text:
             if need_comma:
                 s += ','
             s += ' Failure was <%s>' % self.failure_text
+            need_comma = True
         if self.timestamp:
             if need_comma:
                 s += ','
