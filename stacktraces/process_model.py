@@ -94,6 +94,15 @@ class Thread:
             info['name'] = self.name
         if self.state:
             info['state'] = self.state
+        if self.error_msg:
+            info['errormsg'] = self.error_msg
+        if self.failure_text:
+            info['failure'] = self.failure_text
+        # XXX
+        # The timestamp is only for display; it isn't in a standard
+        # format.  (The original input wasn't parsed.)
+        if self.timestamp:
+            info['timestamp'] = self.timestamp
 
         return info
 
