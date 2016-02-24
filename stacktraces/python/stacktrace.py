@@ -24,6 +24,9 @@ class PythonTraceback(object):
     @staticmethod
     def _combine_exception_lines(orig_lines):
         lines = list(orig_lines)
+        # Remove any trailing empty line.
+        if len(lines) > 0 and lines[len(lines) - 1] == '':
+            lines = lines[:-1]
         i = len(lines) - 2  # start at next to last line
         while i > 0 and lines[i][0] != ' ' and lines[i + 1][0] != ' ':
             lines[i] = lines[i].rstrip() + '|' + lines.pop()
