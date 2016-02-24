@@ -81,7 +81,7 @@ def main():
 
     if args.format == 'json':
         print('[')
-    read_log(tracelvl=1, logfile=io.open(sys.argv[1], encoding='utf8'), handler=print_process)
+    read_log(tracelvl=1, logfile=io.open(args.log_file_name, encoding='utf8'), handler=print_process)
     if args.format == 'json':
         print(']')
 
