@@ -32,7 +32,7 @@ need_delim = False
 seen = dict()
 
 
-def print_process(process):
+def print_process(process, traceback_lines):
     global args, need_delim
 
     if not args.include_duplicates:
@@ -45,10 +45,19 @@ def print_process(process):
 
     if args.format == 'text':
         print(process)
+        if args.include_raw:
+            print(''.join(traceback_lines))
     else:
         if need_delim:
             print(',')
-        print(json.dumps(process.description(wrapped=True)))
+        if args.include_raw:
+            to_serialize = {
+                'wrapped': process.description(wrapped=True),
+                'raw': ''.join(traceback_lines)
+            }
+        else:
+            to_serialize = process.description(wrapped=True)
+        print(json.dumps(to_serialize))
         need_delim = True
 
 
@@ -62,6 +71,8 @@ def main():
                         help='output format ("json" or "text")')
     parser.add_argument('--include-duplicates', action='store_true',
                         help='whether to include duplicate stacktraces in output')
+    parser.add_argument('--include-raw', action='store_true',
+                        help='whether to include raw stacktraces in output')
     args = parser.parse_args()
 
     if args.format != 'text' and args.format != 'json':

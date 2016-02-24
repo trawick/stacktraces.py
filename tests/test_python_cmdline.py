@@ -153,7 +153,7 @@ DETAIL:  Key (walk_group_id, walk_datetime)=(ExYu, 2016-01-10 14:30:00+00) alrea
 global_buffer = []
 
 
-def save_to_buffer(process):
+def save_to_buffer(process, traceback_lines):
     global global_buffer
     global_buffer.append(six.text_type(process))
 

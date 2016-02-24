@@ -78,7 +78,7 @@ def handle_traceback(traceback_lines, msg, tracelvl, handler, cleanups, annotati
     if tracelvl > 1:
         print('-------------')
         print(traceback_lines)
-    handler(process=p)
+    handler(process=p, traceback_lines=traceback_lines)
 
 
 class Line(object):
