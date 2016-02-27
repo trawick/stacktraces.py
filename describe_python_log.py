@@ -27,14 +27,8 @@ import sys
 
 from stacktraces.python.shortcuts import read_log
 
-args = None
-need_delim = False
-seen = dict()
 
-
-def print_process(process, traceback_lines):
-    global args, need_delim
-
+def print_process(args, seen, need_delim, process, traceback_lines):
     if not args.include_duplicates:
         thread = process.threads[0]
         frame_functions = [frame.fn for frame in thread.frames]
@@ -60,10 +54,10 @@ def print_process(process, traceback_lines):
         print(json.dumps(to_serialize))
         need_delim = True
 
+    return need_delim
+
 
 def main():
-    global args
-
     parser = argparse.ArgumentParser()
     parser.add_argument('log_file_name',
                         help='name of log file to parse')
@@ -79,9 +73,15 @@ def main():
         print('Wrong value for --format', file=sys.stderr)
         sys.exit(1)
 
+    seen = dict()
+    need_delim = False
+
     if args.format == 'json':
         print('[')
-    read_log(tracelvl=1, logfile=io.open(args.log_file_name, encoding='utf8'), handler=print_process)
+    for p, traceback_lines in read_log(
+        tracelvl=1, logfile=io.open(args.log_file_name, encoding='utf8')
+    ):
+        need_delim = print_process(args, seen, need_delim, p, traceback_lines)
     if args.format == 'json':
         print(']')
 

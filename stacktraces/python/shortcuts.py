@@ -53,7 +53,7 @@ def parse_trace_msg(msg):
     return None, None
 
 
-def handle_traceback(traceback_lines, msg, tracelvl, handler, cleanups, annotations):
+def handle_traceback(traceback_lines, msg, tracelvl, cleanups, annotations):
     # We just have a traceback from an individual thread, so skip:
     # . ProcessGroup representation
     # . Process.group(), which finds threads in a process with same backtrace
@@ -78,7 +78,7 @@ def handle_traceback(traceback_lines, msg, tracelvl, handler, cleanups, annotati
     if tracelvl > 1:
         print('-------------')
         print(traceback_lines)
-    handler(process=p, traceback_lines=traceback_lines)
+    return p, traceback_lines
 
 
 class Line(object):
@@ -115,7 +115,7 @@ class ParseState(object):
         return ' '.join(fields)
 
 
-def read_log(tracelvl, logfile, handler, cleanups=(), annotations=()):
+def read_log(tracelvl, logfile, cleanups=(), annotations=()):
     prev_log_msg = None
     s = ParseState()
 
@@ -126,17 +126,17 @@ def read_log(tracelvl, logfile, handler, cleanups=(), annotations=()):
         l = Line(l)
         if l.is_start_of_traceback:
             if s.in_traceback:
-                handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, handler, cleanups, annotations)
+                yield handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups, annotations)
                 s = ParseState()
             s.in_traceback = True
             s.traceback_log_msg = prev_log_msg
         elif l.is_log_msg and s.traceback_lines:
-            handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, handler, cleanups, annotations)
+            yield handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups, annotations)
             s = ParseState()
         if s.in_traceback and not (l.line.startswith('[') or l.line in ('', '\n')):
             s.traceback_lines.append(l.line)
         if l.is_log_msg:
             prev_log_msg = l
     if s.in_traceback:
-        handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, handler, cleanups, annotations)
+        yield handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups, annotations)
         # s = ParseState()
