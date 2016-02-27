@@ -111,7 +111,7 @@ class TestPythonParsing(unittest.TestCase):
         p = get_process_from_traceback(PYTHON_STACKTRACE_2)
         self.assertEqual(EXPECTED_DICT_2, p.description(),)
 
-        p = self.assertEqual(EXPECTED_DICT_2_W, p.description(wrapped=True))
+        self.assertEqual(EXPECTED_DICT_2_W, p.description(wrapped=True))
 
 if __name__ == '__main__':
     unittest.main()
