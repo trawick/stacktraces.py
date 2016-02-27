@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if ! nosetests; then
+if ! nosetests --with-coverage --cover-package=stacktraces; then
     exit 1
 fi
 
