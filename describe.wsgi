@@ -21,7 +21,7 @@ def application(environ, start_response):
         for i in range(len(debugger_output)):
             try:
                 json.dumps({'line': debugger_output[i]})
-            except:
+            except Exception:
                 # Fix it
                 for cindex in range(len(debugger_output[i])):
                     if not debugger_output[i][cindex] in string.printable:
@@ -36,7 +36,7 @@ def application(environ, start_response):
         converting = True
         output = json.dumps({"success": True, 'procinfo': p.description()})
         converting = False
-    except:
+    except Exception:
         for info in sys.exc_info():
             print >> sys.stderr, "DESCRIBE ERROR: %s" % str(info)
         traceback.print_tb(sys.exc_info()[2])
@@ -50,7 +50,7 @@ def application(environ, start_response):
                 linenum += 1
                 try:
                     json.dumps({'line': l})
-                except:
+                except Exception:
                     errmsg += '<br />The problem may be with line %d.' % linenum
                     break
         else:
