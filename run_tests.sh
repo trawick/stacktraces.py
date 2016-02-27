@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if ! nosetests; then
     exit 1
 fi
@@ -5,4 +7,3 @@ fi
 if ! flake8 .; then
     exit 1
 fi
-
