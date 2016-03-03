@@ -51,10 +51,9 @@ $ lsap
  5314  3469 /home/trawick/inst/24-64/bin/httpd -k start
  5315  3469 /home/trawick/inst/24-64/bin/httpd -k start
  5316  3469 /home/trawick/inst/24-64/bin/httpd -k start
- $ ./collect.py -p 5315 -e $HOME/inst/24-64-bin/httpd -l outfile
+ $ ./collect.py -p 5315 -e $HOME/inst/24-64/bin/httpd -l outfile
  $ head outfile 
-REM collect.py 1.01 TOOL=gdb  PYPLATFORM=linux2 ./collect.py -p 5315 -e /home/trawick/inst/24-64-bin/httpd -l outfile
-/home/trawick/inst/24-64-bin/httpd: No such file or directory.
+REM collect.py 1.01 TOOL=gdb  PYPLATFORM=linux2 ./collect.py -p 5315 -e /home/trawick/inst/24-64/bin/httpd -l outfile
 [Thread debugging using libthread_db enabled]
 Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
 0x00007fa5fbf89870 in __poll_nocancel () at ../sysdeps/unix/syscall-template.S:81
@@ -75,7 +74,7 @@ Here is sample output on an ``httpd`` process that it doesn't know anything abou
 
 ```
 $ ./describe.py --debuglog outfile 
-Pid 5315 Executable /home/trawick/inst/24-64-bin/httpd 
+Pid 5315 Executable /home/trawick/inst/24-64/bin/httpd 
 1 * [1]
   __poll_nocancel, apr_wait_for_io_or_timeout, procmgr_fetch_cmd, pm_main, create_process_manager, procmgr_post_config, fcgid_init, ap_run_post_config, main,
 ```
