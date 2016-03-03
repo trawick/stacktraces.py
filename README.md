@@ -46,6 +46,7 @@ reimburse me for my time at a professional rate.
 Here is a set of httpd processes and an invocation of ``collect.py`` to extract information from them:
 
 ```
+$ lsap
  3469  2006 /home/trawick/inst/24-64/bin/httpd -k start
  5314  3469 /home/trawick/inst/24-64/bin/httpd -k start
  5315  3469 /home/trawick/inst/24-64/bin/httpd -k start
