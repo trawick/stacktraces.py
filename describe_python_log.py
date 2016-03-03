@@ -20,6 +20,8 @@
 
 from __future__ import print_function
 
+from collections import defaultdict
+
 import argparse
 import io
 import json
@@ -28,19 +30,26 @@ import sys
 from stacktraces.python.shortcuts import read_log
 
 
-def print_process(args, seen, need_delim, process, traceback_lines):
+def print_process(args, messages, stacktraces, need_delim, process, traceback_lines):
+    thread = process.threads[0]
+    st = ', '.join([f.fn for f in thread.frames])
+
     if not args.include_duplicates:
-        thread = process.threads[0]
-        frame_functions = [frame.fn for frame in thread.frames]
-        key = ','.join(frame_functions)
-        if key in seen:
-            return
-        seen[key] = True
+        if thread.failure_text:
+            messages[thread.failure_text] += 1
+        stacktraces[st] += 1
+        if stacktraces[st] > 1:
+            return need_delim
 
     if args.format == 'text':
-        print(process)
+        if thread.error_msg:
+            print(thread.error_msg)
+        if thread.failure_text:
+            print(thread.failure_text)
+        print(st)
         if args.include_raw:
             print(''.join(traceback_lines))
+        print()
     else:
         if need_delim:
             print(',')
@@ -73,17 +82,28 @@ def main():
         print('Wrong value for --format', file=sys.stderr)
         sys.exit(1)
 
-    seen = dict()
     need_delim = False
 
     if args.format == 'json':
         print('[')
+
+    messages = defaultdict(int)
+    stacktraces = defaultdict(int)
+
     for p, traceback_lines in read_log(
         tracelvl=1, logfile=io.open(args.log_file_name, encoding='utf8')
     ):
-        need_delim = print_process(args, seen, need_delim, p, traceback_lines)
+        need_delim = print_process(args, messages, stacktraces, need_delim, p, traceback_lines)
     if args.format == 'json':
         print(']')
+
+    if args.format == 'text':
+        for k in messages.keys():
+            if messages[k] > 1:
+                print('%d: %s' % (messages[k], k))
+        for k in stacktraces.keys():
+            if stacktraces[k] > 1:
+                print('%d: %s' % (stacktraces[k], k))
 
 if __name__ == '__main__':
     main()
