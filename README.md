@@ -24,6 +24,14 @@ The API is in flux.  Read the command-line tool source code for hints.
 
 ``collect.py`` can be downloaded individually and copied to the system where it is needed.  For the other tools, use ``pip install`` referencing a particular commit (e.g., ``git+git://github.com/trawick/stacktraces.py.git@XXXXXXX#egg=stacktraces``, where the Xs are replaced with an actual hash).
 
+## Bug reports
+
+Please file Github issues if you encounter a problem and you can share the text (e.g., Python exception, gdb output) that 
+couldn't be parsed or represented properly as part of the problem description.  Sometimes problems will be encountered
+dealing with proprietary data  which you can't share publicly; try to reproduce those with code you can share.
+To be clear:  Communicate with me about questions and problems only via the Github issue tracker unless you want to
+reimburse me for my time at a professional rate.
+
 ## Command-line tool documentation
 
 ### ``collect.py``
