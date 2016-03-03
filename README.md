@@ -63,9 +63,9 @@ The output file can be used as-is (essentially automated invocation of the debug
 
 ### ``describe.py``
 
-``describe.py`` can parse the output from ``collect.py`` (or other gdb or pstack output as long as it hsa backtraces) and render a simplified description.  It can usually give a synopsis of thread state and activity when used with httpd processes.
+``describe.py`` can parse the output from ``collect.py`` (or other suitable ``gdb`` or ``pstack`` output) and render a simplified description.  It can usually give a synopsis of thread state and activity when used with ``httpd`` processes.
 
-Here is sample output on an httpd process that it doesn't know anything about (mod_fcgid's daemon process):
+Here is sample output on an ``httpd`` process that it doesn't know anything about (mod_fcgid's daemon process):
 
 ```
 $ ./describe.py --debuglog outfile 
