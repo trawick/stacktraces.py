@@ -37,6 +37,8 @@ def print_process(args, messages, stacktraces, need_delim, process, traceback_li
     if not args.include_duplicates:
         if thread.failure_text:
             messages[thread.failure_text] += 1
+        if thread.error_msg:
+            messages[thread.error_msg] += 1
         stacktraces[st] += 1
         if stacktraces[st] > 1:
             return need_delim
@@ -97,13 +99,15 @@ def main():
     if args.format == 'json':
         print(']')
 
-    if args.format == 'text':
+    if args.format == 'text' and not args.include_duplicates:
+        print('Duplicated error messages:')
         for k in messages.keys():
             if messages[k] > 1:
-                print('%d: %s' % (messages[k], k))
+                print('  %d: %s' % (messages[k], k))
+        print('Duplicated stacktraces:')
         for k in stacktraces.keys():
             if stacktraces[k] > 1:
-                print('%d: %s' % (stacktraces[k], k))
+                print('  %d: %s' % (stacktraces[k], k))
 
 if __name__ == '__main__':
     main()
