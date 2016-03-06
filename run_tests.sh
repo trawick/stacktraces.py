@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if ! nosetests --with-coverage --cover-package=stacktraces; then
+if ! nosetests --with-coverage --cover-package=stacktraces --cover-min-percentage=77; then
     exit 1
 fi
 
