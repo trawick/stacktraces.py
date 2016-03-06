@@ -2,7 +2,7 @@ import unittest
 
 import six
 
-from stacktraces.python.shortcuts import describe_lines, parse_trace_msg, read_log
+from stacktraces.python.shortcuts import describe_lines, parse_trace_msg, process_log_file, read_log
 
 PYTHON_STACKTRACE = u"""[14/Mar/2015 01:37:05] ERROR [django.request:231] Internal Server Error: /walk/ExYu
 Traceback (most recent call last):
@@ -150,6 +150,79 @@ DETAIL:  Key (walk_group_id, walk_datetime)=(ExYu, 2016-01-10 14:30:00+00) alrea
 
 """  # noqa
 
+LOG_FILE_CONTENTS_4 = u"""
+[09/Sep/2014 23:45:54] INFO [requests.packages.urllib3.connectionpool:188] Starting new HTTP connection (1): edjective.org
+[10/Sep/2014 00:11:01] INFO [requests.packages.urllib3.connectionpool:188] Starting new HTTP connection (1): www.fit-ed.org
+[10/Sep/2014 02:11:01] INFO [requests.packages.urllib3.connectionpool:188] Starting new HTTP connection (1): www.fit-ed.org
+[10/Sep/2014 04:11:02] INFO [requests.packages.urllib3.connectionpool:188] Starting new HTTP connection (1): www.fit-ed.org
+[10/Sep/2014 13:43:32] ERROR [django.request:224] Internal Server Error: /ed/resources/42/
+Traceback (most recent call last):
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/trawick/git/edurepo/src/edurepo/resources/views.py", line 21, in detail
+    resource = Resource.objects.get(id=resource_id)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/query.py", line 310, in get
+    self.model._meta.object_name)
+DoesNotExist: Resource matching query does not exist.
+[10/Sep/2014 13:43:32] ERROR [django.request:224] Internal Server Error: /ed/resources/42/
+Traceback (most recent call last):
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/trawick/git/edurepo/src/edurepo/resources/views.py", line 21, in detail
+    resource = Resource.objects.get(id=resource_id)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/query.py", line 310, in get
+    self.model._meta.object_name)
+DoesNotExist: Resource matching query does not exist.
+[10/Sep/2014 13:43:32] ERROR [django.request:224] Internal Server Error: /ed/resources/42/
+Traceback (most recent call last):
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/trawick/git/edurepo/src/edurepo/resources/views.py", line 21, in detail
+    resource = Resource.objects.get(id=resource_id)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/query.py", line 310, in get
+    self.model._meta.object_name)
+DoesNotExist: Resource matching query does not exist.
+[10/Sep/2014 16:39:37] ERROR [django.request:224] Internal Server Error: /ed/resources/31/
+Traceback (most recent call last):
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/trawick/git/edurepo/src/edurepo/resources/views.py", line 21, in detail
+    resource = Resource.objects.get(id=resource_id)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/query.py", line 310, in get
+    self.model._meta.object_name)
+DoesNotExist: Resource matching query does not exist.
+[10/Sep/2014 16:39:37] ERROR [django.request:224] Internal Server Error: /ed/resources/31/
+Traceback (most recent call last):
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/trawick/git/edurepo/src/edurepo/resources/views.py", line 21, in detail
+    resource = Resource.objects.get(id=resource_id)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/query.py", line 310, in get
+    self.model._meta.object_name)
+DoesNotExist: Resource matching query does not exist.
+[10/Sep/2014 16:39:37] ERROR [django.request:224] Internal Server Error: /ed/resources/31/
+Traceback (most recent call last):
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/trawick/git/edurepo/src/edurepo/resources/views.py", line 21, in detail
+    resource = Resource.objects.get(id=resource_id)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/trawick/git/edurepo/envs/edurepo/lib/python2.7/site-packages/django/db/models/query.py", line 310, in get
+    self.model._meta.object_name)
+DoesNotExist: Resource matching query does not exist.
+"""  # noqa
+
 
 def file_from_string(contents):
     if six.PY2:
@@ -159,6 +232,15 @@ def file_from_string(contents):
         import io
         logfile = io.StringIO(contents)
     return logfile
+
+
+def output_to_string():
+    if six.PY2:
+        import StringIO
+        return StringIO.StringIO()
+    else:
+        import io
+        return io.StringIO()
 
 
 class TestPythonLog(unittest.TestCase):
@@ -225,3 +307,23 @@ class TestPythonLog(unittest.TestCase):
             actual_timestamp, actual_msg = parse_trace_msg(log_line + '\n')
             self.assertEqual(expected_timestamp, actual_timestamp)
             self.assertEqual(expected_msg, actual_msg)
+
+    def test_high_level_log_api(self):
+        single_error_message = u'DoesNotExist: Resource matching query does not exist.'
+        single_stacktrace = u'get_response, detail, get, get'
+        output_string = output_to_string()
+        message_counts, stacktrace_counts = process_log_file(
+            file_from_string(LOG_FILE_CONTENTS_4),
+            output_string,
+            output_format='text',
+            include_duplicates=False,
+            include_raw=False,
+        )
+        self.assertEqual(
+            single_error_message + u'\nget_response, detail, get, get\n\n',
+            output_string.getvalue()
+        )
+        self.assertEqual([single_error_message], message_counts.keys())
+        self.assertEqual(6, message_counts[single_error_message])
+        self.assertEqual([single_stacktrace], stacktrace_counts.keys())
+        self.assertEqual(6, stacktrace_counts[single_stacktrace])

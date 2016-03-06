@@ -1,3 +1,7 @@
+from __future__ import print_function
+
+from collections import defaultdict
+import json
 import re
 
 from six import text_type
@@ -140,3 +144,68 @@ def read_log(tracelvl, logfile, cleanups=(), annotations=()):
     if s.in_traceback:
         yield handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups, annotations)
         # s = ParseState()
+
+
+def _output_process(
+        output_format,
+        include_duplicates, include_raw, messages, stacktraces, need_delim,
+        process, traceback_lines, outfile
+):
+    thread = process.threads[0]
+    st = ', '.join([f.fn for f in thread.frames])
+
+    if not include_duplicates:
+        if thread.failure_text:
+            messages[thread.failure_text] += 1
+        if thread.error_msg:
+            messages[thread.error_msg] += 1
+        stacktraces[st] += 1
+        if stacktraces[st] > 1:
+            return need_delim
+
+    if output_format == 'text':
+        if thread.error_msg:
+            print(thread.error_msg, file=outfile)
+        if thread.failure_text:
+            print(thread.failure_text, file=outfile)
+        print(st, file=outfile)
+        if include_raw:
+            print(''.join(traceback_lines), file=outfile)
+        print(file=outfile)
+    else:
+        if need_delim:
+            print(',', file=outfile)
+        if include_raw:
+            to_serialize = {
+                'wrapped': process.description(wrapped=True),
+                'raw': ''.join(traceback_lines)
+            }
+        else:
+            to_serialize = process.description(wrapped=True)
+        print(json.dumps(to_serialize), file=outfile)
+        need_delim = True
+
+    return need_delim
+
+
+def process_log_file(
+        log_file, outfile,
+        output_format='text', include_duplicates=False, include_raw=False
+):
+    need_delim = False
+
+    if output_format == 'json':
+        print('[', file=outfile)
+
+    message_counts = defaultdict(int)
+    stacktrace_counts = defaultdict(int)
+
+    for p, traceback_lines in read_log(tracelvl=1, logfile=log_file):
+        need_delim = _output_process(
+            output_format, include_duplicates, include_raw, message_counts,
+            stacktrace_counts, need_delim, p, traceback_lines, outfile
+        )
+    if output_format == 'json':
+        print(']', file=outfile)
+
+    return message_counts, stacktrace_counts

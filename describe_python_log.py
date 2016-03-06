@@ -15,57 +15,13 @@
 # limitations under the License.
 #
 
-# WHAT SHOULD BE DONE?
-# 1. for nested exceptions, save multiple exceptions with some clear relationship
-
 from __future__ import print_function
-
-from collections import defaultdict
 
 import argparse
 import io
-import json
 import sys
 
-from stacktraces.python.shortcuts import read_log
-
-
-def print_process(args, messages, stacktraces, need_delim, process, traceback_lines):
-    thread = process.threads[0]
-    st = ', '.join([f.fn for f in thread.frames])
-
-    if not args.include_duplicates:
-        if thread.failure_text:
-            messages[thread.failure_text] += 1
-        if thread.error_msg:
-            messages[thread.error_msg] += 1
-        stacktraces[st] += 1
-        if stacktraces[st] > 1:
-            return need_delim
-
-    if args.format == 'text':
-        if thread.error_msg:
-            print(thread.error_msg)
-        if thread.failure_text:
-            print(thread.failure_text)
-        print(st)
-        if args.include_raw:
-            print(''.join(traceback_lines))
-        print()
-    else:
-        if need_delim:
-            print(',')
-        if args.include_raw:
-            to_serialize = {
-                'wrapped': process.description(wrapped=True),
-                'raw': ''.join(traceback_lines)
-            }
-        else:
-            to_serialize = process.description(wrapped=True)
-        print(json.dumps(to_serialize))
-        need_delim = True
-
-    return need_delim
+from stacktraces.python.shortcuts import process_log_file
 
 
 def main():
@@ -84,30 +40,23 @@ def main():
         print('Wrong value for --format', file=sys.stderr)
         sys.exit(1)
 
-    need_delim = False
-
-    if args.format == 'json':
-        print('[')
-
-    messages = defaultdict(int)
-    stacktraces = defaultdict(int)
-
-    for p, traceback_lines in read_log(
-        tracelvl=1, logfile=io.open(args.log_file_name, encoding='utf8')
-    ):
-        need_delim = print_process(args, messages, stacktraces, need_delim, p, traceback_lines)
-    if args.format == 'json':
-        print(']')
+    message_counts, stacktrace_counts = process_log_file(
+        io.open(args.log_file_name, encoding='utf8'),
+        sys.stdout,
+        output_format=args.format,
+        include_duplicates=args.include_duplicates,
+        include_raw=args.include_raw,
+    )
 
     if args.format == 'text' and not args.include_duplicates:
         print('Duplicated error messages:')
-        for k in messages.keys():
-            if messages[k] > 1:
-                print('  %d: %s' % (messages[k], k))
+        for k in message_counts.keys():
+            if message_counts[k] > 1:
+                print('  %d: %s' % (message_counts[k], k))
         print('Duplicated stacktraces:')
-        for k in stacktraces.keys():
-            if stacktraces[k] > 1:
-                print('  %d: %s' % (stacktraces[k], k))
+        for k in stacktrace_counts.keys():
+            if stacktrace_counts[k] > 1:
+                print('  %d: %s' % (stacktrace_counts[k], k))
 
 if __name__ == '__main__':
     main()
