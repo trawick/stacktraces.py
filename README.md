@@ -24,6 +24,11 @@ The API is in flux.  Read the command-line tool source code for hints.
 
 ``collect.py`` can be downloaded individually and copied to the system where it is needed.  For the other tools, use ``pip install`` referencing a particular commit (e.g., ``git+git://github.com/trawick/stacktraces.py.git@XXXXXXX#egg=stacktraces``, where the Xs are replaced with an actual hash).
 
+#### When will I put it on PyPI
+
+When somebody opens a Github issue for that AND "enough" people post to that ticket in support OR I feel that the
+current functionality (whether or not it works for your data) is useful to thousands of people.
+
 ## Bug reports
 
 Please file Github issues if you encounter a problem and you can share the text (e.g., Python exception, gdb output) that 
@@ -41,14 +46,14 @@ reimburse me for my time at a professional rate.
 Here is a set of httpd processes and an invocation of ``collect.py`` to extract information from them:
 
 ```
+$ lsap
  3469  2006 /home/trawick/inst/24-64/bin/httpd -k start
  5314  3469 /home/trawick/inst/24-64/bin/httpd -k start
  5315  3469 /home/trawick/inst/24-64/bin/httpd -k start
  5316  3469 /home/trawick/inst/24-64/bin/httpd -k start
- $ ./collect.py -p 5315 -e $HOME/inst/24-64-bin/httpd -l outfile
+ $ ./collect.py -p 5315 -e $HOME/inst/24-64/bin/httpd -l outfile
  $ head outfile 
-REM collect.py 1.01 TOOL=gdb  PYPLATFORM=linux2 ./collect.py -p 5315 -e /home/trawick/inst/24-64-bin/httpd -l outfile
-/home/trawick/inst/24-64-bin/httpd: No such file or directory.
+REM collect.py 1.01 TOOL=gdb  PYPLATFORM=linux2 ./collect.py -p 5315 -e /home/trawick/inst/24-64/bin/httpd -l outfile
 [Thread debugging using libthread_db enabled]
 Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
 0x00007fa5fbf89870 in __poll_nocancel () at ../sysdeps/unix/syscall-template.S:81
@@ -63,13 +68,13 @@ The output file can be used as-is (essentially automated invocation of the debug
 
 ### ``describe.py``
 
-``describe.py`` can parse the output from ``collect.py`` (or other gdb or pstack output as long as it hsa backtraces) and render a simplified description.  It can usually give a synopsis of thread state and activity when used with httpd processes.
+``describe.py`` can parse the output from ``collect.py`` (or other suitable ``gdb`` or ``pstack`` output) and render a simplified description.  It can usually give a synopsis of thread state and activity when used with ``httpd`` processes.
 
-Here is sample output on an httpd process that it doesn't know anything about (mod_fcgid's daemon process):
+Here is sample output on an ``httpd`` process that it doesn't know anything about (mod_fcgid's daemon process):
 
 ```
 $ ./describe.py --debuglog outfile 
-Pid 5315 Executable /home/trawick/inst/24-64-bin/httpd 
+Pid 5315 Executable /home/trawick/inst/24-64/bin/httpd 
 1 * [1]
   __poll_nocancel, apr_wait_for_io_or_timeout, procmgr_fetch_cmd, pm_main, create_process_manager, procmgr_post_config, fcgid_init, ap_run_post_config, main,
 ```
