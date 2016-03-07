@@ -1,6 +1,8 @@
 # stacktraces.py
 ## Python-based stack trace analysis library and command-line tools
 
+[![Build Status](https://travis-ci.org/trawick/stacktraces.py.svg?branch=master)](https://travis-ci.org/trawick/stacktraces.py)
+
 Stack traces (backtraces) can be obtained from the following:
 
 1. live process or core file via gdb or Solaris pstack
