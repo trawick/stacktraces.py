@@ -323,7 +323,7 @@ class TestPythonLog(unittest.TestCase):
             single_error_message + u'\nget_response, detail, get, get\n\n',
             output_string.getvalue()
         )
-        self.assertEqual([single_error_message], message_counts.keys())
+        self.assertEqual([single_error_message], list(message_counts.keys()))
         self.assertEqual(6, message_counts[single_error_message])
-        self.assertEqual([single_stacktrace], stacktrace_counts.keys())
+        self.assertEqual([single_stacktrace], list(stacktrace_counts.keys()))
         self.assertEqual(6, stacktrace_counts[single_stacktrace])
