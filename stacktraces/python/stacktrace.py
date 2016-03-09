@@ -14,11 +14,15 @@ class PythonTraceback(object):
             self.proc = stacktraces.process_model.Process()
         self.error_msg = kwargs.get('error_msg')
         self.timestamp = kwargs.get('timestamp')
+        self.isotimestamp = kwargs.get('isotimestamp')
         self.thr = stacktraces.process_model.Thread(0)
         if kwargs.get('name'):
             self.thr.set_name(kwargs.get('name'))
-        if self.timestamp or self.error_msg:
-            self.thr.set_error_data(timestamp=self.timestamp, error_msg=self.error_msg)
+        if self.timestamp or self.isotimestamp or self.error_msg:
+            self.thr.set_error_data(
+                timestamp=self.timestamp, isotimestamp=self.isotimestamp,
+                error_msg=self.error_msg
+            )
         self.proc.add_thread(self.thr)
 
     @staticmethod

@@ -21,6 +21,8 @@ import argparse
 import io
 import sys
 
+import pytz
+
 from stacktraces.python.shortcuts import process_log_file
 
 
@@ -34,11 +36,18 @@ def main():
                         help='whether to include duplicate stacktraces in output')
     parser.add_argument('--include-raw', action='store_true',
                         help='whether to include raw stacktraces in output')
+    parser.add_argument('--tz', action='store', default=None,
+                        help='Time zone name (e.g., "US/Eastern")')
     args = parser.parse_args()
 
     if args.format != 'text' and args.format != 'json':
         print('Wrong value for --format', file=sys.stderr)
         sys.exit(1)
+
+    if args.tz:
+        pytz_timezone = pytz.timezone(args.tz)
+    else:
+        pytz_timezone = None
 
     message_counts, stacktrace_counts = process_log_file(
         io.open(args.log_file_name, encoding='utf8'),
@@ -46,6 +55,7 @@ def main():
         output_format=args.format,
         include_duplicates=args.include_duplicates,
         include_raw=args.include_raw,
+        pytz_timezone=pytz_timezone,
     )
 
     if args.format == 'text' and not args.include_duplicates:

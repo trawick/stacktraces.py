@@ -129,21 +129,26 @@ def parse_trace_msg(msg, pytz_timezone=None):
     return None, None, None
 
 
-def handle_traceback(traceback_lines, msg, tracelvl, cleanups, annotations):
+def handle_traceback(traceback_lines, msg, tracelvl, cleanups, annotations, pytz_timezone):
     # We just have a traceback from an individual thread, so skip:
     # . ProcessGroup representation
     # . Process.group(), which finds threads in a process with same backtrace
 
     if msg:
-        _, timestamp, _ = parse_trace_msg(msg.line)
+        _, timestamp, timestamp_dt = parse_trace_msg(msg.line, pytz_timezone)
+        timestamp_args = {
+            'timestamp': timestamp,
+        }
+        if timestamp_dt:
+            timestamp_args['isotimestamp'] = timestamp_dt.isoformat()
     else:
-        timestamp = None
+        timestamp_args = {}
 
     # Ignore error message in the related log message for now; it seems to be
     # always duplicated within the traceback output
     p = process_model.Process(0)
     ptb = stacktrace.PythonTraceback(
-        proc=p, lines=traceback_lines, timestamp=timestamp,
+        proc=p, lines=traceback_lines, **timestamp_args
     )
     ptb.parse()
     thread_analyzer.cleanup(p, cleanups)
@@ -189,7 +194,7 @@ class ParseState(object):
         return ' '.join(fields)
 
 
-def read_log(tracelvl, logfile, cleanups=(), annotations=()):
+def read_log(tracelvl, logfile, cleanups=(), annotations=(), pytz_timezone=None):
     prev_log_msg = None
     s = ParseState()
 
@@ -200,19 +205,28 @@ def read_log(tracelvl, logfile, cleanups=(), annotations=()):
         l = Line(l)
         if l.is_start_of_traceback:
             if s.in_traceback:
-                yield handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups, annotations)
+                yield handle_traceback(
+                    s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups,
+                    annotations, pytz_timezone
+                )
                 s = ParseState()
             s.in_traceback = True
             s.traceback_log_msg = prev_log_msg
         elif l.is_log_msg and s.traceback_lines:
-            yield handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups, annotations)
+            yield handle_traceback(
+                s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups,
+                annotations, pytz_timezone
+            )
             s = ParseState()
         if s.in_traceback and not (l.line.startswith('[') or l.line in ('', '\n')):
             s.traceback_lines.append(l.line)
         if l.is_log_msg:
             prev_log_msg = l
     if s.in_traceback:
-        yield handle_traceback(s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups, annotations)
+        yield handle_traceback(
+            s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups,
+            annotations, pytz_timezone
+        )
         # s = ParseState()
 
 
@@ -260,7 +274,8 @@ def _output_process(
 
 def process_log_file(
         log_file, outfile,
-        output_format='text', include_duplicates=False, include_raw=False
+        output_format='text', include_duplicates=False, include_raw=False,
+        pytz_timezone=None,
 ):
     need_delim = False
 
@@ -270,7 +285,7 @@ def process_log_file(
     message_counts = defaultdict(int)
     stacktrace_counts = defaultdict(int)
 
-    for p, traceback_lines in read_log(tracelvl=1, logfile=log_file):
+    for p, traceback_lines in read_log(tracelvl=1, logfile=log_file, pytz_timezone=pytz_timezone):
         need_delim = _output_process(
             output_format, include_duplicates, include_raw, message_counts,
             stacktrace_counts, need_delim, p, traceback_lines, outfile

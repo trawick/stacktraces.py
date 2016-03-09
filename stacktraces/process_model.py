@@ -34,6 +34,7 @@ class Thread:
         self.failure_text = None
         self.error_msg = None
         self.timestamp = None
+        self.isotimestamp = None
 
     def common_str(self):
         s = ''
@@ -97,11 +98,12 @@ class Thread:
             info['errormsg'] = self.error_msg
         if self.failure_text:
             info['failure'] = self.failure_text
-        # XXX
-        # The timestamp is only for display; it isn't in a standard
-        # format.  (The original input wasn't parsed.)
+        # original timestamp for display
         if self.timestamp:
             info['timestamp'] = self.timestamp
+        # parsed, formatted timestamp for processing
+        if self.isotimestamp:
+            info['isotimestamp'] = self.isotimestamp
 
         if wrapped:
             return {
@@ -126,8 +128,9 @@ class Thread:
     def set_failure(self, failure_text):
         self.failure_text = failure_text
 
-    def set_error_data(self, timestamp=None, error_msg=None):
+    def set_error_data(self, timestamp=None, isotimestamp=None, error_msg=None):
         self.timestamp = timestamp
+        self.isotimestamp = isotimestamp
         self.error_msg = error_msg
 
     def same_backtrace(self, thr2):
