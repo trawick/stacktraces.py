@@ -6,3 +6,4 @@ tox==2.3.1
   virtualenv==14.0.6
   py==1.4.31
 coverage==4.0.3
+pytz==2015.7

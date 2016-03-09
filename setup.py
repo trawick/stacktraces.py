@@ -29,7 +29,7 @@ setup(
         'Topic :: Software Development :: Debuggers',
     ],
     description='Stack trace representation in Python',
-    install_requires=['six'],
+    install_requires=['pytz', 'six'],
     license="ASL 2.0",
     name='stacktraces',
     packages=['stacktraces', 'stacktraces.analyze', 'stacktraces.native', 'stacktraces.python'],

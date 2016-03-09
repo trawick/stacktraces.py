@@ -1,6 +1,7 @@
 from __future__ import print_function
 
 from collections import defaultdict
+import datetime
 import json
 import re
 
@@ -27,7 +28,7 @@ def describe_lines(traceback_lines):
 
 LOGLVL_RE = r'(CRITICAL|ERROR|WARNING|INFO|DEBUG)'
 TRACE_MSG_RE_1 = re.compile(r'^\[([^]]+)\] ' + LOGLVL_RE + ' \[[^]]+\] (.*)\n?$')
-TRACE_MSG_RE_2 = re.compile(r'^(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d).*' + LOGLVL_RE + ' +(.*)\n?$')
+TRACE_MSG_RE_2 = re.compile(r'^(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,?\d?\d?\d?).*' + LOGLVL_RE + ' +(.*)\n?$')
 TRACE_MSG_RE_3 = re.compile(r'^(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d) .*\[' + LOGLVL_RE + '\] +(.*)\n?')
 TRACE_MSG_RE_4 = re.compile(r'^.*\[([A-Z][a-z][a-z] [A-Z][a-z][a-z] \d\d \d\d:\d\d:\d\d \d\d\d\d)\] +(.*)\n?')
 TRACE_MSG_RE_DEFAULT = re.compile(r'^\[[^]]+\] *(.*)\n?$')
@@ -40,21 +41,92 @@ TRACE_MSG_RES = [
     (TRACE_MSG_RE_DEFAULT, None, 1)
 ]
 
+TIMESTAMP_RE_1 = re.compile(r'^(\d\d\d\d)-(\d\d)-(\d\d) (\d\d):(\d\d):(\d\d)(,\d\d\d)?$')
+TIMESTAMP_RE_2 = re.compile(r'^(\d\d)/([A-Z][a-z][a-z])/(\d\d\d\d) (\d\d):(\d\d):(\d\d)$')
+TIMESTAMP_RE_3 = re.compile(r'^[A-Z][a-z][a-z] ([A-Z][a-z][a-z]) (\d\d) (\d\d):(\d\d):(\d\d) (\d\d\d\d)$')
 
-def parse_trace_msg(msg):
+MONTH_NAME_TO_NUMBER = {
+    'Jan': 1,
+    'Feb': 2,
+    'Mar': 3,
+    'Apr': 4,
+    'May': 5,
+    'Jun': 6,
+    'Jul': 7,
+    'Aug': 8,
+    'Sep': 9,
+    'Oct': 10,
+    'Nov': 11,
+    'Dec': 12,
+}
+
+
+def _get_timestamp_1(m):
+    dt = datetime.datetime(
+        int(m.group(1)),
+        int(m.group(2)),
+        int(m.group(3)),
+        int(m.group(4)),
+        int(m.group(5)),
+        int(m.group(6)),
+    )
+    if m.group(7):
+        dt = dt.replace(microsecond=1000 * int(m.group(7)[1:]))
+    return dt
+
+
+def _get_timestamp_2(m):
+    month = MONTH_NAME_TO_NUMBER[m.group(2)]
+    return datetime.datetime(
+        int(m.group(3)),
+        month,
+        int(m.group(1)),
+        int(m.group(4)),
+        int(m.group(5)),
+        int(m.group(6)),
+    )
+
+
+def _get_timestamp_3(m):
+    month = MONTH_NAME_TO_NUMBER[m.group(1)]
+    return datetime.datetime(
+        int(m.group(6)),
+        month,
+        int(m.group(2)),
+        int(m.group(3)),
+        int(m.group(4)),
+        int(m.group(5)),
+    )
+
+TIMESTAMP_REGEXES = [
+    (TIMESTAMP_RE_1, _get_timestamp_1),
+    (TIMESTAMP_RE_2, _get_timestamp_2),
+    (TIMESTAMP_RE_3, _get_timestamp_3),
+]
+
+
+def parse_trace_msg(msg, pytz_timezone=None):
     for regex, timestamp_index, msg_index in TRACE_MSG_RES:
         m = regex.match(msg)
         if m:
+            d = None
             if timestamp_index is not None:
                 timestamp = m.group(timestamp_index)
+                for time_regex, extract in TIMESTAMP_REGEXES:
+                    n = time_regex.match(timestamp)
+                    if n:
+                        d = extract(n)
+                        if pytz_timezone:
+                            d = pytz_timezone.localize(d)
+                        break
             else:
                 timestamp = None
             if msg_index is not None:
                 msg = m.group(msg_index)
             else:
                 msg = None
-            return timestamp, msg
-    return None, None
+            return msg, timestamp, d
+    return None, None, None
 
 
 def handle_traceback(traceback_lines, msg, tracelvl, cleanups, annotations):
@@ -63,11 +135,9 @@ def handle_traceback(traceback_lines, msg, tracelvl, cleanups, annotations):
     # . Process.group(), which finds threads in a process with same backtrace
 
     if msg:
-        timestamp, _ = parse_trace_msg(msg.line)
+        _, timestamp, _ = parse_trace_msg(msg.line)
     else:
         timestamp = None
-    # if not timestamp:
-    #     raise ValueError('Cannot parse log message "%s"' % msg)
 
     # Ignore error message in the related log message for now; it seems to be
     # always duplicated within the traceback output
@@ -91,7 +161,7 @@ class Line(object):
         self.is_start_of_traceback = line.startswith('Traceback ')
         self.is_log_msg = False
         if not self.is_start_of_traceback:
-            timestamp, msg = parse_trace_msg(line)
+            msg, timestamp, dt = parse_trace_msg(line)
             if timestamp or msg:
                 self.is_log_msg = True
 

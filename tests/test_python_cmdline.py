@@ -1,5 +1,6 @@
 import unittest
 
+import pytz
 import six
 
 from stacktraces.python.shortcuts import describe_lines, parse_trace_msg, process_log_file, read_log
@@ -273,40 +274,81 @@ class TestPythonLog(unittest.TestCase):
         self.assertEqual(output_buffer, [expected])
 
     def test_parse_trace_msg(self):
+        us_eastern = pytz.timezone('US/Eastern')
         tests = [
             [
-                '2014-03-06 16:29:21 [4354] [INFO] Worker exiting (pid: 4354)', '2014-03-06 16:29:21',
-                'Worker exiting (pid: 4354)'
+                '2014-03-06 16:29:21 [4354] [INFO] Worker exiting (pid: 4354)',
+                us_eastern,
+                'Worker exiting (pid: 4354)',
+                '2014-03-06 16:29:21',
+                '2014-03-06T16:29:21-05:00',
             ],
             [
-                '[anything]any-other-thing', None, 'any-other-thing',
+                # same as previous, but no time zone information
+                '2014-03-06 16:29:21 [4354] [INFO] Worker exiting (pid: 4354)',
+                None,
+                'Worker exiting (pid: 4354)',
+                '2014-03-06 16:29:21',
+                '2014-03-06T16:29:21',
+            ],
+            [
+                '[anything]any-other-thing',
+                us_eastern,
+                'any-other-thing',
+                None,
+                None
             ],
             [
                 '[14/Mar/2015 01:37:05] ERROR [django.request:231] Internal Server Error: /walk/ExYu',
-                '14/Mar/2015 01:37:05', 'Internal Server Error: /walk/ExYu',
+                us_eastern,
+                'Internal Server Error: /walk/ExYu',
+                '14/Mar/2015 01:37:05',
+                '2015-03-14T01:37:05-04:00'
             ],
             [
-                '', None, None,
+                '', None, None, None, None,
             ],
             [
-                'anything', None, None,
+                'anything', None, None, None, None,
             ],
             [
                 '[pid: 10876|app: 0|req: 7/7] 45.37.54.3 () {70 vars in 3333 bytes} [Sat Apr 18 21:34:03 2015] GET /walk/ExYu => generated 6134 bytes in 1257 msecs (HTTP/1.1 200) 4 headers in 223 bytes (1 switches on core 0)',  # noqa
-                'Sat Apr 18 21:34:03 2015',
+                us_eastern,
                 'GET /walk/ExYu => generated 6134 bytes in 1257 msecs (HTTP/1.1 200) 4 headers in 223 bytes (1 switches on core 0)',  # noqa
+                'Sat Apr 18 21:34:03 2015',
+                '2015-04-18T21:34:03-04:00',
+            ],
+            [
+                '2015-03-08 12:13:35,086 projectname WARNING Foomessage',
+                us_eastern,
+                'Foomessage',
+                '2015-03-08 12:13:35,086',
+                '2015-03-08T12:13:35.086000-04:00',
+            ],
+            [
+                # same as previous, but no milliseconds with timestamp
+                '2015-03-08 12:13:35 projectname WARNING Foomessage',
+                us_eastern,
+                'Foomessage',
+                '2015-03-08 12:13:35',
+                '2015-03-08T12:13:35-04:00',
             ]
         ]
 
-        for log_line, expected_timestamp, expected_msg in tests:
-            actual_timestamp, actual_msg = parse_trace_msg(log_line)
+        for log_line, pytz_timezone, expected_msg, expected_timestamp, expected_isodt in tests:
+            actual_msg, actual_timestamp, dt = parse_trace_msg(log_line, pytz_timezone)
             self.assertEqual(expected_timestamp, actual_timestamp)
             self.assertEqual(expected_msg, actual_msg)
+            self.assertEqual(bool(dt), bool(expected_isodt), 'Basic timestamp issue with %s' % log_line)
+            if dt:
+                self.assertEqual(expected_isodt, dt.isoformat())
 
             # Try again with newline at end of message
-            actual_timestamp, actual_msg = parse_trace_msg(log_line + '\n')
+            actual_msg, actual_timestamp, dt = parse_trace_msg(log_line + '\n', pytz_timezone)
             self.assertEqual(expected_timestamp, actual_timestamp)
             self.assertEqual(expected_msg, actual_msg)
+            if dt:
+                self.assertEqual(expected_isodt, dt.isoformat())
 
     def test_high_level_log_api(self):
         single_error_message = u'DoesNotExist: Resource matching query does not exist.'
