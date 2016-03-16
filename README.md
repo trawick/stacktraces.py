@@ -94,8 +94,8 @@ Pid 5316 Executable /home/trawick/inst/24-64-bin/httpd
   read, ap_mpm_podx_check, child_main, make_child, startup_children, worker_run, ap_run_mpm, main,
 ```
 
-In this case there are 20 threads with one stacktrace and description (MPM child worker thread) and two other threads
-with different purposes (MPM child listener thread and MPM child main thread).
+In this case there are 20 threads with one common stacktrace and description (MPM child worker thread) and two other
+threads with different purposes (MPM child listener thread and MPM child main thread).
 
 ### ``describe_python_log.py``
 
