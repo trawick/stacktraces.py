@@ -224,6 +224,37 @@ Traceback (most recent call last):
 DoesNotExist: Resource matching query does not exist.
 """  # noqa
 
+LOG_FILE_CONTENTS_5 = u"""
+[2016-05-18 01:01:47,614: ERROR/MainProcess] Task a.b.c raised unexpected: WebFault(u"Server raised fault: 'System.Web.Services.Protocols.SoapException: An item with the same key has already been added.\n   at Avectra.netForum.xWeb.xWebSecure.netForumXMLSecure.GetQuery(String szObjectName, String szColumnList, String szWhereClause, String szOrderBy) in c:\\Builds\\1\\netForum_Enterprise_Scrum\\NFEP20140102\\Sources\\xWeb\\Secure\\netForumXML.asmx.cs:line 478'",)
+Traceback (most recent call last):
+  File "/var/www/projectname/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/var/www/projectname/env/local/lib/python2.7/site-packages/newrelic-2.22.1.20/newrelic/hooks/application_celery.py", line 66, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/var/www/projectname/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 437, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/var/www/projectname/source/a/b/c.py", line 29, in a_b_c
+    d_e()
+  File "/var/www/projectname/source/a/b/c.py", line 56, in d_e
+    x = f_g_h()
+  File "/var/www/projectname/source/a/b/c.py", line 73, in f_g_h
+    'xxx yyy')
+  File "/var/www/projectname/env/local/lib/python2.7/site-packages/suds/client.py", line 542, in __call__
+    return client.invoke(args, kwargs)
+  File "/var/www/projectname/env/local/lib/python2.7/site-packages/suds/client.py", line 602, in invoke
+    result = self.send(soapenv)
+  File "/var/www/projectname/env/local/lib/python2.7/site-packages/suds/client.py", line 649, in send
+    result = self.failed(binding, e)
+  File "/var/www/projectname/env/local/lib/python2.7/site-packages/suds/client.py", line 702, in failed
+    r, p = binding.get_fault(reply)
+  File "/var/www/projectname/env/local/lib/python2.7/site-packages/suds/bindings/binding.py", line 265, in get_fault
+    raise WebFault(p, faultroot)
+WebFault: Server raised fault: 'System.Web.Services.Protocols.SoapException: Foo.
+   at Avectra.netForum.xWeb.xWebSecure.netForumXMLSecure.GetQuery()
+[2016-05-18 01:01:48,109: INFO/Worker-208] New Relic Python Agent (2.22.1.20)
+[2016-05-18 01:01:52,252: INFO/Worker-208] Successfully registered New Relic Python agent where app_name='projectname staging (Celery)', pid=10215, redirect_host=u'collector-128.newrelic.com' and agent_run_id=74273688, in 0.33 seconds.
+"""  # noqa
+
 
 def file_from_string(contents):
     if six.PY2:
@@ -369,3 +400,26 @@ class TestPythonLog(unittest.TestCase):
         self.assertEqual(6, message_counts[single_error_message])
         self.assertEqual([single_stacktrace], list(stacktrace_counts.keys()))
         self.assertEqual(6, stacktrace_counts[single_stacktrace])
+
+    def test_wrapped_error_message(self):
+        single_error_message = u"""
+WebFault: Server raised fault: 'System.Web.Services.Protocols.SoapException: Foo.
+   at Avectra.netForum.xWeb.xWebSecure.netForumXMLSecure.GetQuery()
+"""[1:-1]  # noqa
+        single_stacktrace = u'trace_task, wrapper, __protected_call__, a_b_c, d_e, f_g_h, __call__, invoke, send, failed, get_fault'  # noqa
+        output_string = output_to_string()
+        message_counts, stacktrace_counts = process_log_file(
+            file_from_string(LOG_FILE_CONTENTS_5),
+            output_string,
+            output_format='text',
+            include_duplicates=False,
+            include_raw=False,
+        )
+        self.assertEqual(
+            single_error_message + u'\n' + single_stacktrace + '\n\n',
+            output_string.getvalue()
+        )
+        self.assertEqual([single_error_message], list(message_counts.keys()))
+        self.assertEqual(1, message_counts[single_error_message])
+        self.assertEqual([single_stacktrace], list(stacktrace_counts.keys()))
+        self.assertEqual(1, stacktrace_counts[single_stacktrace])

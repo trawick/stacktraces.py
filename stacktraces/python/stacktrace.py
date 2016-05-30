@@ -50,6 +50,9 @@ class PythonTraceback(object):
                 fr = stacktraces.process_model.Frame(frameno, m.group(1))
                 self.thr.add_frame(fr)
             else:
-                last = l
+                if last and l and last[0] != ' ' and l[:2] == '  ':
+                    last = u'%s\n%s' % (last, l)
+                else:
+                    last = l
         if last:
             self.thr.set_failure(last)
