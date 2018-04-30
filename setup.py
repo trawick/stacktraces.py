@@ -15,7 +15,25 @@
 # limitations under the License.
 #
 
-from distutils.core import setup
+from __future__ import print_function
+
+import os
+import sys
+
+from setuptools import setup
+
+with open('stacktraces/__init__.py') as f:
+    line_1 = f.readline()
+    _, _, VERSION = line_1.replace("'", "").strip().split(' ')
+
+if sys.argv[-1] == 'version':
+    print('Version: %s' % VERSION)
+    sys.exit()
+
+if sys.argv[-1] == 'tag':
+    os.system("git tag -a %s -m 'version %s'" % (VERSION, VERSION))
+    os.system("git push --tags")
+    sys.exit()
 
 setup(
     author='Jeff Trawick',
@@ -35,5 +53,5 @@ setup(
     packages=['stacktraces', 'stacktraces.analyze', 'stacktraces.native', 'stacktraces.python'],
     scripts=['collect.py', 'describe.py', 'describe_python_log.py', 'describe_python_stacktrace.py'],
     url='https://github.com/trawick/stacktraces.py',
-    version='0.1.0',
+    version=VERSION,
 )
