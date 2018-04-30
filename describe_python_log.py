@@ -68,5 +68,6 @@ def main():
             if stacktrace_counts[k] > 1:
                 print('  %d: %s' % (stacktrace_counts[k], k))
 
+
 if __name__ == '__main__':
     main()

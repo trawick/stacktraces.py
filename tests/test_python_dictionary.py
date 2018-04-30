@@ -113,5 +113,6 @@ class TestPythonParsing(unittest.TestCase):
 
         self.assertEqual(EXPECTED_DICT_2_W, p.description(wrapped=True))
 
+
 if __name__ == '__main__':
     unittest.main()

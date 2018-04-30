@@ -26,6 +26,7 @@ def get_process_from_traceback(traceback_lines, name=None):
 def describe_lines(traceback_lines):
     return text_type(get_process_from_traceback(traceback_lines))
 
+
 LOGLVL_RE = r'(CRITICAL|ERROR|WARNING|INFO|DEBUG)'
 TRACE_MSG_RE_1 = re.compile(r'^\[([^]]+)\] ' + LOGLVL_RE + ' \[[^]]+\] (.*)\n?$')
 TRACE_MSG_RE_2 = re.compile(r'^(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,?\d?\d?\d?).*' + LOGLVL_RE + ' +(.*)\n?$')
@@ -97,6 +98,7 @@ def _get_timestamp_3(m):
         int(m.group(4)),
         int(m.group(5)),
     )
+
 
 TIMESTAMP_REGEXES = [
     (TIMESTAMP_RE_1, _get_timestamp_1),
@@ -199,11 +201,11 @@ def read_log(tracelvl, logfile, cleanups=(), annotations=(), pytz_timezone=None)
     s = ParseState()
 
     while True:
-        l = logfile.readline()
-        if l == '':
+        line = logfile.readline()
+        if line == '':
             break
-        l = Line(l)
-        if l.is_start_of_traceback:
+        line = Line(line)
+        if line.is_start_of_traceback:
             if s.in_traceback:
                 yield handle_traceback(
                     s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups,
@@ -212,16 +214,16 @@ def read_log(tracelvl, logfile, cleanups=(), annotations=(), pytz_timezone=None)
                 s = ParseState()
             s.in_traceback = True
             s.traceback_log_msg = prev_log_msg
-        elif l.is_log_msg and s.traceback_lines:
+        elif line.is_log_msg and s.traceback_lines:
             yield handle_traceback(
                 s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups,
                 annotations, pytz_timezone
             )
             s = ParseState()
-        if s.in_traceback and not (l.line.startswith('[') or l.line in ('', '\n')):
-            s.traceback_lines.append(l.line)
-        if l.is_log_msg:
-            prev_log_msg = l
+        if s.in_traceback and not (line.line.startswith('[') or line.line in ('', '\n')):
+            s.traceback_lines.append(line.line)
+        if line.is_log_msg:
+            prev_log_msg = line
     if s.in_traceback:
         yield handle_traceback(
             s.traceback_lines, s.traceback_log_msg, tracelvl, cleanups,

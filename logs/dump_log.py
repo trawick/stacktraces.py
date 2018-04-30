@@ -19,5 +19,6 @@ def main():
     p.group()
     io.open(sys.argv[2], 'w', encoding='utf8').write(text_type(json.dumps(p.description())))
 
+
 if __name__ == '__main__':
     main()

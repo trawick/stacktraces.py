@@ -108,7 +108,7 @@ def gdb_collect(outfilename, pid, corefile, exe):
 
     try:
         subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
-    except:
+    except:  # noqa
         raise Exception("couldn't run, error", sys.exc_info()[0])
     outfile.close()
 
@@ -147,7 +147,7 @@ def pstack_collect(outfilename, pid, corefile):
         try:
             cmdline = [program, pid_or_core]
             subprocess.call(cmdline, stdout=outfile, stderr=subprocess.STDOUT)
-        except:
+        except:  # noqa
             raise Exception("couldn't run %s, error" % program, sys.exc_info()[0])
 
     outfile.close()
@@ -205,6 +205,7 @@ def main():
         pstack_collect(options.debuglog, options.pid, options.corefile)
     else:
         gdb_collect(options.debuglog, options.pid, options.corefile, options.exe)
+
 
 if __name__ == "__main__":
     main()

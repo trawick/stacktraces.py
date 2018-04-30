@@ -27,5 +27,6 @@ class TestHttpdLogs(unittest.TestCase):
             if filename.endswith('.json'):
                 self._test_one_file(os.path.join('logs', filename[:-5]), os.path.join('logs/parsed', filename))
 
+
 if __name__ == '__main__':
     unittest.main()

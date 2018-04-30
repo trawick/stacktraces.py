@@ -40,19 +40,19 @@ class PythonTraceback(object):
     def parse(self):
         frameno = 0
         last = None
-        for l in self.lines:
-            if l.startswith('Traceback '):
+        for line in self.lines:
+            if line.startswith('Traceback '):
                 continue
-            l = l.rstrip('\r\n')
-            m = RE_FILE_LINE.match(l)
+            line = line.rstrip('\r\n')
+            m = RE_FILE_LINE.match(line)
             if m:
                 frameno += 1
                 fr = stacktraces.process_model.Frame(frameno, m.group(1))
                 self.thr.add_frame(fr)
             else:
-                if last and l and last[0] != ' ' and l[:2] == '  ':
-                    last = u'%s\n%s' % (last, l)
+                if last and line and last[0] != ' ' and line[:2] == '  ':
+                    last = u'%s\n%s' % (last, line)
                 else:
-                    last = l
+                    last = line
         if last:
             self.thr.set_failure(last)

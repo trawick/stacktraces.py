@@ -30,5 +30,6 @@ def main():
     traceback_lines = sys.stdin.readlines()
     print(describe_lines(traceback_lines))
 
+
 if __name__ == '__main__':
     main()
