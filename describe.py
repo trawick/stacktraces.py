@@ -15,15 +15,15 @@
 # limitations under the License.
 #
 
+from __future__ import print_function
+
 import re
+from optparse import OptionParser
 import subprocess
 
-from optparse import OptionParser
-
-import debugger
-import httpd
-import process_model
-import thread_analyzer
+from stacktraces import process_model, thread_analyzer
+from stacktraces.analyze import httpd
+from stacktraces.native import debugger
 
 
 def add_children(pids):
@@ -107,9 +107,10 @@ def main():
         p.group()
 
     if options.format == 'TEXT':
-        print group.describe(options.infolvl)
+        print(group.describe(options.infolvl))
     else:
-        print group.description()
+        print(group.description())
+
 
 if __name__ == '__main__':
     main()

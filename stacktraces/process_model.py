@@ -13,13 +13,14 @@
 # limitations under the License.
 #
 
-import sys
-
 LVL_SHOW_PROCESSES = 0
 LVL_SHOW_THREADS = 1
 LVL_SHOW_FRAMES = 2
 LVL_SHOW_ARGS = 3
 LVL_SHOW_VARS = 4
+
+MAJOR_VERSION_KEY = 'mv'
+MAJOR_VERSION = 1
 
 
 class Thread:
@@ -33,23 +34,33 @@ class Thread:
         self.failure_text = None
         self.error_msg = None
         self.timestamp = None
+        self.isotimestamp = None
 
     def common_str(self):
         s = ''
         s += '[%s]' % self.tid
+        need_comma = False
         if self.name:
             s += ' '
             s += self.name
-        else:
-            s += ' (Unrecognized thread)'
+            need_comma = True
         if self.state:
             s += ' (%s)' % self.state
+            need_comma = True
         if self.error_msg:
-            s += ', <%s>' % self.failure_text
+            if need_comma:
+                s += ','
+            s += ' <%s>' % self.failure_text
+            need_comma = True
         if self.failure_text:
-            s += ', Failure was <%s>' % self.failure_text
+            if need_comma:
+                s += ','
+            s += ' Failure was <%s>' % self.failure_text
+            need_comma = True
         if self.timestamp:
-            s += ', at <%s>' % self.timestamp
+            if need_comma:
+                s += ','
+            s += ' at <%s>' % self.timestamp
         s += '\n'
         return s
 
@@ -68,8 +79,8 @@ class Thread:
             s += ' ' + f.describe(level)
         return s
 
-    def description(self):
-        info = {}
+    def description(self, wrapped=False):
+        info = dict()
 
         if len(self.frames):
             frames = []
@@ -83,8 +94,24 @@ class Thread:
             info['name'] = self.name
         if self.state:
             info['state'] = self.state
+        if self.error_msg:
+            info['errormsg'] = self.error_msg
+        if self.failure_text:
+            info['failure'] = self.failure_text
+        # original timestamp for display
+        if self.timestamp:
+            info['timestamp'] = self.timestamp
+        # parsed, formatted timestamp for processing
+        if self.isotimestamp:
+            info['isotimestamp'] = self.isotimestamp
 
-        return info
+        if wrapped:
+            return {
+                'thread': info,
+                MAJOR_VERSION_KEY: MAJOR_VERSION,
+            }
+        else:
+            return info
 
     def set_exited(self, flag=True):
         self.exited = flag
@@ -101,8 +128,9 @@ class Thread:
     def set_failure(self, failure_text):
         self.failure_text = failure_text
 
-    def set_error_data(self, timestamp=None, error_msg=None):
+    def set_error_data(self, timestamp=None, isotimestamp=None, error_msg=None):
         self.timestamp = timestamp
+        self.isotimestamp = isotimestamp
         self.error_msg = error_msg
 
     def same_backtrace(self, thr2):
@@ -127,11 +155,20 @@ class ThreadGroup:
     def add_thread(self, thr):
         self.threads.append(thr)
 
-    def description(self):
+    def description(self, wrapped=False):
         tids = []
         for t in self.threads:
             tids.append(t.tid)
-        return {'thread_ids': tids}
+        desc = {
+            'thread_ids': tids,
+        }
+        if wrapped:
+            return {
+                'threadgroup': desc,
+                MAJOR_VERSION_KEY: MAJOR_VERSION,
+            }
+        else:
+            return desc
 
 
 class ProcessGroup:
@@ -159,12 +196,21 @@ class ProcessGroup:
         else:
             return self.__str__()
 
-    def description(self):
+    def description(self, wrapped=False):
         procs = []
         for p in self.processes:
             procs.append(p.description())
-        return {'processgroupname': 'no-name',
-                'processes': procs}
+        desc = {
+            'processgroupname': 'no-name',
+            'processes': procs,
+        }
+        if wrapped:
+            return {
+                'processgroup': desc,
+                MAJOR_VERSION_KEY: MAJOR_VERSION,
+            }
+        else:
+            return desc
 
 
 class Process:
@@ -207,21 +253,29 @@ class Process:
             s = self.__str__()
         return s
 
-    def description(self):
+    def description(self, wrapped=False):
         threads = []
         for t in self.threads:
             threads.append(t.description())
         threadgroups = []
         for t in self.threadgroups:
             threadgroups.append(t.description())
-        data = {'processname': 'no-name',
-                'threads': threads,
-                'threadgroups': threadgroups}
+        data = {
+            'processname': 'no-name',
+            'threads': threads,
+            'threadgroups': threadgroups,
+        }
         if self.pid:
             data['pid'] = self.pid
         if self.exe:
             data['exe'] = self.exe
-        return data
+        if wrapped:
+            return {
+                'process': data,
+                MAJOR_VERSION_KEY: MAJOR_VERSION,
+            }
+        else:
+            return data
 
     def add_thread(self, thr):
         self.threads.append(thr)
@@ -278,13 +332,19 @@ class Frame:
     def add_var(self, var, val):
         self.vars[var] = val
 
-    def description(self):
-        desc = {'id': self.id, 'fn': self.fn}
+    def description(self, wrapped=False):
+        desc = {
+            'id': self.id,
+            'fn': self.fn,
+        }
         if self.args:
             desc['args'] = self.args
         if self.vars:
             desc['vars'] = self.vars
-        return desc
-
-if __name__ == "__main__":
-    print >> sys.stderr, "Don't run this directly."
+        if wrapped:
+            return {
+                'frame': desc,
+                MAJOR_VERSION_KEY: MAJOR_VERSION,
+            }
+        else:
+            return desc

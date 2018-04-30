@@ -13,11 +13,13 @@
 # limitations under the License.
 #
 
+from __future__ import print_function
+
 import re
 import sys
 
 import collect
-import process_model
+import stacktraces.process_model
 
 
 class Gdb:
@@ -29,7 +31,7 @@ class Gdb:
         self.gdbout = kwargs.get('debuglog')
         self.proc = kwargs.get('proc')
         if not self.proc:
-            self.proc = process_model.Process()
+            self.proc = stacktraces.process_model.Process()
         self.pid = self.proc.get_pid()
 
     def parse(self):
@@ -46,44 +48,45 @@ class Gdb:
             if not self.exe:
                 self.exe = collect.get_exe(self.hdr)
 
-        for l in self.gdbout:
-            if l:
-                l = l.rstrip('\r\n')
-            if not l:
+        for line in self.gdbout:
+            if line:
+                line = line.rstrip('\r\n')
+            if not line:
                 continue
-            if '---Type <return' in l:
+            if '---Type <return' in line:
                 continue
             if pending:
-                l = pending + l
+                line = pending + line
                 pending = None
-            if l[0] == '#' and (l[-1:] == ',' or l[-2:] == ', ' or l[-17:] == 'is not available.' or l[-2:] == ' ('):
-                if l[-2:] == ' (':
-                    pending = l
+            if line[0] == '#' and (line[-1:] == ',' or line[-2:] == ', ' or
+                                   line[-17:] == 'is not available.' or line[-2:] == ' ('):
+                if line[-2:] == ' (':
+                    pending = line
                 else:
-                    pending = l[:-1]
+                    pending = line[:-1]
                 continue
-            if 'Attaching to program:' in l:
-                m = re.search('Attaching to program: .([^\']+)\', process (\d+)', l)
+            if 'Attaching to program:' in line:
+                m = re.search('Attaching to program: .([^\']+)\', process (\d+)', line)
                 if m:
                     if not self.exe:
                         self.exe = m.group(1)
                     if not self.pid:
                         self.pid = m.group(2)
                     continue
-            if l[:7] == 'Thread ':
-                m = re.search('Thread (\d+) ', l)
+            if line[:7] == 'Thread ':
+                m = re.search('Thread (\d+) ', line)
                 gdbtid = m.group(1)
                 thr = self.proc.find_thread(gdbtid)
                 if not thr:
-                    thr = process_model.Thread(gdbtid)
+                    thr = stacktraces.process_model.Thread(gdbtid)
                     self.proc.add_thread(thr)
                 fr = None
-            elif thr and l[:1] == '#':
-                m = re.search('signal handler called', l)
+            elif thr and line[:1] == '#':
+                m = re.search('signal handler called', line)
                 if m:
                     # XXX Mark thread as crashed.
                     continue
-                m = re.search('#(\d+) +((0x[\da-f]+) in )?([^ ]+) (\([^)]*\))', l)
+                m = re.search('#(\d+) +((0x[\da-f]+) in )?([^ ]+) (\([^)]*\))', line)
                 if m:
                     frameno = m.group(1)
                     addr = m.group(3)
@@ -92,12 +95,12 @@ class Gdb:
                     # filter out frames with address 0 (seen on both Linux and FreeBSD)
                     if addr and int(addr, 16) == 0:
                         continue
-                    fr = process_model.Frame(frameno, fn, fnargs)
+                    fr = stacktraces.process_model.Frame(frameno, fn, fnargs)
                     thr.add_frame(fr)
                     continue
                 # try again; make sure to handle
                 #   #5  0xdeadbeef in Foo::Parse(SynTree&, int&) () from /path/to/lib
-                m = re.search('#(\d+) +((0x[\da-f]+) in )?(.*)$', l)
+                m = re.search('#(\d+) +((0x[\da-f]+) in )?(.*)$', line)
                 if m:
                     frameno = m.group(1)
                     addr = m.group(3)
@@ -109,13 +112,13 @@ class Gdb:
                     if m:
                         fn = m.group(1)
                         fnargs = m.group(2)
-                        fr = process_model.Frame(frameno, fn, fnargs)
+                        fr = stacktraces.process_model.Frame(frameno, fn, fnargs)
                         thr.add_frame(fr)
                         continue
-                print >> sys.stderr, 'could not parse >%s<' % l
+                print('could not parse >%s<' % line, file=sys.stderr)
                 sys.exit(1)
             elif fr:
-                m = re.search('^[ \t]+([^ ]+) = (.*)$', l)
+                m = re.search('^[ \t]+([^ ]+) = (.*)$', line)
                 if m:
                     fr.add_var(m.group(1), m.group(2))
         if self.pid and not self.proc.pid:
@@ -125,6 +128,3 @@ class Gdb:
 
     def get_output(self):
         self.gdbout = collect.gdb_collect(None, self.pid, self.corefile, self.exe)
-
-if __name__ == "__main__":
-    print >> sys.stderr, "Don't run this directly."

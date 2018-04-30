@@ -17,9 +17,9 @@ import re
 import sys
 
 import collect
-import gdb
-import pstack
-import process_model
+import stacktraces.native.gdb
+import stacktraces.native.pstack
+import stacktraces.process_model
 
 
 class Debugger:
@@ -31,7 +31,7 @@ class Debugger:
         self.debuglog = kwargs.get('debuglog')
         self.proc = kwargs.get('proc')
         if not self.proc:
-            self.proc = process_model.Process(self.pid)
+            self.proc = stacktraces.process_model.Process(self.pid)
 
         self.use_pstack = False
         self.use_gdb = False
@@ -59,9 +59,13 @@ class Debugger:
                 self.use_gdb = True
 
         if self.use_pstack:
-            self.x = pstack.Pstack(proc=self.proc, exe=self.exe, corefile=self.corefile, debuglog=self.debuglog)
+            self.x = stacktraces.native.pstack.Pstack(
+                proc=self.proc, exe=self.exe, corefile=self.corefile, debuglog=self.debuglog
+            )
         else:
-            self.x = gdb.Gdb(proc=self.proc, exe=self.exe, corefile=self.corefile, debuglog=self.debuglog)
+            self.x = stacktraces.native.gdb.Gdb(
+                proc=self.proc, exe=self.exe, corefile=self.corefile, debuglog=self.debuglog
+            )
 
     def parse(self):
         self.x.parse()
