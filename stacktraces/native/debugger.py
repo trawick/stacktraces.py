@@ -16,7 +16,7 @@
 import re
 import sys
 
-import collect
+from stacktraces.native import collect
 import stacktraces.native.gdb
 import stacktraces.native.pstack
 import stacktraces.process_model

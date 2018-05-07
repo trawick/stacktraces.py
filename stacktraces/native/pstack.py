@@ -15,7 +15,7 @@
 
 import re
 
-import collect
+from stacktraces.native import collect
 import stacktraces.process_model
 
 
