@@ -1,6 +1,6 @@
 #!/bin/sh
 
-MIN_COVERAGE=76
+MIN_COVERAGE=70
 
 if ! diff collect.py stacktraces/native/collect.py >/dev/null 2>&1; then
     echo "collect.py must be the same in both places" 1>&2
