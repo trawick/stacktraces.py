@@ -7,8 +7,7 @@ install:
 - pip install -U pip
 - pip install -r requirements/dev.txt
 script:
-  - nosetests --with-coverage --cover-package=stacktraces --cover-min-percentage=77
-  - flake8 .
+  - ./run_tests.sh
 notifications:
   email:
   - trawick@gmail.com
